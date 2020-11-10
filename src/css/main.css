@@ -167,7 +167,8 @@ body {
   background-color: #f8f9f0;
   color: #402a1e;
   font-size: 48px;
-  background-image: url("./images/bg.png");
+  background-image: url("./images/bg_dark.png");
+  background-position: 50%;
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
