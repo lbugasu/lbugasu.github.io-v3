@@ -228,6 +228,7 @@ span.darkMode:hover {
   vertical-align: middle;
 }
 div#scrolling {
+  vertical-align: text-top;
   display: none;
   font-size: 75%;
   color: #f8f9f0;

@@ -45,9 +45,13 @@
       var lightColor = "#f8f9f0";
       var darkColor = "#402a1e";
       var lightLogo =
-        "url(https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/logo-light.png)";
+        "https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/logo-light.png";
       var darkLogo =
-        "url(https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/logo.png)";
+        "https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/logo.png";
+      var bgDark =
+        "https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/bg_dark.png";
+      var bgLight =
+        "https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/bg_light.png";
 
       function slideHead() {
         if (window.pageYOffset > 200) {
@@ -76,7 +80,10 @@
         $("div#scrolling a").css({
           color: `${darkColor}`,
         });
+        // change the background images and Logos
         $("#top img").attr("src", lightLogo);
+        $("#scrolling img").attr("src", darkLogo);
+        $("body").css("background-image", `url(${bgLight}`);
         $(".seeWork").css({
           color: "#9f8a78",
           "background-color": "#f8f9f0",
@@ -99,6 +106,11 @@
         $("div#scrolling a").css({
           color: `${lightColor}`,
         });
+        // Change the background images
+        $("#top img").attr("src", darkLogo);
+        $("#scrolling img").attr("src", lightLogo);
+        $("body").css("background-image", bgDark);
+
         $(".seeWork").css({
           color: "#f8f9f0",
           "background-color": "#9f8a78",

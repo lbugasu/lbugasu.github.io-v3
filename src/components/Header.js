@@ -8,7 +8,10 @@ const Header = () => (
     <div className="header" id="top">
       <div className="logo">
         <HashLink id="about" smooth to="#top">
-          <img src={Logo} alt="logo" />
+          <img
+            src="url(https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/logo.png)"
+            alt="logo"
+          />
         </HashLink>
       </div>
       <div className="menu" id="nonScrolling">
