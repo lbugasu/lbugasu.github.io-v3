@@ -1,0 +1,260 @@
+/* Reset CSS
+------------*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Font families
+----------------*/
+@font-face {
+  font-family: "Agrandir-GrandHeavy";
+  src: url("./fonts/Agrandir/Agrandir-GrandHeavy.otf");
+}
+@font-face {
+  font-family: "Agrandir-GrandLight";
+  src: url("./fonts/Agrandir/Agrandir-GrandLight.otf");
+}
+@font-face {
+  font-family: "Agrandir-Narrow";
+  src: url("./fonts/Agrandir/Agrandir-Narrow.otf");
+}
+@font-face {
+  font-family: "Agrandir-Regular";
+  src: url("./fonts/Agrandir/Agrandir-Regular.otf");
+}
+@font-face {
+  font-family: "Agrandir-WideLight";
+  src: url("./fonts/Agrandir/Agrandir-WideLight.otf");
+}
+@font-face {
+  font-family: "Agrandir-TextBold";
+  src: url("./fonts/Agrandir/Agrandir-TextBold.otf");
+}
+
+/* Global declarations
+----------------------*/
+body {
+  font-family: "Agrandir-Regular";
+  background-color: #f8f9f0;
+  color: #402a1e;
+  font-size: 36px;
+  background-image: url("./images/bg.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+a {
+  text-decoration: none;
+  color: #402a1e;
+}
+a:hover {
+  text-decoration: line-through;
+}
+
+/* Header
+----------------------*/
+div.header {
+  padding: 2.75%;
+}
+div.logo {
+  width: 50%;
+  display: inline-block;
+}
+.logo img {
+  width: 8.5%;
+}
+div.menu {
+  width: 47.25%;
+  display: inline-block;
+  text-align: right;
+  vertical-align: middle;
+  margin-right: 2.75%;
+  margin-bottom: 2.75%;
+}
+
+/* About
+----------------------*/
+div.about {
+  height: 75vh;
+  vertical-align: middle;
+}
+div.right {
+  font-size: 80%;
+  text-align: left;
+  width: 25%;
+  height: 75vh;
+  display: inline-block;
+}
+div.left {
+  font-size: 80%;
+  text-align: right;
+  width: 25%;
+  height: 75vh;
+  display: inline-block;
+}
+div.center {
+  line-height: 125%;
+  text-align: center;
+  font-family: "Agrandir-GrandHeavy";
+  font-size: 150%;
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+  height: 75vh;
+  background-image: url("./images/profile_image_eye_em_1.jpg");
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+}
+span.emph {
+  font-family: "Agrandir-GrandLight";
+}
+
+/* Posts
+---------*/
+div.posts {
+  margin: 5%;
+}
+.posts h3 {
+  font-family: "Agrandir-TextBold";
+  font-size: 80%;
+  margin-bottom: 1%;
+}
+.posts h5 {
+  font-size: 65%;
+}
+.posts p {
+  font-size: 50%;
+}
+.posts a:hover {
+  text-decoration: underline;
+}
+div.singlePost {
+  width: 33.3%;
+  display: inline-block;
+}
