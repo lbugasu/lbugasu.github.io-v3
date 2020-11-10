@@ -1,6 +1,6 @@
 // import necessary packages
 import React, { Component } from "react";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 
 //import css
 import "./css/main.css";

@@ -3,7 +3,7 @@ import React from "react";
 // import {Link} from 'react-router-dom'
 import Logo from "../css/images/logo.png";
 const Header = () => (
-  <div className="about">
+  <div id="about" className="about">
     <div className="left">
       <p>
         <br />

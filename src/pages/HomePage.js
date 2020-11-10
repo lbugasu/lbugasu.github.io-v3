@@ -5,7 +5,7 @@ import { useFeed } from "../custom-hooks/";
 //import components
 import Header from "../components/Header";
 import About from "../components/About";
-import Work from "../components/About";
+import Work from "../components/Work";
 import Misc from "../components/Misc";
 
 export default function HomePage() {
@@ -30,12 +30,12 @@ export default function HomePage() {
     <div>
       <Header />
       <About />
-      <div className="posts">
+      <div id="writing" className="posts">
         <h3>Recent Articles:</h3>
         {showPosts()}
       </div>
-      {/* <Work /> */}
-      {/* <Misc /> */}
+      <Work />
+      <Misc />
     </div>
   );
 }

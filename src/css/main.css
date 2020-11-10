@@ -159,6 +159,9 @@ table {
 
 /* Global declarations
 ----------------------*/
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Agrandir-Regular";
   background-color: #f8f9f0;
@@ -257,4 +260,98 @@ div.posts {
 div.singlePost {
   width: 33.3%;
   display: inline-block;
+}
+/* Work
+----------*/
+div.projects {
+  vertical-align: top;
+}
+div.project {
+  margin: 2.5% 5% 0% 5%;
+  display: inline-block;
+}
+div.projectDescription {
+  border-top: #402a1e 2px solid;
+  padding-top: 2.5%;
+  width: 40%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 2.5%;
+}
+.projectDescription p {
+  font-size: 75%;
+}
+.projectDescription h3 {
+  margin-bottom: 1%;
+}
+div.projectImage {
+  vertical-align: top;
+  width: 35%;
+  display: inline-block;
+  padding: 2.5% 2.5%;
+}
+div.projectStack {
+  vertical-align: top;
+  margin-top: 2.5%;
+  width: 20%;
+  display: inline-block;
+}
+.projectImage img {
+  width: 100%;
+}
+.projectStack h4 {
+  font-size: 80%;
+  margin-bottom: 2%;
+}
+.projectStack ol {
+  font-size: 70%;
+}
+.seeWork {
+  padding: 2%;
+  font-size: 50%;
+  background-color: #9f8a78;
+  color: #f8f9f0;
+  border-radius: 5px;
+}
+/*  Misceleneous
+------------------*/
+
+div.elements {
+  padding: 5%;
+}
+div.element {
+  width: 16.66%;
+  display: inline-block;
+  text-align: center;
+}
+.elements img {
+  width: 40px;
+}
+p.copyright {
+  text-align: center;
+  font-size: 50%;
+  padding-bottom: 2.5%;
+}
+hr.separator {
+  width: 75%;
+  height: 2px;
+  background: #9f8a78;
+}
+p.separator {
+  padding: 5% 0 2.5% 0;
+  text-align: center;
+}
+div.sharable {
+  padding: 0 5% 0 5%;
+  vertical-align: top;
+}
+.media {
+  margin: 2.5%;
+  width: 42%;
+  display: inline-block;
+  vertical-align: top;
+}
+.media iframe {
+  width: 100%;
+  padding-bottom: 2.5%;
 }
