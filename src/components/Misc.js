@@ -9,9 +9,10 @@ const Header = () => (
     {/* <hr className="separator" /> */}
     <p className="separator">• • •</p>
     <div className="sharable">
-      <h3>Playlists and other shared content</h3>
+      <h3 className="title">Curated music and podcasts</h3>
       <div className="media">
         <iframe
+          title="I'm no good"
           className="spotify"
           src="https://open.spotify.com/embed/playlist/4HeMBaJyp57htpBuJxbk8C"
           height="480"
@@ -31,6 +32,7 @@ const Header = () => (
           title="Rev. Otis Moss IIIThe Sound of the Genuine: Traversing 2020 with ‘the Mystic of the Movement’ Howard Thurman"
         ></iframe>
         <iframe
+          title="tones for a black president"
           height="120"
           src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&light=1&feed=%2FBrightmoments%2Ftones-for-a-black-president%2F"
           frameborder="0"

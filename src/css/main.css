@@ -266,6 +266,12 @@ div.singlePost {
 div.projects {
   vertical-align: top;
 }
+.projects h2 {
+  font-family: "Agrandir-TextBold";
+  font-size: 150%;
+  text-align: center;
+  padding-top: 2.5%;
+}
 div.project {
   margin: 2.5% 5% 0% 5%;
   display: inline-block;
@@ -315,7 +321,10 @@ div.projectStack {
 }
 /*  Misceleneous
 ------------------*/
-
+h3.title {
+  font-family: "Agrandir-TextBold";
+  text-align: center;
+}
 div.elements {
   padding: 5%;
 }
