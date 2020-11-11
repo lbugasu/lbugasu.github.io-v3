@@ -159,6 +159,9 @@ table {
 
 /* Global declarations
 ----------------------*/
+:root {
+  --max-height: 50px;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -246,42 +249,6 @@ div#scrolling {
   -o-animation: slide 1s ease 0s forwards;
   -ms-animation: slide 1s ease 0s forwards;
   animation: slide 1s ease 0s forwards;
-}
-
-@-moz-keyframes slide /* Firefox */ {
-  from {
-    height: 0;
-  }
-  to {
-    height: 50px;
-  }
-}
-
-@-webkit-keyframes slide /* Safari and Chrome */ {
-  from {
-    height: 0;
-  }
-  to {
-    height: 50px;
-  }
-}
-
-@-ms-keyframes slide /* IE10 */ {
-  from {
-    height: 0;
-  }
-  to {
-    height: 50px;
-  }
-}
-
-@keyframes slide {
-  from {
-    height: 0;
-  }
-  to {
-    height: 50px;
-  }
 }
 
 div#scrolling div.menu {
@@ -461,4 +428,176 @@ div.sharable {
 .media iframe {
   width: 100%;
   padding-bottom: 2.5%;
+}
+
+/*  Media Queries
+-------------------*/
+
+@media (max-width: 1360px) {
+  div.logo {
+    width: 40%;
+  }
+  div.menu {
+    width: 57.25%;
+  }
+}
+@media (max-width: 1150px) {
+  div.logo {
+    width: 20%;
+  }
+  div.menu {
+    width: 77.25%;
+  }
+  .logo img {
+    width: 20%;
+  }
+  div#scrolling div.logo {
+    width: 100px;
+  }
+  div#scrolling .logo img {
+    width: 30%;
+  }
+  div#scrolling div.menu {
+    width: 70%;
+  }
+}
+@media (max-width: 850px) {
+  div.logo {
+    width: 10%;
+  }
+  div.menu {
+    width: 87.25%;
+  }
+  .logo img {
+    width: 40%;
+  }
+  body:not(div#scrolling div.menu) {
+    font-size: 36px;
+  }
+  /* About
+  ------------*/
+  div.left,
+  div.center,
+  div.right {
+    width: 90%;
+    padding: 5%;
+  }
+
+  div.about,
+  div.left,
+  div.right {
+    height: inherit;
+    margin-top: 0;
+  }
+  div.left,
+  div.right {
+    vertical-align: top;
+  }
+  br {
+    font-size: 0;
+  }
+  div.center {
+    height: 50vh;
+  }
+  /* Projects/Work
+  -----------------*/
+  div.projectDescription {
+    width: 100%;
+  }
+  div.projectImage {
+    width: 50%;
+  }
+  div.projectStack {
+    width: 40%;
+  }
+}
+@media (max-width: 600px) {
+  div#scrolling div.menu {
+    font-size: 24px;
+  }
+}
+@media (max-width: 450px) {
+  :root {
+    --max-height: 25px;
+  }
+  div.logo {
+    width: 40%;
+  }
+  div.menu {
+    width: 100%;
+    text-align: center;
+  }
+  div.logo {
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo img:not(#top) {
+    width: 10%;
+  }
+  div#scrolling div.logo {
+    width: 10%;
+  }
+  div#scrolling div.menu {
+    width: 80%;
+  }
+  span.lightDark {
+    display: inline-block;
+  }
+  body {
+    font-size: 28px;
+  }
+
+  div.singlePost {
+    width: 40%;
+    margin: 5% 2.5% 2.5% 2.5%;
+    padding: 2%;
+    vertical-align: top;
+    border: 1px solid #402a1e;
+    border-radius: 12px;
+  }
+
+  /* Media: Playlists and podcasts
+  -------------------------------*/
+  div.media {
+    width: 92%;
+  }
+}
+
+/* Transitions
+---------------*/
+@-moz-keyframes slide /* Firefox */ {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--max-height);
+  }
+}
+
+@-webkit-keyframes slide /* Safari and Chrome */ {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--max-height);
+  }
+}
+
+@-ms-keyframes slide /* IE10 */ {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--max-height);
+  }
+}
+
+@keyframes slide {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--max-height);
+  }
 }
