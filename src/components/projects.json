@@ -8,10 +8,10 @@
   },
   {
     "title": "On this topic",
-    "description": "Developed a web application where users can curate podcast playlists based on a topic/theme",
+    "description": "Build a full stack web application to listen to podcasts based on certain topics/People/Themes. (Ongoing work)",
     "img": "https://raw.githubusercontent.com/lbugasu/laudebugs/master/src/css/images/on_this_topic.gif",
     "tech": ["javascript", "html", "mongoDB", "node.js", "express", "mongoose"],
-    "link": "https://github.com/lbugasu/onthistopic"
+    "link": "https://onthistopic.tamaduni.org/"
   },
   {
     "title": "The Sosiani Library Project",
