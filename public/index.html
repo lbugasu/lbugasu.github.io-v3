@@ -80,6 +80,8 @@
         $("div#scrolling a").css({
           color: `${darkColor}`,
         });
+
+        $("a.link").removeClass("light");
         // change the background images and Logos
         $("#top img").attr("src", lightLogo);
         $("#scrolling img").attr("src", darkLogo);
@@ -106,6 +108,7 @@
         $("div#scrolling a").css({
           color: `${lightColor}`,
         });
+
         // Change the background images
         $("#top img").attr("src", darkLogo);
         $("#scrolling img").attr("src", lightLogo);

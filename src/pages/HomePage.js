@@ -16,11 +16,13 @@ export default function HomePage() {
     if (isLoading) return <p>Loading</p>;
     // Render only the first three posts
     return posts.slice(0, 3).map((post) => (
-      <div className="singlePost">
+      <div className="singlePost light">
         <h4>{post.title}</h4>
         <h5>{post.pubDate.substring(0, 16)}</h5>
         <p>
-          <a href={post.link}>Read➚</a>
+          <a id="link" className="light" href={post.link}>
+            Read➚
+          </a>
         </p>
       </div>
     ));

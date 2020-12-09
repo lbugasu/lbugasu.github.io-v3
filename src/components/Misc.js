@@ -51,7 +51,7 @@ const Header = () => (
     <div className="elements">
       <div className="element">
         <a
-          href="https://1drv.ms/b/s!AqwJLYjZ0cXAhsdACEGkj8_UGb63cA?e=nTH29J"
+          href="https://1drv.ms/b/s!AqwJLYjZ0cXAhstzK9rzikD5MqzOAw"
           target="__blank"
         >
           <img src={resume} alt="resume"></img>
@@ -85,7 +85,7 @@ const Header = () => (
       <div className="element">
         <a href="https://www.eyeem.com/u/laudebugs" target="__blank">
           <img
-            src="https://s.cafebazaar.ir/1/icons/com.baseapp.eyeem_512x512.png"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Eyeem.png/250px-Eyeem.png"
             alt="EmeEm profile"
           ></img>
         </a>
