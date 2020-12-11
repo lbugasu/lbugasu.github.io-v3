@@ -184,10 +184,10 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: "Agrandir-Regular";
+  font-family: "Belleza", sans-serif;
   background-color: #e8e8e8;
   color: #47261b;
-  font-size: 48px;
+  font-size: 24px;
   background-image: url("./images/bg_dark.png");
   background-position: 50%;
   background-attachment: fixed;
@@ -249,10 +249,13 @@ div.content {
 div.menubutton {
   width: 10%;
   display: inline-block;
+  font-size: 48px;
+  cursor: pointer;
 }
 div.laurence {
   width: 45%;
   display: inline-block;
+  font-weight: 600;
 }
 div.menuoptions {
   width: 40%;
@@ -265,16 +268,37 @@ div.menuoptions h2 {
 }
 h1 {
   font-family: "Etoile";
+  font-size: 150%;
 }
 h2,
 h3 {
   font-family: "Crafter";
-  font-size: 50%;
+  font-size: 100%;
 }
 h3 {
   color: #c07a35;
+} /* postFrame
+-------------*/
+div.postFrame {
+  width: 60%;
+  /* padding: 1.5%; */
+  padding-bottom: 3%;
 }
-
+.postFrame a:hover {
+  text-decoration: none;
+}
+div.postPreview span {
+  font-size: 75%;
+}
+hr.divider {
+  width: 75%;
+  float: left;
+  border: none;
+  height: 1px;
+  /* Set the hr color */
+  color: #47261b; /* old IE */
+  background-color: #47261b; /* Modern Browsers */
+}
 /* Scroll menu
 ----------------------*/
 
@@ -607,6 +631,11 @@ div.sharable {
     vertical-align: top;
     border: 1px solid #402a1e;
     border-radius: 12px;
+  }
+  /* Single Post Page
+---------------*/
+  div.postPage {
+    padding: 10%;
   }
 
   /* Media: Playlists and podcasts

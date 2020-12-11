@@ -10,7 +10,7 @@ import About from "./pages/About.js";
 import HomePage from "./pages/HomePage";
 import WritingSectionPage from "./pages/WritingSectionPage";
 import WritingSubjectPage from "./pages/WritingSubjectPage";
-
+import PostPage from "./pages/PostPage";
 class App extends Component {
   render() {
     return (
@@ -21,6 +21,8 @@ class App extends Component {
           path="/writing-subjects/:subject"
           component={WritingSubjectPage}
         />
+        <Route path="/writing/:id" component={PostPage} />
+
         <Route
           path="/writing-section/:section"
           component={WritingSectionPage}

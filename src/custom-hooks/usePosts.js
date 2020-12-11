@@ -10,11 +10,11 @@ export default function usePosts() {
   useEffect(() => {
     promise.then((blogPosts) => {
       console.log(blogPosts);
-      // const posts = blogPosts.sort(function (a, b) {
-      //   return new Date(b.fields.date) - new Date(a.fields.date);
-      // });
+      const posts = blogPosts.sort(function (a, b) {
+        return new Date(b.fields.date) - new Date(a.fields.date);
+      });
 
-      // setPosts(posts);
+      setPosts(posts);
       setLoading(false);
     });
   }, []);

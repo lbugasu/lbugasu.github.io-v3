@@ -18,32 +18,31 @@ export default function HomePage() {
 
   const renderPosts = () => {
     if (isLoading) return <p>Loading...</p>;
-
-    return posts.map((post) => (
+    console.log(posts);
+    return posts.slice(0, 10).map((post) => (
       <div className="postFrame">
         <Link
           key={"/writing/" + post.fields.slug}
           to={"/writing/" + post.fields.slug}
           className="preview"
         >
-          <img
-            src={post.fields.feature_image.fields.file.url}
-            alt={post.title}
-          />
-          <small>{readableDate(post.fields.date)}</small>
-
-          <h3>{post.fields.title}</h3>
+          <h2>{post.fields.title}</h2>
+          <small style={{ fontSize: "75%" }}>
+            {readableDate(post.fields.date)}
+          </small>
 
           <p>{post.fields.description}</p>
           <div
             className="postPreview"
+            style={{ padding: "1.5% 0 1.5% 0" }}
             dangerouslySetInnerHTML={{
               __html:
                 documentToHtmlString(post.fields.body).substring(0, 200) +
-                "   ... ",
+                "   ...  `<br/><span>MORE↗</span>`",
             }}
           ></div>
         </Link>
+        <hr className="divider" />
       </div>
     ));
   };
@@ -67,8 +66,8 @@ export default function HomePage() {
   return (
     <div className="content">
       <MainHeader />
-      <div>
-        <h3>LATEST</h3>
+      <div style={{ padding: "5% 10% 0 10%" }}>
+        <h3 style={{ padding: "2% 0 2% 0" }}>LATEST</h3>
         {renderPosts()}
       </div>
     </div>

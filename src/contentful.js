@@ -4,7 +4,9 @@ const client = require("contentful").createClient({
 });
 
 const getBlogPosts = () =>
-  client.getEntries({ content_type: "post" }).then((response) => response.json);
+  client
+    .getEntries({ content_type: "post" })
+    .then((response) => response.items);
 const getProjects = () =>
   client
     .getEntries({ content_type: "project" })
