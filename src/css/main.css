@@ -156,7 +156,25 @@ table {
   font-family: "Agrandir-TextBold";
   src: url("./fonts/Agrandir/Agrandir-TextBold.otf");
 }
+@font-face {
+  font-family: "Whirly Bats";
+  src: url("./fonts/Whirlybats.ttf");
+}
+@font-face {
+  font-family: "Etoile";
+  src: url("./fonts/Etoile/Etoile-Regular/Etoile-Regular.ttf");
+}
+@font-face {
+  font-family: "Crafter";
+  src: url("./fonts/Crafter/Crafter-Regular.otf");
+}
 
+.specialChar {
+  font-family: "Whirly Bats";
+}
+.specialChar:hover {
+  animation: animateFont 0.75s ease 0s infinite normal none running;
+}
 /* Global declarations
 ----------------------*/
 :root {
@@ -167,8 +185,8 @@ html {
 }
 body {
   font-family: "Agrandir-Regular";
-  background-color: #f8f9f0;
-  color: #402a1e;
+  background-color: #e8e8e8;
+  color: #47261b;
   font-size: 48px;
   background-image: url("./images/bg_dark.png");
   background-position: 50%;
@@ -223,6 +241,40 @@ span.lightMode:hover,
 span.darkMode:hover {
   cursor: pointer;
 }
+/* Main Header
+---------------*/
+div.content {
+  padding: 2.5%;
+}
+div.menubutton {
+  width: 10%;
+  display: inline-block;
+}
+div.laurence {
+  width: 45%;
+  display: inline-block;
+}
+div.menuoptions {
+  width: 40%;
+  display: inline-block;
+}
+div.menuoptions h2 {
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+}
+h1 {
+  font-family: "Etoile";
+}
+h2,
+h3 {
+  font-family: "Crafter";
+  font-size: 50%;
+}
+h3 {
+  color: #c07a35;
+}
+
 /* Scroll menu
 ----------------------*/
 
@@ -599,5 +651,110 @@ div.sharable {
   }
   to {
     height: var(--max-height);
+  }
+}
+@keyframes animateFont {
+  0% {
+    font-variation-settings: "anim" 100;
+  }
+  10% {
+    font-variation-settings: "anim" 110;
+  }
+  20% {
+    font-variation-settings: "anim" 120;
+  }
+  30% {
+    font-variation-settings: "anim" 130;
+  }
+  40% {
+    font-variation-settings: "anim" 140;
+  }
+  50% {
+    font-variation-settings: "anim" 150;
+  }
+  60% {
+    font-variation-settings: "anim" 160;
+  }
+  70% {
+    font-variation-settings: "anim" 170;
+  }
+  80% {
+    font-variation-settings: "anim" 180;
+  }
+  90% {
+    font-variation-settings: "anim" 190;
+  }
+  100% {
+    font-variation-settings: "anim" 200;
+  }
+}
+@-moz-keyframes animateFont {
+  0% {
+    font-variation-settings: "anim" 100;
+  }
+  10% {
+    font-variation-settings: "anim" 110;
+  }
+  20% {
+    font-variation-settings: "anim" 120;
+  }
+  30% {
+    font-variation-settings: "anim" 130;
+  }
+  40% {
+    font-variation-settings: "anim" 140;
+  }
+  50% {
+    font-variation-settings: "anim" 150;
+  }
+  60% {
+    font-variation-settings: "anim" 160;
+  }
+  70% {
+    font-variation-settings: "anim" 170;
+  }
+  80% {
+    font-variation-settings: "anim" 180;
+  }
+  90% {
+    font-variation-settings: "anim" 190;
+  }
+  100% {
+    font-variation-settings: "anim" 200;
+  }
+}
+@-webkit-keyframes animateFont {
+  0% {
+    font-variation-settings: "anim" 100;
+  }
+  10% {
+    font-variation-settings: "anim" 110;
+  }
+  20% {
+    font-variation-settings: "anim" 120;
+  }
+  30% {
+    font-variation-settings: "anim" 130;
+  }
+  40% {
+    font-variation-settings: "anim" 140;
+  }
+  50% {
+    font-variation-settings: "anim" 150;
+  }
+  60% {
+    font-variation-settings: "anim" 160;
+  }
+  70% {
+    font-variation-settings: "anim" 170;
+  }
+  80% {
+    font-variation-settings: "anim" 180;
+  }
+  90% {
+    font-variation-settings: "anim" 190;
+  }
+  100% {
+    font-variation-settings: "anim" 200;
   }
 }

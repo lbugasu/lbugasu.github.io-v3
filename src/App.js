@@ -6,13 +6,25 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import "./css/main.css";
 
 // import components
-import HomePage from "./pages/HomePage.js";
+import About from "./pages/About.js";
+import HomePage from "./pages/HomePage";
+import WritingSectionPage from "./pages/WritingSectionPage";
+import WritingSubjectPage from "./pages/WritingSubjectPage";
 
 class App extends Component {
   render() {
     return (
       <Router>
         <Route path="/" component={HomePage} exact />
+        <Route path="/about" component={About} exact />
+        <Route
+          path="/writing-subjects/:subject"
+          component={WritingSubjectPage}
+        />
+        <Route
+          path="/writing-section/:section"
+          component={WritingSectionPage}
+        />
       </Router>
     );
   }
