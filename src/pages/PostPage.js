@@ -15,7 +15,7 @@ export default function PostPage() {
   const renderPost = () => {
     if (isLoading) return <p>Loading...</p>;
     return (
-      <div className="postPage" style={{ padding: "2.5%" }}>
+      <div className="postPage">
         <MainHeader />
         <div id={post.section} style={{ padding: "2.5% 10% 2.5% 10%" }}>
           <div>

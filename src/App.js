@@ -11,6 +11,8 @@ import HomePage from "./pages/HomePage";
 import WritingSectionPage from "./pages/WritingSectionPage";
 import WritingSubjectPage from "./pages/WritingSubjectPage";
 import PostPage from "./pages/PostPage";
+import ExperimentPostPage from "./pages/ExperimentPostPage";
+import Experiments from "./pages/Experiments";
 class App extends Component {
   render() {
     return (
@@ -27,6 +29,9 @@ class App extends Component {
           path="/writing-section/:section"
           component={WritingSectionPage}
         />
+        <Route path="/experiments" component={Experiments} exact />
+
+        <Route path="/experiments/:id" component={ExperimentPostPage} />
       </Router>
     );
   }

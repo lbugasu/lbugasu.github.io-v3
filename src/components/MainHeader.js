@@ -10,7 +10,9 @@ const MainHeader = () => (
       <span className="specialChar ">x</span>
     </div>
     <div className="laurence">
-      <h1>LAURENCE ININDA</h1>
+      <Link to="/">
+        <h1>LAURENCE ININDA</h1>
+      </Link>
     </div>
     <div className="menuoptions">
       <h2>
