@@ -21,14 +21,11 @@ export default function WritingSectionPage({ match }) {
           to={"/writing/" + post.fields.slug}
           className="preview"
         >
-          <h1 style={{ fontWeight: "600", fontSize: "150%" }}>
-            {post.fields.title}
-          </h1>
+          <h1>{post.fields.title}</h1>
 
           <img
             src={post.fields.feature_image.fields.file.url}
             alt={post.title}
-            style={{ left: "0", float: "right" }}
           />
           <small>{readableDate(post.fields.date)}</small>
 

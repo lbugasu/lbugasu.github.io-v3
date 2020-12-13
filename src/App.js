@@ -14,6 +14,7 @@ import Blog from "./pages/Blog";
 import PostPage from "./pages/PostPage";
 import ExperimentPostPage from "./pages/ExperimentPostPage";
 import Experiments from "./pages/Experiments";
+import Playground from "./pages/Playground";
 class App extends Component {
   render() {
     return (
@@ -32,6 +33,7 @@ class App extends Component {
           component={WritingSectionPage}
         />
         <Route path="/experiments" component={Experiments} exact />
+        <Route path="/playground" component={Playground} exact />
 
         <Route path="/experiments/:id" component={ExperimentPostPage} />
       </Router>

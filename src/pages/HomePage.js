@@ -65,20 +65,10 @@ export default function HomePage() {
   return (
     <div className="content">
       <MainHeader />
-      <div style={{ padding: "5% 10% 0 10%" }}>
-        <h3 style={{ padding: "2% 0 2% 0" }}>LATEST</h3>
-        <div style={{ width: "60%", display: "inline-block" }}>
-          {renderPosts()}
-        </div>
-        <img
-          style={{
-            position: "fixed",
-            width: "30%",
-            padding: "5%",
-          }}
-          src={AmWriting}
-          alt="writing"
-        ></img>
+      <div className="latestposts">
+        <h3>LATEST</h3>
+        <div className="postlist">{renderPosts()}</div>
+        <img src={AmWriting} alt="writing"></img>
       </div>
     </div>
   );
