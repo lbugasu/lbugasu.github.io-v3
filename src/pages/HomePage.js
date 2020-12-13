@@ -4,7 +4,6 @@ import { useFeed } from "../custom-hooks/";
 
 //import components
 import MainHeader from "../components/MainHeader";
-import About from "../components/About";
 import Work from "../components/Work";
 import Misc from "../components/Misc";
 import { Link } from "react-router-dom";
@@ -12,7 +11,7 @@ import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { readableDate } from "../components/helpers";
 
 import { usePosts } from "../custom-hooks/";
-
+import AmWriting from "../css/images/AmWriting.png";
 export default function HomePage() {
   const [posts, isLoading] = usePosts();
 
@@ -26,7 +25,7 @@ export default function HomePage() {
           to={"/writing/" + post.fields.slug}
           className="preview"
         >
-          <h2>{post.fields.title}</h2>
+          <h2 style={{ width: "100%", float: "left" }}>{post.fields.title}</h2>
           <small style={{ fontSize: "75%" }}>
             {readableDate(post.fields.date)}
           </small>
@@ -38,7 +37,7 @@ export default function HomePage() {
             dangerouslySetInnerHTML={{
               __html:
                 documentToHtmlString(post.fields.body).substring(0, 200) +
-                "   ...  `<br/><span>MORE↗</span>`",
+                "   ...  <br/><span>MORE↗</span>",
             }}
           ></div>
         </Link>
@@ -68,7 +67,18 @@ export default function HomePage() {
       <MainHeader />
       <div style={{ padding: "5% 10% 0 10%" }}>
         <h3 style={{ padding: "2% 0 2% 0" }}>LATEST</h3>
-        {renderPosts()}
+        <div style={{ width: "60%", display: "inline-block" }}>
+          {renderPosts()}
+        </div>
+        <img
+          style={{
+            position: "fixed",
+            width: "30%",
+            padding: "5%",
+          }}
+          src={AmWriting}
+          alt="writing"
+        ></img>
       </div>
     </div>
   );

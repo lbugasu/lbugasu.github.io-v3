@@ -9,11 +9,6 @@ const WritingFooter = () => (
       <div className="footerSection">
         <h3>Subjects</h3>
         <Link to="/writing-subjects/faith">faith</Link>
-        <Link to="/writing-subjects/blackness">blackness</Link>
-        <Link to="/writing-subjects/pan-africanism">pan-africanism</Link>
-        <Link to="/writing-subjects/love">love</Link>
-        <Link to="/writing-subjects/death">death</Link>
-        <Link to="/writing-subjects/travel">travel</Link>
       </div>
       <div className="footerSection">
         <h3>Sections</h3>
@@ -25,10 +20,6 @@ const WritingFooter = () => (
       <div className="footerSection">
         <h3>More</h3>
         <Link to="/">home</Link>
-        <Link to="/writing-currently">current writing</Link>
-        <Link to="/writing-gallery">writing gallery</Link>
-        <Link to="/projects">projects</Link>
-        <Link to="/experiments">experiments</Link>
         <Link to="/africanpassport">
           african passport
           <span role="img" aria-label="radio">
@@ -38,9 +29,7 @@ const WritingFooter = () => (
       </div>
       <div className="footerSection">
         <h3>Contact</h3>
-        <Link to="/subscribe">subscribe</Link>
-        <Link to="/write-to-me">write to me</Link>
-        <Link to="/suggest-changes">suggest changes</Link>
+        <Link to="/about">about</Link>
       </div>
     </div>
   </>

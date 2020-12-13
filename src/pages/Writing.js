@@ -1,5 +1,4 @@
 import React from "react";
-import WritingHeader from "../components/WritingHeader";
 import WritingFooter from "../components/WritingFooter";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
@@ -8,6 +7,8 @@ import { Link } from "react-router-dom";
 import { useTaggedPost } from "../custom-hooks";
 import { readableDate } from "../components/helpers";
 import FeaturedContent from "../components/FeaturedContent";
+import MainHeader from "../components/MainHeader";
+
 export default function Writing() {
   const [post, isLoading] = useTaggedPost("featured");
 
@@ -16,7 +17,7 @@ export default function Writing() {
     if (isLoading) return <p>Loading...</p>;
     return (
       <>
-        <WritingHeader />
+        <MainHeader />
         <hr className="menuLines" />
 
         <div className="content">
@@ -68,15 +69,16 @@ export default function Writing() {
             <a href="https://vimeo.com/julianmarshall">Tucker Morrison</a> on{" "}
             <a href="https://vimeo.com">Vimeo</a>.
           </p>
-          <iframe 
-            src="https://open.spotify.com/embed-podcast/episode/1iDzfqn3ydQSxgfai96sYR" 
-            width="100%" 
-            height="160" 
-            frameborder="0" a
-            llowtransparency="true" 
+          <iframe
+            src="https://open.spotify.com/embed-podcast/episode/1iDzfqn3ydQSxgfai96sYR"
+            width="100%"
+            height="160"
+            frameborder="0"
+            a
+            llowtransparency="true"
             allow="encrypted-media"
             title="Rev. Otis Moss IIIThe Sound of the Genuine: Traversing 2020 with ‘the Mystic of the Movement’ Howard Thurman"
-            ></iframe>
+          ></iframe>
           <iframe
             src="https://open.spotify.com/embed-podcast/episode/0RE4gudofJJOSt8mmldOkT"
             width="100%"

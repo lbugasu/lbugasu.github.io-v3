@@ -1,8 +1,9 @@
 import React from "react";
 
 // import {Link} from 'react-router-dom'
-const Header = () => (
+const AboutMe = () => (
   <div className="about">
+    <br />
     <div className="left">
       <p>
         <br />
@@ -11,7 +12,7 @@ const Header = () => (
         NYC working at the intersection of storytelling and technology
       </p>
     </div>
-    <div className="center">Laurence Ininda</div>
+    <div className="center"></div>
     <div className="right">
       <p>
         <br />
@@ -22,4 +23,4 @@ const Header = () => (
     </div>
   </div>
 );
-export default Header;
+export default AboutMe;

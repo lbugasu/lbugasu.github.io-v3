@@ -10,6 +10,7 @@ import About from "./pages/About.js";
 import HomePage from "./pages/HomePage";
 import WritingSectionPage from "./pages/WritingSectionPage";
 import WritingSubjectPage from "./pages/WritingSubjectPage";
+import Blog from "./pages/Blog";
 import PostPage from "./pages/PostPage";
 import ExperimentPostPage from "./pages/ExperimentPostPage";
 import Experiments from "./pages/Experiments";
@@ -24,6 +25,7 @@ class App extends Component {
           component={WritingSubjectPage}
         />
         <Route path="/writing/:id" component={PostPage} />
+        <Route path="/blog" component={Blog} exact />
 
         <Route
           path="/writing-section/:section"

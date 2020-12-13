@@ -5,7 +5,8 @@ import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { useTaggedPosts } from "../custom-hooks";
 import { readableDate } from "../components/helpers";
 
-// import WritingHeader from "../components/WritingHeader";
+import MainHeader from "../components/MainHeader";
+
 import WritingFooter from "../components/WritingFooter";
 
 export default function WritingSubjectPage() {
@@ -15,7 +16,7 @@ export default function WritingSubjectPage() {
     if (isLoading) return <p>Loading...</p>;
 
     return posts.map((post) => (
-      <div className="postFrame">
+      <div className="subjectPostFrame">
         <Link
           key={"/writing/" + post.fields.slug}
           to={"/writing/" + post.fields.slug}
@@ -44,7 +45,7 @@ export default function WritingSubjectPage() {
   };
   return (
     <>
-      {/* <WritingHeader section={" on " + subject} /> */}
+      <MainHeader />
       {renderPage()}
       <WritingFooter />
     </>

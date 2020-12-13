@@ -33,17 +33,25 @@ export default function PostPage() {
     },
   };
 
-  const renderPost = async () => {
+  const renderPost = () => {
     if (isLoading) return <p>Loading...</p>;
 
     async function convertToMd() {
-      let richtxt = await richTextFromMarkdown(post.js);
+      let richtxt = richTextFromMarkdown(post.js);
       richtxt.then((r) => {
         console.log(r);
-        console.log(documentToHtmlString(r));
+        return documentToHtmlString(r);
       });
     }
     convertToMd();
+    function printStuff() {
+      let text = convertToMd().then((txt) => {
+        return txt;
+      });
+      console.log(text);
+      text = `${text}`;
+      return <div>{`${text}`}</div>;
+    }
     // console.log(post.body);
     return (
       <>
@@ -66,6 +74,7 @@ export default function PostPage() {
           <div style={{ padding: "7.5%" }} className="expBody">
             {documentToReactComponents(post.body, options)}
           </div>
+          {printStuff()}
         </div>
       </>
     );

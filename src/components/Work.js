@@ -29,7 +29,7 @@ export default function Work() {
   };
   return (
     <div id="work" className="projects">
-      <h2>Work</h2>
+      <h2>Selected Work & Projects</h2>
       {printWork()}
     </div>
   );
