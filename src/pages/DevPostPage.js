@@ -72,14 +72,11 @@ export default function PostPage() {
     return (
       <>
         <MainHeader />
-        <div style={{ padding: "5% 10% 5% 10%" }} className="experimentPost">
+        <div className="singleDevPost" >
           <br />
           <div
+          className="devDescription"
             style={{
-              height: "50vh",
-              backgroundSize: "40%",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "right",
               backgroundImage: `url(${post.featureImage.fields.file.url})`,
             }}
           >
@@ -87,12 +84,12 @@ export default function PostPage() {
             <small>{readableDate(post.date)}</small>
           </div>
 
-          <div style={{ padding: "5% 15% 0 15%" }} className="expBody">
+          <div  className="devBody">
             {printStuff()}
           </div>
         </div>
       </>
     );
   };
-  return <div className="post">{renderPost()}</div>;
+  return <div>{renderPost()}</div>;
 }

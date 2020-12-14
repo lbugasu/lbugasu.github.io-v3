@@ -593,7 +593,17 @@ div.projectStack {
 div.devframe {
   width: 60%;
 }
-div.devDescription {
+div.singleDevPost {
+  padding: 5% 10% 5% 10%;
+}
+div.devDescription{
+  height: 50vh;
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position:right;
+}
+div.devBody{
+padding: 5% 15% 0 15%;
 }
 div.devPosts {
   padding: 2.5% 10% 5% 10%;
@@ -673,6 +683,46 @@ div.sharable {
   }
   div#scrolling div.menu {
     width: 70%;
+  }
+  div.star {
+    width: 20%;
+  }
+  div.laurence {
+    width: 70%
+  }
+  div.menuoptions {
+    width: 100%;
+    display: block;
+  }
+  .latestposts img {
+    /* float: top; */
+    /* position: absolute; */
+    /* padding: 2.5% 5% 5% 5%; */
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  .latestposts div.postlist{
+    width: 100%;
+  }
+
+  div.devframe {
+  width: 100%;
+  }
+  div.singleDevPost {
+   padding: 5%;
+  }
+  div.devDescription{
+    height: 50vh;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position:right;
+  }
+  div.devBody{
+  padding: 5%;;
+  }
+  div.devBody p{
+    width: 100%;
   }
 }
 @media (max-width: 850px) {
