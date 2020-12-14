@@ -312,11 +312,16 @@ div.menuoptions h2 {
 h1 {
   font-family: "Etoile";
   font-size: 150%;
+  margin: 1% 0 1% 0;
 }
 h2,
 h3 {
   font-family: "Crafter";
   font-size: 100%;
+  margin: 2% 0 1% 0;
+}
+p {
+  margin: 1% 0 1% 0;
 }
 h3 {
   color: #c07a35;
@@ -343,11 +348,12 @@ hr.divider {
   background-color: #47261b; /* Modern Browsers */
 }
 div.postitem {
-  width: 30%;
+  width: 46%;
   display: inline-block;
   margin: 0.75%;
   padding: 0.75%;
-  border: 1px solid #c07a35;
+  /* border: 1px solid #c07a35; */
+  background-color: #efebeb;
   border-radius: 20px;
   vertical-align: top;
 }
@@ -368,7 +374,9 @@ div.subjectPostFrame {
   display: inline-block;
   margin: 1%;
   padding: 1%;
-  border: 1px solid #c07a35;
+  /* border: 1px solid #c07a35; */
+  border-bottom: 1px solid #c07a35;
+
   border-radius: 20px;
   vertical-align: top;
   text-align: left;
@@ -579,6 +587,16 @@ div.projectStack {
   background-color: #9f8a78;
   color: #f8f9f0;
   border-radius: 5px;
+}
+/* Dev
+----------*/
+div.devframe {
+  width: 60%;
+}
+div.devDescription {
+}
+div.devPosts {
+  padding: 2.5% 10% 5% 10%;
 }
 /*  Misceleneous
 ------------------*/

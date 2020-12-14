@@ -27,7 +27,9 @@ export default function WritingSectionPage({ match }) {
             src={post.fields.feature_image.fields.file.url}
             alt={post.title}
           />
-          <small>{readableDate(post.fields.date)}</small>
+          <small style={{ fontSize: "14pt" }}>
+            {readableDate(post.fields.date)}
+          </small>
 
           <p>{post.fields.description}</p>
           <div

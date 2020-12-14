@@ -12,6 +12,7 @@ import { readableDate } from "../components/helpers";
 
 import { usePosts } from "../custom-hooks/";
 import AmWriting from "../css/images/AmWriting.png";
+import Footer from "../components/Footer";
 export default function HomePage() {
   const [posts, isLoading] = usePosts();
 
@@ -70,6 +71,7 @@ export default function HomePage() {
         <div className="postlist">{renderPosts()}</div>
         <img src={AmWriting} alt="writing"></img>
       </div>
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -12,8 +12,8 @@ import WritingSectionPage from "./pages/WritingSectionPage";
 import WritingSubjectPage from "./pages/WritingSubjectPage";
 import Blog from "./pages/Blog";
 import PostPage from "./pages/PostPage";
-import ExperimentPostPage from "./pages/ExperimentPostPage";
-import Experiments from "./pages/Experiments";
+import DevPostPage from "./pages/DevPostPage";
+import Dev from "./pages/Dev";
 import Playground from "./pages/Playground";
 class App extends Component {
   render() {
@@ -32,10 +32,10 @@ class App extends Component {
           path="/writing-section/:section"
           component={WritingSectionPage}
         />
-        <Route path="/experiments" component={Experiments} exact />
+        <Route path="/dev" component={Dev} exact />
         <Route path="/playground" component={Playground} exact />
 
-        <Route path="/experiments/:id" component={ExperimentPostPage} />
+        <Route path="/dev/:id" component={DevPostPage} />
       </Router>
     );
   }

@@ -259,7 +259,9 @@ const MainHeader = () => {
       </div>
 
       <div className="menuoptions">
-        <h2>{/* FICTION */}</h2>
+        <h2>
+          <Link to="/dev">DEV</Link>
+        </h2>
         <h2>
           <Link
             id="poetry"
