@@ -1,6 +1,6 @@
 /* Reset CSS
 ------------*/
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -108,7 +108,9 @@ section {
   display: block;
 }
 body {
-  line-height: 1;
+  /* line-height: 1; */
+  padding: 2.5%;
+  font-size: 28px;
 }
 ol,
 ul {
@@ -156,7 +158,25 @@ table {
   font-family: "Agrandir-TextBold";
   src: url("./fonts/Agrandir/Agrandir-TextBold.otf");
 }
+@font-face {
+  font-family: "Whirly Bats";
+  src: url("./fonts/Whirlybats.ttf");
+}
+@font-face {
+  font-family: "Etoile";
+  src: url("./fonts/Etoile/Etoile-Regular/Etoile-Regular.ttf");
+}
+@font-face {
+  font-family: "Crafter";
+  src: url("./fonts/Crafter/Crafter-Regular.otf");
+}
 
+.specialChar {
+  font-family: "Whirly Bats";
+}
+.specialChar:hover {
+  animation: animateFont 0.75s ease 0s infinite normal none running;
+}
 /* Global declarations
 ----------------------*/
 :root {
@@ -166,23 +186,42 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: "Agrandir-Regular";
-  background-color: #f8f9f0;
-  color: #402a1e;
-  font-size: 48px;
-  background-image: url("./images/bg_dark.png");
-  background-position: 50%;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  font-family: "Belleza", sans-serif;
+  background-color: #e8e8e8;
+  color: #47261b;
+  font-size: 24px;
 }
 a {
   text-decoration: none;
   color: #402a1e;
 }
 a:hover {
-  text-decoration: line-through;
+  text-decoration: none;
+  color: #d77723;
 }
-
+/* Home page
+-------------*/
+div.content {
+  background-image: url("./images/bg_dark.png");
+  background-position: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+div.latestposts {
+  padding: 5% 10% 0 10%;
+}
+.latestposts h3 {
+  padding: 2% 0 2% 0;
+}
+.latestposts div.postlist {
+  width: 60%;
+  display: inline-block;
+}
+.latestposts img {
+  position: fixed;
+  width: 30%;
+  padding: 2.5% 5% 5% 5%;
+}
 /* Header
 ----------------------*/
 div.header {
@@ -222,6 +261,143 @@ span.lightDark {
 span.lightMode:hover,
 span.darkMode:hover {
   cursor: pointer;
+}
+/* Footer
+-------------*/
+div.footer {
+  padding: 0 5% 0 5%;
+}
+div.footer div {
+  width: 20%;
+  padding: 0 2.5% 0 2.5%;
+  display: inline-block;
+  vertical-align: top;
+}
+div.footer h3 {
+  font-size: 75%;
+  padding-bottom: 2.5%;
+}
+div.footer a {
+  display: block;
+}
+/* Main Header
+---------------*/
+div.mainheader {
+  padding-bottom: 2%;
+}
+div.menubutton {
+  width: 10%;
+  display: inline-block;
+}
+div.star {
+  position: fixed;
+  top: 3%;
+  font-size: 48px;
+  cursor: pointer;
+}
+div.laurence {
+  width: 45%;
+  display: inline-block;
+  font-weight: 600;
+}
+div.menuoptions {
+  width: 40%;
+  display: inline-block;
+}
+div.menuoptions h2 {
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+}
+h1 {
+  font-family: "Etoile";
+  font-size: 150%;
+  margin: 1% 0 1% 0;
+}
+h2,
+h3 {
+  font-family: "Crafter";
+  font-size: 100%;
+  margin: 2% 0 1% 0;
+}
+p {
+  margin: 1% 0 1% 0;
+}
+h3 {
+  color: #c07a35;
+} /* postFrame
+-------------*/
+div.postFrame {
+  /* width: 60%; */
+  /* padding: 1.5%; */
+  padding-bottom: 5%;
+}
+.postFrame a:hover {
+  text-decoration: none;
+}
+div.postPreview span {
+  font-size: 75%;
+}
+hr.divider {
+  width: 75%;
+  float: left;
+  border: none;
+  height: 1px;
+  /* Set the hr color */
+  color: #47261b; /* old IE */
+  background-color: #47261b; /* Modern Browsers */
+}
+div.postitem {
+  width: 46%;
+  display: inline-block;
+  margin: 0.75%;
+  padding: 0.75%;
+  /* border: 1px solid #c07a35; */
+  background-color: #efebeb;
+  border-radius: 20px;
+  vertical-align: top;
+}
+div.postitem img {
+  width: 30%;
+  float: right;
+}
+.postitem h1 {
+  font-weight: 600;
+  font-size: 150%;
+}
+
+/* Writing Section Page
+---------------------*/
+
+div.subjectPostFrame {
+  width: 45%;
+  display: inline-block;
+  margin: 1%;
+  padding: 1%;
+  /* border: 1px solid #c07a35; */
+  border-bottom: 1px solid #c07a35;
+
+  border-radius: 20px;
+  vertical-align: top;
+  text-align: left;
+  /* font-size: 150%; */
+}
+div.subjectPostFrame a:hover {
+  text-decoration: none;
+}
+small {
+  /* font-size: 24px; */
+}
+div.subjectPostFrame p {
+  /* font-size: 80%; */
+}
+div.subjectPostFrame h1 {
+  font-weight: 600;
+  font-size: 175%;
+}
+div.subjectPostFrame img {
+  width: 20%;
+  float: right;
 }
 /* Scroll menu
 ----------------------*/
@@ -267,6 +443,7 @@ div.about {
   margin-top: 2.5%;
   height: 65vh;
   vertical-align: middle;
+  font-size: 200%;
 }
 div.right {
   font-size: 80%;
@@ -285,7 +462,6 @@ div.left {
 div.center {
   line-height: 125%;
   text-align: center;
-  font-family: "Agrandir-GrandHeavy";
   font-size: 150%;
   display: inline-block;
   vertical-align: top;
@@ -297,7 +473,7 @@ div.center {
   background-position: top;
 }
 span.emph {
-  font-family: "Agrandir-GrandLight";
+  text-decoration: underline;
 }
 
 /* Posts
@@ -323,14 +499,34 @@ div.posts {
   text-decoration: underline;
 }
 div.singlePost {
-  width: 30%;
+  width: 33.3%;
   display: inline-block;
-  vertical-align: top;
-  margin: 1 1.5% 0 1.5%;
-  border-radius: 12px;
-  padding: 1%;
 }
+/* Single Post Page
+---------------*/
+div.postTitle h1 {
+  font-size: 600%;
+  width: 80%;
+  padding-top: 2.5;
+}
+div.postTitle {
+  min-height: 50vh;
 
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 500px;
+}
+div.postbody {
+  padding: 2.5% 10% 2.5% 10%;
+}
+div.postContent {
+  padding: 5%;
+  line-height: 24pt;
+}
+div.poetry div.postContent {
+  width: 60%;
+  padding: 5% 20% 0 20%;
+}
 /* Work
 ----------*/
 div.projects {
@@ -345,7 +541,9 @@ div.projects {
 div.project {
   margin: 2.5% 5% 0% 5%;
   display: inline-block;
+  font-size: 200%;
 }
+
 div.projectDescription {
   border-top: #402a1e 2px solid;
   padding-top: 2.5%;
@@ -359,6 +557,7 @@ div.projectDescription {
 }
 .projectDescription h3 {
   margin-bottom: 1%;
+  font-size: 75%;
 }
 div.projectImage {
   vertical-align: top;
@@ -388,6 +587,16 @@ div.projectStack {
   background-color: #9f8a78;
   color: #f8f9f0;
   border-radius: 5px;
+}
+/* Dev
+----------*/
+div.devframe {
+  width: 60%;
+}
+div.devDescription {
+}
+div.devPosts {
+  padding: 2.5% 10% 5% 10%;
 }
 /*  Misceleneous
 ------------------*/
@@ -498,6 +707,7 @@ div.sharable {
   div.right {
     vertical-align: top;
   }
+
   br {
     font-size: 0;
   }
@@ -549,9 +759,6 @@ div.sharable {
   span.lightDark {
     display: inline-block;
   }
-  body {
-    font-size: 28px;
-  }
 
   div.singlePost {
     width: 40%;
@@ -567,6 +774,9 @@ div.sharable {
   div.media {
     width: 92%;
   }
+}
+code {
+  font-family: monospace;
 }
 
 /* Transitions
@@ -604,5 +814,110 @@ div.sharable {
   }
   to {
     height: var(--max-height);
+  }
+}
+@keyframes animateFont {
+  0% {
+    font-variation-settings: "anim" 100;
+  }
+  10% {
+    font-variation-settings: "anim" 110;
+  }
+  20% {
+    font-variation-settings: "anim" 120;
+  }
+  30% {
+    font-variation-settings: "anim" 130;
+  }
+  40% {
+    font-variation-settings: "anim" 140;
+  }
+  50% {
+    font-variation-settings: "anim" 150;
+  }
+  60% {
+    font-variation-settings: "anim" 160;
+  }
+  70% {
+    font-variation-settings: "anim" 170;
+  }
+  80% {
+    font-variation-settings: "anim" 180;
+  }
+  90% {
+    font-variation-settings: "anim" 190;
+  }
+  100% {
+    font-variation-settings: "anim" 200;
+  }
+}
+@-moz-keyframes animateFont {
+  0% {
+    font-variation-settings: "anim" 100;
+  }
+  10% {
+    font-variation-settings: "anim" 110;
+  }
+  20% {
+    font-variation-settings: "anim" 120;
+  }
+  30% {
+    font-variation-settings: "anim" 130;
+  }
+  40% {
+    font-variation-settings: "anim" 140;
+  }
+  50% {
+    font-variation-settings: "anim" 150;
+  }
+  60% {
+    font-variation-settings: "anim" 160;
+  }
+  70% {
+    font-variation-settings: "anim" 170;
+  }
+  80% {
+    font-variation-settings: "anim" 180;
+  }
+  90% {
+    font-variation-settings: "anim" 190;
+  }
+  100% {
+    font-variation-settings: "anim" 200;
+  }
+}
+@-webkit-keyframes animateFont {
+  0% {
+    font-variation-settings: "anim" 100;
+  }
+  10% {
+    font-variation-settings: "anim" 110;
+  }
+  20% {
+    font-variation-settings: "anim" 120;
+  }
+  30% {
+    font-variation-settings: "anim" 130;
+  }
+  40% {
+    font-variation-settings: "anim" 140;
+  }
+  50% {
+    font-variation-settings: "anim" 150;
+  }
+  60% {
+    font-variation-settings: "anim" 160;
+  }
+  70% {
+    font-variation-settings: "anim" 170;
+  }
+  80% {
+    font-variation-settings: "anim" 180;
+  }
+  90% {
+    font-variation-settings: "anim" 190;
+  }
+  100% {
+    font-variation-settings: "anim" 200;
   }
 }
