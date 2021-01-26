@@ -9,7 +9,7 @@ import Misc from "../components/Misc";
 import { Link } from "react-router-dom";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { readableDate } from "../components/helpers";
-
+import Slider from 'rc-slider'
 import { usePosts } from "../custom-hooks/";
 import AmWriting from "../css/images/AmWriting.png";
 import Footer from "../components/Footer";
@@ -65,6 +65,7 @@ export default function HomePage() {
   // Render the homepage
   return (
     <div className="content">
+     
       <MainHeader />
       <div className="latestposts">
         <h3>LATEST</h3>

@@ -14,16 +14,12 @@ export default function Experiments() {
     if (isLoading) return <p>Loading...</p>;
     return projects.map((project) => (
       <div className="devframe">
-        {/* <img
-          src={project.fields.featureImage.fields.file.url}
-          alt={project.fields.featureImage.title}
-        ></img> */}
-        <h2>{project.fields.title}</h2>
+        <h2 >{project.fields.title}</h2>
 
         <small style={{ fontSize: "16pt" }}>
           {readableDate(project.fields.date)}
         </small>
-        <div className="devDescription">{project.fields.description}</div>
+        <div className="">{project.fields.description}</div>
         <Link
           key={"/dev/" + project.fields.slug}
           to={"/dev/" + project.fields.slug}

@@ -72,21 +72,19 @@ export default function PostPage() {
     return (
       <>
         <MainHeader />
-        <div className="singleDevPost" >
+        <div className="singleDevPost">
           <br />
           <div
-          className="devDescription"
+            className="devDescription"
             style={{
               backgroundImage: `url(${post.featureImage.fields.file.url})`,
             }}
           >
-            <h1 style={{ fontSize: "500%" }}>{post.title}</h1>
+            <h1>{post.title}</h1>
             <small>{readableDate(post.date)}</small>
           </div>
 
-          <div  className="devBody">
-            {printStuff()}
-          </div>
+          <div className="devBody">{printStuff()}</div>
         </div>
       </>
     );

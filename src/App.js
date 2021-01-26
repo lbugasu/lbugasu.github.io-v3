@@ -15,10 +15,13 @@ import PostPage from "./pages/PostPage";
 import DevPostPage from "./pages/DevPostPage";
 import Dev from "./pages/Dev";
 import Playground from "./pages/Playground";
+import RollingPoem from './components/RollingPoem'
 class App extends Component {
   render() {
     return (
       <Router>
+        <RollingPoem/>
+        <div>here?</div>
         <Route path="/" component={HomePage} exact />
         <Route path="/about" component={About} exact />
         <Route

@@ -199,6 +199,23 @@ a:hover {
   text-decoration: none;
   color: #d77723;
 }
+h1 {
+  font-family: "Etoile";
+  font-size: 150%;
+  margin: 1% 0 1% 0;
+}
+h2,
+h3 {
+  font-family: "Crafter";
+  font-size: 100%;
+  margin: 2% 0 1% 0;
+}
+p {
+  margin: 1% 0 1% 0;
+}
+h3 {
+  color: #c07a35;
+}
 /* Home page
 -------------*/
 div.content {
@@ -309,23 +326,7 @@ div.menuoptions h2 {
   width: 25%;
   text-align: center;
 }
-h1 {
-  font-family: "Etoile";
-  font-size: 150%;
-  margin: 1% 0 1% 0;
-}
-h2,
-h3 {
-  font-family: "Crafter";
-  font-size: 100%;
-  margin: 2% 0 1% 0;
-}
-p {
-  margin: 1% 0 1% 0;
-}
-h3 {
-  color: #c07a35;
-} /* postFrame
+/* postFrame
 -------------*/
 div.postFrame {
   /* width: 60%; */
@@ -343,6 +344,7 @@ hr.divider {
   float: left;
   border: none;
   height: 1px;
+  display: block;
   /* Set the hr color */
   color: #47261b; /* old IE */
   background-color: #47261b; /* Modern Browsers */
@@ -363,7 +365,7 @@ div.postitem img {
 }
 .postitem h1 {
   font-weight: 600;
-  font-size: 150%;
+  font-size: 125%;
 }
 
 /* Writing Section Page
@@ -593,17 +595,30 @@ div.projectStack {
 div.devframe {
   width: 60%;
 }
+div.devframe h2 {
+  float: left;
+  width: 100%;
+}
 div.singleDevPost {
   padding: 5% 10% 5% 10%;
 }
-div.devDescription{
+div.singleDevPost img {
+  width: 70%;
+}
+div.devBody code {
+  font-size: 50%;
+}
+div.devDescription {
   height: 50vh;
   background-size: 40%;
   background-repeat: no-repeat;
-  background-position:right;
+  background-position: right;
 }
-div.devBody{
-padding: 5% 15% 0 15%;
+div.devDescription h1 {
+  font-size: 400%;
+}
+div.devBody {
+  padding: 5% 15% 0 15%;
 }
 div.devPosts {
   padding: 2.5% 10% 5% 10%;
@@ -688,7 +703,7 @@ div.sharable {
     width: 20%;
   }
   div.laurence {
-    width: 70%
+    width: 70%;
   }
   div.menuoptions {
     width: 100%;
@@ -702,27 +717,30 @@ div.sharable {
     display: block;
     width: 100%;
   }
-  .latestposts div.postlist{
+  .latestposts div.postlist {
     width: 100%;
   }
 
   div.devframe {
-  width: 100%;
+    width: 100%;
   }
   div.singleDevPost {
-   padding: 5%;
+    padding: 5%;
   }
-  div.devDescription{
+  div.devDescription {
     height: 50vh;
     background-size: 40%;
     background-repeat: no-repeat;
-    background-position:right;
+    background-position: right;
   }
-  div.devBody{
-  padding: 5%;;
+  div.devBody {
+    padding: 5%;
   }
-  div.devBody p{
+  div.devBody p {
     width: 100%;
+  }
+  div.devBody {
+    padding: 5% 2.5% 0 2.5%;
   }
 }
 @media (max-width: 850px) {
