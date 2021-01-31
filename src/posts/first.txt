@@ -1,7 +1,0 @@
-# Some code
-
-''' javascript
-function start(){
-
-}
-'''

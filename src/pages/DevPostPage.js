@@ -13,10 +13,41 @@ import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   dark,
+  materialOceanic,
   synthwave84,
   materialLight,
+  duotoneDark,
+  duotoneEarth,
+  duotoneForest,
+  shadesOfPurple,
+  duotoneLight,
+  duotoneSea,
+  duotoneSpace,
+  nord,
+  ghcolors,
+  prism,
+  okaidia,
+  funky,
+  coldarkDark,
+  coldarkCold,
+  vs,
+  vscDarkPlus,
+  pojoaque,
+  tomorrow,
 } from "react-syntax-highlighter/dist/esm/styles/prism/";
-
+import {
+  gradientDark,
+  gradientLight,
+  zenburn,
+  ocean,
+  dracula,
+  xcode,
+  tomorrowNightEighties,
+  tomorrowNightBlue,
+  atelierSulphurpoolLight,
+  atomOneLight,
+  vs2015,
+} from "react-syntax-highlighter/dist/esm/styles/hljs/";
 const gfm = require("remark-gfm");
 
 /**
@@ -49,7 +80,8 @@ export default function PostPage() {
       code: ({ language, value }) => {
         return (
           <SyntaxHighlighter
-            style={synthwave84}
+            style={prism}
+            wrapLongLines={true}
             language={language}
             children={value}
             contentEditable

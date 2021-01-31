@@ -109,7 +109,6 @@ section {
 }
 body {
   /* line-height: 1; */
-  padding: 2.5%;
   font-size: 28px;
 }
 ol,
@@ -167,6 +166,10 @@ table {
   src: url("./fonts/Etoile/Etoile-Regular/Etoile-Regular.ttf");
 }
 @font-face {
+  font-family: "Etoile Italic";
+  src: url("./fonts/Etoile/Etoile-Italic/Etoile-Italic.ttf");
+}
+@font-face {
   font-family: "Crafter";
   src: url("./fonts/Crafter/Crafter-Regular.otf");
 }
@@ -186,10 +189,11 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: "Belleza", sans-serif;
+  font-family: adobe-caslon-pro, serif;
   background-color: #e8e8e8;
   color: #47261b;
   font-size: 24px;
+  padding: 0.75% 7.5% 0 7.5%;
 }
 a {
   text-decoration: none;
@@ -197,7 +201,6 @@ a {
 }
 a:hover {
   text-decoration: none;
-  color: #d77723;
 }
 h1 {
   font-family: "Etoile";
@@ -218,12 +221,7 @@ h3 {
 }
 /* Home page
 -------------*/
-div.content {
-  background-image: url("./images/bg_dark.png");
-  background-position: 100%;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-}
+
 div.latestposts {
   padding: 5% 10% 0 10%;
 }
@@ -312,11 +310,7 @@ div.star {
   font-size: 48px;
   cursor: pointer;
 }
-div.laurence {
-  width: 45%;
-  display: inline-block;
-  font-weight: 600;
-}
+
 div.menuoptions {
   width: 40%;
   display: inline-block;
@@ -504,31 +498,7 @@ div.singlePost {
   width: 33.3%;
   display: inline-block;
 }
-/* Single Post Page
----------------*/
-div.postTitle h1 {
-  font-size: 600%;
-  width: 80%;
-  padding-top: 2.5;
-}
-div.postTitle {
-  min-height: 50vh;
 
-  background-position: right;
-  background-repeat: no-repeat;
-  background-size: 500px;
-}
-div.postbody {
-  padding: 2.5% 10% 2.5% 10%;
-}
-div.postContent {
-  padding: 5%;
-  line-height: 24pt;
-}
-div.poetry div.postContent {
-  width: 60%;
-  padding: 5% 20% 0 20%;
-}
 /* Work
 ----------*/
 div.projects {
@@ -753,9 +723,7 @@ div.sharable {
   .logo img {
     width: 40%;
   }
-  body:not(div#scrolling div.menu) {
-    font-size: 36px;
-  }
+
   /* About
   ------------*/
   div.left,
@@ -776,9 +744,6 @@ div.sharable {
     vertical-align: top;
   }
 
-  br {
-    font-size: 0;
-  }
   div.center {
     height: 50vh;
   }
@@ -792,6 +757,11 @@ div.sharable {
   }
   div.projectStack {
     width: 40%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 0.75% 5% 0 5%;
   }
 }
 @media (max-width: 600px) {
@@ -845,6 +815,7 @@ div.sharable {
 }
 code {
   font-family: monospace;
+  font-size: 10pt;
 }
 
 /* Transitions
