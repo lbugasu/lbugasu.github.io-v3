@@ -9,6 +9,63 @@ import { Link } from "react-router-dom";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { readableDate } from "../components/helpers";
 import { usePosts } from "../custom-hooks/";
+/**
+ * Styled components
+ */
+const ImageFrame = styled.div`
+  width: 28%;
+  padding: 1%;
+  display: inline-block;
+  vertical-align: top;
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+`;
+const PhoneImage = styled.div`
+  width: 100%;
+  padding: 1%;
+  display: none;
+  vertical-align: top;
+  @media only screen and (max-width: 600px) {
+    display: block;
+  }
+`;
+const Image = styled.img`
+  width: 100%;
+`;
+const PostData = styled.div`
+  width: 68%;
+  margin-left: 1%;
+  display: inline-block;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
+`;
+const PostPreview = styled.div`
+  font-size: 14pt;
+`;
+const Title = styled.h2`
+  @media only screen and (max-width: 600px) {
+    font-size: 75%;
+  }
+`;
+const Small = styled.small`
+  font-size: 12pt;
+`;
+const EyeEmImage = styled.div`
+  padding: 10% 2% 0 0;
+  height: 100%;
+`;
+const FeaturedImage = styled.img`
+  width: 100%;
+`;
+const Caption = styled.figcaption`
+  font-size: 10pt;
+  font-family: adobe-caslon-pro, serif;
+  font-style: italic;
+  text-align: center;
+`;
+
 export default function HomePage() {
   const [posts, isLoading] = usePosts();
   const [featureImage, setImageLink] = useState();
@@ -33,64 +90,7 @@ export default function HomePage() {
     });
   }, []);
 
-  /**
-   * Styled components
-   */
-  const ImageFrame = styled.div`
-    width: 28%;
-    padding: 1%;
-    display: inline-block;
-    vertical-align: top;
-    @media only screen and (max-width: 600px) {
-      display: none;
-    }
-  `;
-  const PhoneImage = styled.div`
-    width: 100%;
-    padding: 1%;
-    display: none;
-    vertical-align: top;
-    @media only screen and (max-width: 600px) {
-      display: block;
-    }
-  `;
-  const Image = styled.img`
-    width: 100%;
-  `;
-  const PostData = styled.div`
-    width: 68%;
-    margin-left: 1%;
-    display: inline-block;
-    @media only screen and (max-width: 600px) {
-      width: 100%;
-    }
-  `;
-  const PostPreview = styled.div`
-    font-size: 14pt;
-  `;
-  const Title = styled.h2`
-    @media only screen and (max-width: 600px) {
-      font-size: 75%;
-    }
-  `;
-  const Small = styled.small`
-    font-size: 12pt;
-  `;
-
   const FeatureImage = () => {
-    const EyeEmImage = styled.div`
-      padding: 10% 2% 0 0;
-      height: 100%;
-    `;
-    const Image = styled.img`
-      width: 100%;
-    `;
-    const Caption = styled.figcaption`
-      font-size: 10pt;
-      font-family: adobe-caslon-pro, serif;
-      font-style: italic;
-      text-align: center;
-    `;
     if (loadingImage)
       return (
         // Default image if api is taking too long to load
@@ -104,7 +104,7 @@ export default function HomePage() {
       return (
         <EyeEmImage>
           <figure>
-            <Image src={featureImage} alt={"featured eye em"} />
+            <FeaturedImage src={featureImage} alt={"featured eye em"} />
             <Caption>
               <a
                 href="https://www.eyeem.com/u/laudebugs"
@@ -121,6 +121,7 @@ export default function HomePage() {
   const renderPosts = () => {
     if (isLoading) return <p>Loading...</p>;
 
+    console.log(!!posts[0].fields.description);
     return posts.slice(0, 10).map((post) => (
       <div className="postFrame">
         <ImageFrame>
@@ -129,10 +130,13 @@ export default function HomePage() {
             alt={post.fields.title}
           />
         </ImageFrame>
+
         <PostData>
           <Link
             key={"/writing/" + post.fields.slug}
-            to={"/writing/" + post.fields.slug}
+            to={`${
+              post.sys.contentType.sys.id === "project" ? "/dev/" : "/writing/"
+            }${post.fields.slug}`}
             className="preview"
           >
             <Title>{post.fields.title}</Title>
@@ -143,13 +147,17 @@ export default function HomePage() {
                 alt={post.fields.title}
               />
             </PhoneImage>
-            <PostPreview
-              dangerouslySetInnerHTML={{
-                __html:
-                  documentToHtmlString(post.fields.body).substring(0, 200) +
-                  "   ... ",
-              }}
-            ></PostPreview>
+            {!!post.fields.description ? (
+              <PostPreview>{post.fields.description}</PostPreview>
+            ) : (
+              <PostPreview
+                dangerouslySetInnerHTML={{
+                  __html:
+                    documentToHtmlString(post.fields.body).substring(0, 200) +
+                    "   ... ",
+                }}
+              ></PostPreview>
+            )}
           </Link>
         </PostData>
 

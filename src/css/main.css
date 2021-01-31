@@ -173,6 +173,10 @@ table {
   font-family: "Crafter";
   src: url("./fonts/Crafter/Crafter-Regular.otf");
 }
+@font-face {
+  font-family: "Cascadia Code";
+  src: url("./fonts/CascadiaCode/ttf/CascadiaCode.ttf");
+}
 
 .specialChar {
   font-family: "Whirly Bats";
@@ -190,8 +194,8 @@ html {
 }
 body {
   font-family: adobe-caslon-pro, serif;
-  background-color: #e8e8e8;
-  color: #47261b;
+  background-color: #fff2eb;
+  color: #735240;
   font-size: 24px;
   padding: 0.75% 7.5% 0 7.5%;
 }
@@ -560,39 +564,7 @@ div.projectStack {
   color: #f8f9f0;
   border-radius: 5px;
 }
-/* Dev
-----------*/
-div.devframe {
-  width: 60%;
-}
-div.devframe h2 {
-  float: left;
-  width: 100%;
-}
-div.singleDevPost {
-  padding: 5% 10% 5% 10%;
-}
-div.singleDevPost img {
-  width: 70%;
-}
-div.devBody code {
-  font-size: 50%;
-}
-div.devDescription {
-  height: 50vh;
-  background-size: 40%;
-  background-repeat: no-repeat;
-  background-position: right;
-}
-div.devDescription h1 {
-  font-size: 400%;
-}
-div.devBody {
-  padding: 5% 15% 0 15%;
-}
-div.devPosts {
-  padding: 2.5% 10% 5% 10%;
-}
+
 /*  Misceleneous
 ------------------*/
 h3.title {
@@ -689,28 +661,6 @@ div.sharable {
   }
   .latestposts div.postlist {
     width: 100%;
-  }
-
-  div.devframe {
-    width: 100%;
-  }
-  div.singleDevPost {
-    padding: 5%;
-  }
-  div.devDescription {
-    height: 50vh;
-    background-size: 40%;
-    background-repeat: no-repeat;
-    background-position: right;
-  }
-  div.devBody {
-    padding: 5%;
-  }
-  div.devBody p {
-    width: 100%;
-  }
-  div.devBody {
-    padding: 5% 2.5% 0 2.5%;
   }
 }
 @media (max-width: 850px) {
@@ -814,7 +764,8 @@ div.sharable {
   }
 }
 code {
-  font-family: monospace;
+  /* font-family: monospace; */
+  /* font-family: "Cascadia Code"; */
   font-size: 10pt;
 }
 

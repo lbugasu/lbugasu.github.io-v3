@@ -58,11 +58,8 @@ export default function PostPage() {
     width: 100%;
   `;
   const Content = styled.div`
-    @media only screen and (max-width: 1200px) {
-      font-size: 300%;
-    }
     @media only screen and (max-width: 900px) {
-      font-size: 150%;
+      font-size: 100%;
     }
     @media only screen and (max-width: 600px) {
       font-size: 75%;
@@ -81,7 +78,6 @@ export default function PostPage() {
           <Title> {post.title} </Title>
           <Date>{readableDate(post.date)}</Date>
           <p>{post.description}</p>
-
           <Image src={post.feature_image.fields.file.url}></Image>
 
           <Content

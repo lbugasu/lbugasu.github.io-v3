@@ -8,46 +8,14 @@ import { readableDate } from "../components/helpers";
 // import components
 import MainHeader from "../components/MainHeader";
 import ReactMarkdown from "react-markdown";
-
+import styled from "styled-components";
 // Syntax higlighter highlights syntax for code blocks
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
-  dark,
-  materialOceanic,
-  synthwave84,
-  materialLight,
-  duotoneDark,
-  duotoneEarth,
-  duotoneForest,
-  shadesOfPurple,
-  duotoneLight,
-  duotoneSea,
-  duotoneSpace,
-  nord,
-  ghcolors,
   prism,
-  okaidia,
-  funky,
-  coldarkDark,
-  coldarkCold,
-  vs,
-  vscDarkPlus,
-  pojoaque,
-  tomorrow,
+  synthwave84,
 } from "react-syntax-highlighter/dist/esm/styles/prism/";
-import {
-  gradientDark,
-  gradientLight,
-  zenburn,
-  ocean,
-  dracula,
-  xcode,
-  tomorrowNightEighties,
-  tomorrowNightBlue,
-  atelierSulphurpoolLight,
-  atomOneLight,
-  vs2015,
-} from "react-syntax-highlighter/dist/esm/styles/hljs/";
+import "./Style.css";
 const gfm = require("remark-gfm");
 
 /**
@@ -60,6 +28,72 @@ const PostImage = ({ alt, url }) => (
     <img className="image" src={url} alt={alt}></img>
   </div>
 );
+
+const Side = styled.div`
+  vertical-align: top;
+  width: 20%;
+  display: inline-block;
+  margin-top: 2%;
+  ${"" /* TODO: Add responsiveness here */}
+  @media only screen and (max-width: 1200px) {
+    width: 10%;
+  }
+  @media only screen and (max-width: 900px) {
+    display: none;
+  }
+`;
+const Body = styled.div`
+  width: 60%;
+  display: inline-block;
+  @media only screen and (max-width: 1200px) {
+    width: 90%;
+  }
+  @media only screen and (max-width: 900px) {
+    width: 100%;
+  }
+`;
+const Date = styled.small`
+  display: none;
+  @media only screen and (max-width: 900px) {
+    display: inline-block;
+    font-size: 50%;
+  }
+`;
+const Title = styled.h1`
+  font-size: 500%;
+  padding-top: 2.5;
+  @media only screen and (max-width: 1200px) {
+    font-size: 400%;
+  }
+  @media only screen and (max-width: 900px) {
+    font-size: 200%;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 150%;
+  }
+`;
+const Image = styled.img`
+  width: 100%;
+`;
+const Content = styled.div`
+  @media only screen and (max-width: 900px) {
+    font-size: 100%;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 75%;
+  }
+`;
+const Aside = styled.aside`
+  font-size: 14pt;
+  border-left: 2px solid #735240;
+  background-color: #f7e4d7;
+  padding: 1%;
+  margin-bottom: 1%;
+  @media only screen and (max-width: 600px) {
+    font-size: 12pt;
+  }
+`;
+const codeStyle = {};
 export default function PostPage() {
   const { id } = useParams();
   const [post, isLoading] = useSingleExperiment(id);
@@ -75,12 +109,12 @@ export default function PostPage() {
 
   const renderPost = () => {
     if (isLoading) return <p>Loading...</p>;
-
     const renderers = {
       code: ({ language, value }) => {
         return (
           <SyntaxHighlighter
-            style={prism}
+            style={synthwave84}
+            customStyle={{ fontSize: "1em" }}
             wrapLongLines={true}
             language={language}
             children={value}
@@ -104,20 +138,18 @@ export default function PostPage() {
     return (
       <>
         <MainHeader />
-        <div className="singleDevPost">
-          <br />
-          <div
-            className="devDescription"
-            style={{
-              backgroundImage: `url(${post.featureImage.fields.file.url})`,
-            }}
-          >
-            <h1>{post.title}</h1>
-            <small>{readableDate(post.date)}</small>
-          </div>
+        <Side>
+          <small>{readableDate(post.date)}</small>
+        </Side>
 
-          <div className="devBody">{printStuff()}</div>
-        </div>
+        <Body>
+          <Title> {post.title} </Title>
+          <Date>{readableDate(post.date)}</Date>
+          <Aside>{post.description}</Aside>
+          <Image src={post.feature_image.fields.file.url}></Image>
+
+          <Content>{printStuff()}</Content>
+        </Body>
       </>
     );
   };
