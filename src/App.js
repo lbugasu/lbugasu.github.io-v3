@@ -15,6 +15,11 @@ import PostPage from "./pages/PostPage";
 import DevPostPage from "./pages/DevPostPage";
 import Dev from "./pages/Dev";
 import Playground from "./pages/Playground";
+
+import Prism from "prismjs";
+
+Prism.highlightAll();
+
 class App extends Component {
   render() {
     return (

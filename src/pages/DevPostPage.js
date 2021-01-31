@@ -12,9 +12,18 @@ import styled from "styled-components";
 // Syntax higlighter highlights syntax for code blocks
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
+  darcula,
+  ghcolors,
   prism,
   synthwave84,
+  vscDarkPlus,
 } from "react-syntax-highlighter/dist/esm/styles/prism/";
+
+import "./Style.css";
+import { lightfair } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { tomorrowNightEighties } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import Prism from "prismjs";
 import "./Style.css";
 const gfm = require("remark-gfm");
 
@@ -34,7 +43,6 @@ const Side = styled.div`
   width: 20%;
   display: inline-block;
   margin-top: 2%;
-  ${"" /* TODO: Add responsiveness here */}
   @media only screen and (max-width: 1200px) {
     width: 10%;
   }
@@ -113,8 +121,8 @@ export default function PostPage() {
       code: ({ language, value }) => {
         return (
           <SyntaxHighlighter
-            style={synthwave84}
-            customStyle={{ fontSize: "1em" }}
+            useInlineStyles={true}
+            customStyle={{ backgroundColor: "white" }}
             wrapLongLines={true}
             language={language}
             children={value}

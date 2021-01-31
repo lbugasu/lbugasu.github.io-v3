@@ -1,10 +1,10 @@
 import React, { useEffect, useState, setState } from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
 import { useFeed } from "../custom-hooks/";
-
+import { loadFeatureImage } from "./thunks";
 //import components
 import { MainHeader, SecondaryHeader } from "../components";
-
 import { Link } from "react-router-dom";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { readableDate } from "../components/helpers";
@@ -65,29 +65,20 @@ const Caption = styled.figcaption`
   font-style: italic;
   text-align: center;
 `;
-
-export default function HomePage() {
+const Tag = styled.span`
+  padding: 1%;
+  font-size: 14pt;
+  @media only screen and (max-width: 600px) {
+    font-size: 12pt;
+  }
+`;
+const HomePage = (startLoadingFeaturedImage) => {
   const [posts, isLoading] = usePosts();
   const [featureImage, setImageLink] = useState();
   const [loadingImage, setLoadingImageStatus] = useState(true);
+  const [tags, setTags] = useState([]);
   useEffect(() => {
-    const image = fetch(
-      "https://lbugasu-cors-proxy.herokuapp.com/https://laudebugs-api.herokuapp.com/randomImage",
-      {
-        method: "GET",
-        mode: "cors",
-        cache: "no-cache",
-        credentials: "same-origin",
-      }
-    );
-    image.then((response) => {
-      response.json().then((result) => {
-        console.log(result);
-        setImageLink(result.link);
-        setLoadingImageStatus(false);
-        console.log(featureImage);
-      });
-    });
+    startLoadingFeaturedImage();
   }, []);
 
   const FeatureImage = () => {
@@ -121,7 +112,14 @@ export default function HomePage() {
   const renderPosts = () => {
     if (isLoading) return <p>Loading...</p>;
 
-    console.log(!!posts[0].fields.description);
+    const showTags = (tagList) => {
+      return tagList.map(function (tag, i) {
+        if (!tags.includes(tag)) {
+          setTags([...tags, tag]);
+        }
+        return <Tag className={`tag ${tag}`}>{tag}</Tag>;
+      });
+    };
     return posts.slice(0, 10).map((post) => (
       <div className="postFrame">
         <ImageFrame>
@@ -141,6 +139,7 @@ export default function HomePage() {
           >
             <Title>{post.fields.title}</Title>
             <Small>{readableDate(post.fields.date)}</Small>
+            {showTags(post.fields.tags)}
             <PhoneImage>
               <Image
                 src={post.fields.feature_image.fields.file.url}
@@ -226,4 +225,11 @@ export default function HomePage() {
       {/* <Footer /> */}
     </Home>
   );
-}
+};
+const mapStateToProps = (state) => ({
+  featuredImage: state.featuredImage,
+});
+const mapDispatchToProps = (dispatch) => ({
+  startLoadingFeaturedImage: () => dispatch(loadFeatureImage),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage());
