@@ -221,7 +221,7 @@ p {
   margin: 1% 0 1% 0;
 }
 h3 {
-  color: #c07a35;
+  color: #885725;
 }
 /* Home page
 -------------*/
@@ -323,47 +323,6 @@ div.menuoptions h2 {
   display: inline-block;
   width: 25%;
   text-align: center;
-}
-/* postFrame
--------------*/
-div.postFrame {
-  /* width: 60%; */
-  /* padding: 1.5%; */
-  padding-bottom: 5%;
-}
-.postFrame a:hover {
-  text-decoration: none;
-}
-div.postPreview span {
-  font-size: 75%;
-}
-hr.divider {
-  width: 75%;
-  float: left;
-  border: none;
-  height: 1px;
-  display: block;
-  /* Set the hr color */
-  color: #47261b; /* old IE */
-  background-color: #47261b; /* Modern Browsers */
-}
-div.postitem {
-  width: 46%;
-  display: inline-block;
-  margin: 0.75%;
-  padding: 0.75%;
-  /* border: 1px solid #c07a35; */
-  background-color: #efebeb;
-  border-radius: 20px;
-  vertical-align: top;
-}
-div.postitem img {
-  width: 30%;
-  float: right;
-}
-.postitem h1 {
-  font-weight: 600;
-  font-size: 125%;
 }
 
 /* Writing Section Page

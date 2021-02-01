@@ -2,9 +2,12 @@ const client = require("contentful").createClient({
   space: "rnmht6wsj5nl",
   accessToken: "_AsjIH6r4ph08uPsSxi_61X8pBSjVP_PSOKOBXpObCM",
 });
-
-const getBlogPosts = () =>
+const getAllPosts = () =>
   client.getEntries().then((response) => response.items);
+const getBlogPosts = () =>
+  client
+    .getEntries({ content_type: "post" })
+    .then((response) => response.items);
 const getProjects = () =>
   client
     .getEntries({ content_type: "project" })
@@ -30,7 +33,7 @@ const getTaggedPost = (tag) =>
   client
     .getEntries({
       "fields.tags": tag,
-      content_type: "post",
+      content_type: "project",
     })
     .then((response) => response.items);
 
@@ -51,6 +54,7 @@ const getSectionedPosts = (section) =>
 
 export {
   getTaggedPost,
+  getAllPosts,
   getBlogPosts,
   getSinglePost,
   getTaggedPosts,

@@ -6,7 +6,7 @@ import HomePage from "./HomePage";
 import Playground from "./Playground";
 import Writing from "./Writing";
 import WritingSectionPage from "./WritingSectionPage";
-import WritingSubjectPage from "./WritingSubjectPage";
+import TagPage from "./TagPage";
 
 export {
   About,
@@ -17,5 +17,5 @@ export {
   Playground,
   Writing,
   WritingSectionPage,
-  WritingSubjectPage,
+  TagPage,
 };

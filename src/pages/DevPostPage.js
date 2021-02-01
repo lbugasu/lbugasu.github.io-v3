@@ -19,15 +19,14 @@ import {
   vscDarkPlus,
 } from "react-syntax-highlighter/dist/esm/styles/prism/";
 import { CodeBlock } from "../components";
-import "./Style.css";
 import { lightfair } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { tomorrowNightEighties } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import Prism from "prismjs";
+import Prism from "prismjs/components/prism-core";
+
 import { render } from "react-dom";
 import Highlight, { defaultProps } from "prism-react-renderer";
 
-import "./Style.css";
 const gfm = require("remark-gfm");
 
 /**
@@ -109,7 +108,7 @@ export default function PostPage() {
   const { id } = useParams();
   const [post, isLoading] = useSingleExperiment(id);
   useEffect(() => {
-    Prism.highlightAll();
+    // Prism.highlightAll();
   });
   const options = {
     renderNode: {
@@ -127,14 +126,25 @@ export default function PostPage() {
       code: ({ language, value }) => {
         console.log(typeof value);
         return (
-          <>
-            <CodeBlock
-              contenteditable={true}
-              code={value.trim()}
-              plugins={["line-numbers", "show-language"]}
-              language={language}
-            />
-          </>
+          <Highlight
+            {...defaultProps}
+            code={value}
+            language={language}
+            theme={undefined}
+            className={"wordwrap"}
+          >
+            {({ className, style, tokens, getLineProps, getTokenProps }) => (
+              <pre className={className + " wordwrap"} style={style}>
+                {tokens.map((line, i) => (
+                  <div {...getLineProps({ line, key: i })}>
+                    {line.map((token, key) => (
+                      <span {...getTokenProps({ token, key })} />
+                    ))}
+                  </div>
+                ))}
+              </pre>
+            )}
+          </Highlight>
         );
       },
     };

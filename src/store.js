@@ -5,9 +5,9 @@ import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import { featuredImage } from "./pages/reducers";
+import { featuredImage, posts, tags } from "./state/reducers";
 
-const reducers = { featuredImage };
+const reducers = { featuredImage, posts, tags };
 
 const persistConfig = {
   key: "root",

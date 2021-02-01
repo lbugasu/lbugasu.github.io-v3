@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-import { getBlogPosts } from "../contentful";
+import { getAllPosts } from "../contentful";
 
-const promise = getBlogPosts();
+const promise = getAllPosts();
 
 export default function usePosts() {
   const [posts, setPosts] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    promise.then((blogPosts) => {
-      console.log(blogPosts);
-      const posts = blogPosts.sort(function (a, b) {
+    promise.then((allPosts) => {
+      const posts = allPosts.sort(function (a, b) {
         return new Date(b.fields.date) - new Date(a.fields.date);
       });
 
