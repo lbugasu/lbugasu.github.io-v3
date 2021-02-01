@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import $ from "jquery";
 
 const MainHeader = () => {
   const Header = styled.div`
@@ -43,7 +44,16 @@ const MainHeader = () => {
         <Link to="/">LAURENCE ININDA</Link>
       </Title>
       <Menu>
-        <span className="specialChar ">I</span>
+        <span
+          onClick={() => {
+            let menu = document.querySelector("div.mainmenu");
+            console.log(menu);
+            $(menu).css("display", "block");
+          }}
+          className="specialChar showHover"
+        >
+          I
+        </span>
       </Menu>
     </Header>
   );

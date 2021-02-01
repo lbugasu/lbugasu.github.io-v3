@@ -7,7 +7,7 @@ import {
   POSTS_LOADING_FAILURE,
   GET_TAGS,
 } from "./actions";
-
+import shuffleArray from "../components/helpers";
 const initialState = {
   featuredImage: "",
   featuredImageLoaded: false,
@@ -67,9 +67,9 @@ export const posts = (state = initialState, action) => {
         "--vivid-sky-blue",
         "--plum:",
       ];
+      shuffleArray(colors);
       let tagsList = [];
       posts.map((post) => {
-        console.log(post.fields.tags);
         let postTags = post.fields.tags;
         postTags.map((tag) => {
           let currentTag = tagsList.find((tagObj) => tagObj.tag === tag);
@@ -83,7 +83,6 @@ export const posts = (state = initialState, action) => {
       tagsList.map((tag, i) => {
         tag.color = colors[i % colors.length];
       });
-      console.log(tagsList);
       return {
         ...state,
         posts: posts,

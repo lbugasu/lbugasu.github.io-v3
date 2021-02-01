@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { readableDate } from "../components/helpers";
 
 import { WritingFooter, MainHeader } from "../components";
 import { getPosts } from "../state/selectors";
@@ -27,7 +25,22 @@ const Hr = styled.hr`
   background-color: #47261b;
   width: 60%;
 `;
-
+const PostsFrame = styled.div`
+  padding: 0 17.5% 0 17.5%;
+  width: 65%;
+  @media only screen and (max-width: 1200px) {
+    padding: 0 15% 0 15%;
+    width: 70%;
+  }
+  @media only screen and (max-width: 900px) {
+    padding: 0 7.5% 0 75%;
+    width: 85%;
+  }
+  @media only screen and (max-width: 600px) {
+    padding: 0 2.5% 0 2.5%;
+    width: 95%;
+  }
+`;
 const TagPage = ({ posts }) => {
   const { subject } = useParams();
   let taggedPosts = posts.filter(
@@ -35,7 +48,9 @@ const TagPage = ({ posts }) => {
   );
 
   const renderPage = () => {
-    return taggedPosts.map((post) => <PostPreview post={post} />);
+    return taggedPosts.map((post, i) => (
+      <PostPreview post={post} divider={i !== taggedPosts.length - 1} />
+    ));
   };
 
   return (
@@ -43,7 +58,7 @@ const TagPage = ({ posts }) => {
       <MainHeader />
       <TagTitle>{subject}</TagTitle>
       <Hr />
-      {renderPage()}
+      <PostsFrame>{renderPage()}</PostsFrame>
       <WritingFooter />
     </>
   );

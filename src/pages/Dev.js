@@ -14,7 +14,7 @@ export default function Experiments() {
     if (isLoading) return <p>Loading...</p>;
     return projects.map((project) => (
       <div className="devframe">
-        <h2 >{project.fields.title}</h2>
+        <h2>{project.fields.title}</h2>
 
         <small style={{ fontSize: "16pt" }}>
           {readableDate(project.fields.date)}

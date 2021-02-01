@@ -23,9 +23,10 @@ const SecondaryHeader = () => {
     }
   `;
   return (
-    <Menu>
-      <Link to="/writing-section/poetry">POETRY</Link> • <Link>FICTION</Link> •{" "}
-      <Link>DEV</Link> • <Link>VAULT</Link>
+    <Menu className="showHover">
+      <Link to="/section/poetry">POETRY</Link> •{" "}
+      <Link to="/section/fiction">FICTION</Link> •{" "}
+      <Link to="/section/dev">DEV</Link> • <Link to="/vault">VAULT</Link>
     </Menu>
   );
 };

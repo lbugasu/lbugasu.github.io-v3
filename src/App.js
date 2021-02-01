@@ -11,15 +11,19 @@ import "./css/palette.css";
 import "./css/CodeBlock.css";
 
 // import components
-import About from "./pages/About.js";
-import HomePage from "./pages/HomePage";
-import WritingSectionPage from "./pages/WritingSectionPage";
-import TagPage from "./pages/TagPage";
-import Blog from "./pages/Blog";
-import PostPage from "./pages/PostPage";
-import DevPostPage from "./pages/DevPostPage";
-import Dev from "./pages/Dev";
-import Playground from "./pages/Playground";
+import {
+  About,
+  Blog,
+  Dev,
+  DevPostPage,
+  HomePage,
+  Playground,
+  PostPage,
+  SectionPage,
+  TagPage,
+} from "./pages";
+
+import { Menu } from "./components";
 
 const App = ({ posts, startLoadingPosts, generateTags }) => {
   useEffect(() => {
@@ -36,13 +40,14 @@ const App = ({ posts, startLoadingPosts, generateTags }) => {
   });
   return (
     <Router>
+      <Menu />
       <Route path="/" component={HomePage} exact />
       <Route path="/about" component={About} exact />
       <Route path="/tag/:subject" component={TagPage} />
       <Route path="/writing/:id" component={PostPage} />
       <Route path="/blog" component={Blog} exact />
 
-      <Route path="/writing-section/:section" component={WritingSectionPage} />
+      <Route path="/section/:section" component={SectionPage} />
       <Route path="/dev" component={Dev} exact />
       <Route path="/playground" component={Playground} exact />
 

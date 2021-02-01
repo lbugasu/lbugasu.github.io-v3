@@ -54,9 +54,9 @@ const HomePage = ({ posts, featuredImage, startLoadingFeaturedImage }) => {
   const renderPosts = () => {
     if (posts.postsLoading) return <p>Loading...</p>;
 
-    return posts.posts.slice(0, 10).map((singlePost) => (
+    return posts.posts.slice(0, 7).map((singlePost, i) => (
       <>
-        <PostPreview post={singlePost} />
+        <PostPreview post={singlePost} divider={i !== 6} />
       </>
     ));
   };

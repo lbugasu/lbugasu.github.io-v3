@@ -182,6 +182,8 @@ table {
   font-family: "Whirly Bats";
 }
 .specialChar:hover {
+  cursor: pointer;
+  color: #c0092b;
   animation: animateFont 0.75s ease 0s infinite normal none running;
 }
 /* Global declarations
@@ -205,6 +207,9 @@ a {
 }
 a:hover {
   text-decoration: none;
+}
+.showHover a:hover {
+  color: #c0092b;
 }
 h1 {
   font-family: "Etoile";

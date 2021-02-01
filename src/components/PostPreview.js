@@ -7,11 +7,19 @@ import { connect } from "react-redux";
 
 import { getPosts } from "../state/selectors";
 
-const PostPreview = ({ posts, post }) => {
+/**
+ * Takes three props:
+ * posts - the list of posts in the state
+ * post - the post to be displayed
+ * divider - whether or not to display the divider -
+ *         - useful when displaying many posts in a list
+ */
+const PostPreview = ({ posts, post, divider }) => {
   const [postLoaded, setLoading] = useState(false);
   useEffect(() => {
     if (!!post) {
       setLoading(true);
+      console.log(post);
     }
   }, []);
   const showTags = (tagList) => {
@@ -41,7 +49,7 @@ const PostPreview = ({ posts, post }) => {
     return <div></div>;
   } else
     return (
-      <div className="postFrame">
+      <div key={post.fields.slug}>
         <Link
           key={"/writing/" + post.fields.slug}
           to={`${
@@ -95,8 +103,7 @@ const PostPreview = ({ posts, post }) => {
             )}
           </Link>
         </PostData>
-
-        <Hr />
+        {divider ? <Hr /> : <></>}
       </div>
     );
 };
