@@ -10,7 +10,7 @@ import MainHeader from "../components/MainHeader";
 import ReactMarkdown from "react-markdown";
 import styled from "styled-components";
 // Syntax higlighter highlights syntax for code blocks
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import SyntaxHighlighter from "react-syntax-highlighter";
 import {
   darcula,
   ghcolors,
@@ -24,7 +24,6 @@ import { lightfair } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { tomorrowNightEighties } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import Prism from "prismjs";
-
 import { render } from "react-dom";
 import Highlight, { defaultProps } from "prism-react-renderer";
 
