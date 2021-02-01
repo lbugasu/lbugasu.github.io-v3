@@ -72,17 +72,23 @@ const Tag = styled.span`
     font-size: 12pt;
   }
 `;
-const HomePage = ({ startLoadingFeaturedImage }) => {
+const HomePage = ({
+  featuredImage,
+  featuredImageLoaded,
+  startLoadingFeaturedImage,
+}) => {
   const [posts, isLoading] = usePosts();
   const [featureImage, setImageLink] = useState();
   const [loadingImage, setLoadingImageStatus] = useState(true);
   const [tags, setTags] = useState([]);
   useEffect(() => {
     startLoadingFeaturedImage();
-  }, []);
+  }, [startLoadingFeaturedImage]);
 
   const FeatureImage = () => {
-    if (loadingImage)
+    if (!featuredImage.featuredImageLoaded) {
+      console.log(featuredImage.featuredImageLoaded);
+
       return (
         // Default image if api is taking too long to load
         <></>
@@ -91,11 +97,14 @@ const HomePage = ({ startLoadingFeaturedImage }) => {
         //   src="https://lh3.googleusercontent.com/pw/ACtC-3eEjflJHC4Kx8jThjb-Q4a9Tr6V2bjqi8ebd6uOfY_6D6LCITYPw0emLU-3PKk-NgGCFoNP3Uwm336UREWQbSU0N-IgkqAgtaPka4WzFfuziuaDXRa-Xru3GMbahAe56gaagc14C_bo_V-OPHrbPstQvQ=w1266-h949-no"
         // ></Image>
       );
-    else
+    } else
       return (
         <EyeEmImage>
           <figure>
-            <FeaturedImage src={featureImage} alt={"featured eye em"} />
+            <FeaturedImage
+              src={featuredImage.featuredImage}
+              alt={"featured eye em"}
+            />
             <Caption>
               <a
                 href="https://www.eyeem.com/u/laudebugs"
@@ -228,6 +237,7 @@ const HomePage = ({ startLoadingFeaturedImage }) => {
 };
 const mapStateToProps = (state) => ({
   featuredImage: state.featuredImage,
+  featuredImageLoaded: state.featuredImageLoaded,
 });
 const mapDispatchToProps = (dispatch) => ({
   startLoadingFeaturedImage: () => dispatch(loadFeatureImage()),
