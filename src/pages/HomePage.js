@@ -72,7 +72,7 @@ const Tag = styled.span`
     font-size: 12pt;
   }
 `;
-const HomePage = (startLoadingFeaturedImage) => {
+const HomePage = ({ startLoadingFeaturedImage }) => {
   const [posts, isLoading] = usePosts();
   const [featureImage, setImageLink] = useState();
   const [loadingImage, setLoadingImageStatus] = useState(true);
@@ -230,6 +230,6 @@ const mapStateToProps = (state) => ({
   featuredImage: state.featuredImage,
 });
 const mapDispatchToProps = (dispatch) => ({
-  startLoadingFeaturedImage: () => dispatch(loadFeatureImage),
+  startLoadingFeaturedImage: () => dispatch(loadFeatureImage()),
 });
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage());
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

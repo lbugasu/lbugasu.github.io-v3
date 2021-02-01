@@ -1,4 +1,4 @@
 import MainHeader from "./MainHeader";
 import SecondaryHeader from "./SecondaryHeader";
-
-export { MainHeader, SecondaryHeader };
+import CodeBlock from "./CodeBlock";
+export { CodeBlock, MainHeader, SecondaryHeader };

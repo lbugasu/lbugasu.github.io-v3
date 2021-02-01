@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
@@ -18,12 +18,16 @@ import {
   synthwave84,
   vscDarkPlus,
 } from "react-syntax-highlighter/dist/esm/styles/prism/";
-
+import { CodeBlock } from "../components";
 import "./Style.css";
 import { lightfair } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { tomorrowNightEighties } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import Prism from "prismjs";
+
+import { render } from "react-dom";
+import Highlight, { defaultProps } from "prism-react-renderer";
+
 import "./Style.css";
 const gfm = require("remark-gfm");
 
@@ -105,6 +109,9 @@ const codeStyle = {};
 export default function PostPage() {
   const { id } = useParams();
   const [post, isLoading] = useSingleExperiment(id);
+  useEffect(() => {
+    Prism.highlightAll();
+  });
   const options = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
@@ -119,16 +126,16 @@ export default function PostPage() {
     if (isLoading) return <p>Loading...</p>;
     const renderers = {
       code: ({ language, value }) => {
+        console.log(typeof value);
         return (
-          <SyntaxHighlighter
-            useInlineStyles={true}
-            customStyle={{ backgroundColor: "white" }}
-            wrapLongLines={true}
-            language={language}
-            children={value}
-            contentEditable
-            spellcheck="false"
-          />
+          <>
+            <CodeBlock
+              contenteditable={true}
+              code={value.trim()}
+              plugins={["line-numbers", "show-language"]}
+              language={language}
+            />
+          </>
         );
       },
     };
