@@ -5,30 +5,33 @@ import styled from "styled-components";
 import $ from "jquery";
 
 const MainHeader = () => {
+  /**
+   * JQuery function to listen to when a user scrolls
+   */
   useEffect(() => {
     let menuItem = document.getElementById("floating-menu");
     $(window).scroll(function () {
-      // assign scroll event listener
-
       var currentScroll = $(window).scrollTop(); // get current position
-      console.log(menuItem);
-      if (currentScroll >= 200) {
-        menuItem.style.display = "block";
+      // Only show the icon if the window width is greater than 700px
+      if ($(window).width() > 700) {
+        if (currentScroll >= 200) {
+          menuItem.style.visibility = "visible";
 
-        // apply position: fixed if you
-        if (menuItem.classList.contains("fade-out"))
-          $(menuItem).removeClass("fade-out");
-        $(menuItem).addClass("fade-in");
-        menuItem.style.opacity = "1 ";
-      } else {
-        // apply position: static
-        // if you scroll above it
-        if (menuItem.classList.contains("fade-in"))
-          $(menuItem).removeClass("fade-in");
-
-        $(menuItem).addClass("fade-out");
-        menuItem.style.display = "none";
-        menuItem.style.opacity = "0 ";
+          // menuItem.style.display = "block";
+          // apply position: fixed if you
+          if (menuItem.classList.contains("fade-out"))
+            $(menuItem).removeClass("fade-out");
+          $(menuItem).addClass("fade-in");
+          menuItem.style.opacity = "1 ";
+        } else {
+          // apply position: static
+          // if you scroll above it
+          if (menuItem.classList.contains("fade-in"))
+            $(menuItem).removeClass("fade-in");
+          $(menuItem).addClass("fade-out");
+          menuItem.style.opacity = "0 ";
+          menuItem.style.visibility = "hidden";
+        }
       }
     });
   });
@@ -78,7 +81,8 @@ const MainHeader = () => {
     position: fixed;
     float: right;
     padding-right: 8.25%;
-    display: none;
+    visibility: hidden;
+    ${"" /* display: none; */}
     opacity: 0;
   `;
   const FloatingMenu = styled.div`
