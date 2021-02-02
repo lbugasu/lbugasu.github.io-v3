@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
 import { getPosts } from "../state/selectors";
-import { MainHeader, WritingFooter, PostPreview } from "../components/";
+import {
+  MainHeader,
+  WritingFooter,
+  PostPreview,
+  PoetryBanner,
+  DevBanner,
+  FictionBanner,
+} from "../components/";
 
 const SectionPage = ({ posts }) => {
   const { section } = useParams();
@@ -22,7 +29,9 @@ const SectionPage = ({ posts }) => {
   return (
     <div className={section}>
       <MainHeader />
-      <SectionTitle>{section}</SectionTitle>
+      {section === "poetry" ? <PoetryBanner /> : <></>}
+      {section === "dev" ? <DevBanner devPosts={sectionnedPosts} /> : <></>}
+      {section === "fiction" ? <FictionBanner /> : <></>}
       <div>{renderPage()}</div>
       <WritingFooter />
     </div>

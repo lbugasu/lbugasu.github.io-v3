@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import $ from "jquery";
 import styled from "styled-components";
+
 import "../css/Menu.css";
 
 const MenuPage = styled.div`
   display: none;
-  position: fixed;
-  left: ;
+  position: absolute;
+  left: 0;
   top: 0;
   background-color: #fff2eb;
   padding: 0 5% 0 5%;
+  z-index: 11; /* 1px higher than the overlay layer */
 `;
 const Title = styled.div`
   padding: 1% 0 0 2.75%;
@@ -46,6 +48,8 @@ const MenuButton = styled.div`
   }
 `;
 const Menu = () => {
+  useEffect(() => {}, []);
+
   return (
     <MenuPage className="mainmenu">
       <div style={{ verticalAlign: "bottom" }}>
@@ -54,7 +58,7 @@ const Menu = () => {
           class="frame__button"
           onClick={() => {
             let menu = document.querySelector("div.mainmenu");
-            console.log(menu);
+
             $(menu).css("display", "none");
           }}
         >
@@ -64,61 +68,64 @@ const Menu = () => {
 
       <div class="frame">
         <div class="frame__links">
-          <a href="https://tympanus.net/codrops/?p=49748" class="frame__link">
-            Article
-          </a>
           <a
-            href="https://github.com/codrops/ScrollLoopMenu/"
+            href="https://www.instagram.com/laudebugs/"
+            target="_blank"
+            rel="noreferrer"
             class="frame__link"
           >
-            GitHub
+            Instagram
+          </a>
+          <a
+            href="https://twitter.com/lbugasu"
+            target="_blank"
+            rel="noreferrer"
+            class="frame__link"
+          >
+            Twitter
+          </a>
+          <a
+            href="https://www.linkedin.com/in/laurence-ininda/?_l=en_US"
+            target="_blank"
+            rel="noreferrer"
+            class="frame__link"
+          >
+            LinkedIn
           </a>
         </div>
       </div>
-      <nav class="menu">
+      <div class="menu">
         <div class="menu__item">
-          <a class="menu__item-inner">Fascination Street</a>
+          <a class="menu__item-inner">The Year is 2021</a>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">The Last Dance</a>
+          <a class="menu__item-inner">Articles</a>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">Rebel Fantasies</a>
+          <a class="menu__item-inner">Blog progress Updates</a>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">Love Letters to Cipher</a>
+          <a class="menu__item-inner">Letters</a>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">Henry and the Kids</a>
+          <a class="menu__item-inner">About Me</a>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">Downtown Blank</a>
+          <a class="menu__item-inner">Suggestion & Feedback</a>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">Georgetown Blues</a>
+          <a class="menu__item-inner">Get In Touch</a>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">When Alice comes</a>
+          <a class="menu__item-inner">Playlists & More</a>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">A Rabbit's Dream</a>
+          <a class="menu__item-inner">Gallery</a>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">Schizophrenia House</a>
+          <a class="menu__item-inner">Credits</a>
         </div>
-        <div class="menu__item">
-          <a class="menu__item-inner">Foundation Fabrics</a>
-        </div>
-        <div class="menu__item">
-          <a class="menu__item-inner">Whenever Whatever</a>
-        </div>
-        <div class="menu__item">
-          <a class="menu__item-inner">Feathers of Babel</a>
-        </div>
-        <div class="menu__item">
-          <a class="menu__item-inner">Golden Freckles</a>
-        </div>
-      </nav>
+      </div>
     </MenuPage>
   );
 };

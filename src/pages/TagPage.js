@@ -26,18 +26,18 @@ const Hr = styled.hr`
   width: 60%;
 `;
 const PostsFrame = styled.div`
-  padding: 0 17.5% 0 17.5%;
+  margin: 0 17.5% 0 17.5%;
   width: 65%;
   @media only screen and (max-width: 1200px) {
-    padding: 0 15% 0 15%;
+    margin: 0 15% 0 15%;
     width: 70%;
   }
   @media only screen and (max-width: 900px) {
-    padding: 0 7.5% 0 75%;
+    margin: 0 7.5% 0 7.5%;
     width: 85%;
   }
   @media only screen and (max-width: 600px) {
-    padding: 0 2.5% 0 2.5%;
+    margin: 0 2.5% 0 2.5%;
     width: 95%;
   }
 `;

@@ -47,7 +47,6 @@ const MainHeader = () => {
         <span
           onClick={() => {
             let menu = document.querySelector("div.mainmenu");
-            console.log(menu);
             $(menu).css("display", "block");
           }}
           className="specialChar showHover"

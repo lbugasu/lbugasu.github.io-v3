@@ -7,7 +7,7 @@ import {
   POSTS_LOADING_FAILURE,
   GET_TAGS,
 } from "./actions";
-import shuffleArray from "../components/helpers";
+const Funcs = require("../components/helpers");
 const initialState = {
   featuredImage: "",
   featuredImageLoaded: false,
@@ -67,7 +67,7 @@ export const posts = (state = initialState, action) => {
         "--vivid-sky-blue",
         "--plum:",
       ];
-      shuffleArray(colors);
+      Funcs.shuffleArray(colors);
       let tagsList = [];
       posts.map((post) => {
         let postTags = post.fields.tags;

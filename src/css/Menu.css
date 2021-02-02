@@ -46,7 +46,7 @@ div.mainmenu {
   font-weight: 600;
   font-style: italic;
   background: #f0f0f0;
-  width: 85%;
+  width: 100%;
   display: flex;
 }
 .mainmenu .frame__title {
@@ -140,7 +140,7 @@ div.mainmenu {
   height: 100%;
 }
 
-::-webkit-scrollbar {
+.mainmenu ::-webkit-scrollbar {
   display: none;
 }
 

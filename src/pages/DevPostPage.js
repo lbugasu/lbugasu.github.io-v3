@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 
 import { useSingleExperiment } from "../custom-hooks";
@@ -8,23 +7,11 @@ import { readableDate } from "../components/helpers";
 // import components
 import MainHeader from "../components/MainHeader";
 import ReactMarkdown from "react-markdown";
+import { HashLink } from "react-router-hash-link";
 import styled from "styled-components";
 // Syntax higlighter highlights syntax for code blocks
-import SyntaxHighlighter from "react-syntax-highlighter";
-import {
-  darcula,
-  ghcolors,
-  prism,
-  synthwave84,
-  vscDarkPlus,
-} from "react-syntax-highlighter/dist/esm/styles/prism/";
-import { CodeBlock } from "../components";
-import { lightfair } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { tomorrowNightEighties } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import Prism from "prismjs/components/prism-core";
+import markdownHeadings from "markdown-headings";
 
-import { render } from "react-dom";
 import Highlight, { defaultProps } from "prism-react-renderer";
 
 const gfm = require("remark-gfm");
@@ -46,20 +33,24 @@ const Side = styled.div`
   display: inline-block;
   margin-top: 2%;
   @media only screen and (max-width: 1200px) {
-    width: 10%;
+    width: 15%;
   }
   @media only screen and (max-width: 900px) {
     display: none;
   }
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  margin-top: 25%;
 `;
 const Body = styled.div`
   width: 60%;
   display: inline-block;
   @media only screen and (max-width: 1200px) {
-    width: 90%;
+    width: 70%;
   }
   @media only screen and (max-width: 900px) {
-    width: 100%;
+    width: 90%;
   }
 `;
 const Date = styled.small`
@@ -103,13 +94,22 @@ const Aside = styled.aside`
     font-size: 12pt;
   }
 `;
-const codeStyle = {};
+const Hr = styled.hr`
+  display: block;
+  width: 70%;
+  float: left;
+  border: none;
+  height: 0.5px;
+  display: block;
+  /* Set the hr color */
+  color: #47261b; /* old IE */
+  background-color: #bd7d51; /* Modern Browsers */
+`;
 export default function PostPage() {
   const { id } = useParams();
   const [post, isLoading] = useSingleExperiment(id);
-  useEffect(() => {
-    // Prism.highlightAll();
-  });
+  let titles = [];
+
   const options = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
@@ -119,9 +119,30 @@ export default function PostPage() {
       },
     },
   };
-
   const renderPost = () => {
     if (isLoading) return <p>Loading...</p>;
+
+    /**
+     * Get a list of headings on the page
+     */
+    const headings = markdownHeadings(post.body);
+    const showHeadings = () => {
+      return headings.map((heading) => {
+        const level = (heading.match(/#/g) || []).length;
+
+        let text = heading.replace(/#/g, "").trim();
+        console.log(text);
+        const P = styled.p`
+          margin-left: ${7.5 * level}px;
+          font-size: 12pt;
+        `;
+        return (
+          <HashLink smooth to={`#${text.trim().replace(/\s/g, "-")}`}>
+            <P>{text}</P>
+          </HashLink>
+        );
+      });
+    };
     const renderers = {
       code: ({ language, value }) => {
         console.log(typeof value);
@@ -147,9 +168,55 @@ export default function PostPage() {
           </Highlight>
         );
       },
+      heading: (value) => {
+        switch (value.level) {
+          case 1:
+            return (
+              <h1 id={value.node.children[0].value.replace(/\s/g, "-")}>
+                {value.node.children[0].value}
+              </h1>
+            );
+          case 2:
+            return (
+              <h2 id={value.node.children[0].value.replace(/\s/g, "-")}>
+                {value.node.children[0].value}
+              </h2>
+            );
+
+          case 3:
+            return (
+              <h3 id={value.node.children[0].value.replace(/\s/g, "-")}>
+                {value.node.children[0].value}
+              </h3>
+            );
+
+          case 4:
+            return (
+              <h4 id={value.node.children[0].value.replace(/\s/g, "-")}>
+                {value.node.children[0].value}
+              </h4>
+            );
+
+          case 5:
+            return (
+              <h5 id={value.node.children[0].value.replace(/\s/g, "-")}>
+                {value.node.children[0].value}
+              </h5>
+            );
+
+          case 6:
+            return (
+              <h6 id={value.node.children[0].value.replace(/\s/g, "-")}>
+                {value.node.children[0].value}
+              </h6>
+            );
+
+          default:
+        }
+      },
     };
 
-    function printStuff() {
+    function displayPostBody() {
       return (
         <ReactMarkdown
           renderers={renderers}
@@ -162,18 +229,21 @@ export default function PostPage() {
     return (
       <>
         <MainHeader />
-        <Side>
+        <Side className={"headings"}>
           <small>{readableDate(post.date)}</small>
+          <Hr />
+          <p>Contents:</p>
+          <span>{showHeadings()}</span>
         </Side>
-
         <Body>
           <Title> {post.title} </Title>
           <Date>{readableDate(post.date)}</Date>
           <Aside>{post.description}</Aside>
           <Image src={post.feature_image.fields.file.url}></Image>
 
-          <Content>{printStuff()}</Content>
+          <Content>{displayPostBody()}</Content>
         </Body>
+        <Side className={"headings"}></Side>
       </>
     );
   };

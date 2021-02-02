@@ -7,3 +7,7 @@
 - Font used in code: [Cascadia Code](https://github.com/microsoft/cascadia-code)
 
 - For the Infinitely Scrollable menu: [Scroll Loop Menu](https://github.com/codrops/ScrollLoopMenu/)
+
+### Wallpapers
+
+- Fiction Page: [JacquelynClark.com](https://www.jacquelynclark.com/2015/09/21/abstract-art-desktop-wallpaper/)
