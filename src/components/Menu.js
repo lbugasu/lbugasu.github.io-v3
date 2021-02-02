@@ -48,7 +48,17 @@ const MenuButton = styled.div`
   }
 `;
 const Menu = () => {
-  useEffect(() => {}, []);
+  /**
+   * Event listener to close the menu when any link on that page is clicked
+   */
+  useEffect(() => {
+    let menuPage = $(".mainmenu")[0];
+
+    $(menuPage).on("click", function () {
+      let menu = document.querySelector("div.mainmenu");
+      $(menu).css("display", "none");
+    });
+  }, []);
 
   return (
     <MenuPage className="mainmenu">

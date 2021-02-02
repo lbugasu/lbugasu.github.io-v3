@@ -6,6 +6,8 @@ import bg_image from "../../css/images/poetry_bg.jpg";
 const Header = styled.div`
   background-image: url(${bg_image});
   border-radius: 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 /**
  * TODO: Remove the mix-blend-mode whenever there is something else overlaying
