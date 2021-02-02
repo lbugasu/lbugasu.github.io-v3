@@ -1,10 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import styled from "styled-components";
 import $ from "jquery";
 
 const MainHeader = () => {
+  useEffect(() => {
+    let menuItem = document.getElementById("floating-menu");
+    $(window).scroll(function () {
+      // assign scroll event listener
+
+      var currentScroll = $(window).scrollTop(); // get current position
+      console.log(menuItem);
+      if (currentScroll >= 200) {
+        menuItem.style.display = "block";
+
+        // apply position: fixed if you
+        if (menuItem.classList.contains("fade-out"))
+          $(menuItem).removeClass("fade-out");
+        $(menuItem).addClass("fade-in");
+        menuItem.style.opacity = "1 ";
+      } else {
+        // apply position: static
+        // if you scroll above it
+        if (menuItem.classList.contains("fade-in"))
+          $(menuItem).removeClass("fade-in");
+
+        $(menuItem).addClass("fade-out");
+        menuItem.style.display = "none";
+        menuItem.style.opacity = "0 ";
+      }
+    });
+  });
   const Header = styled.div`
     border-bottom: 1px solid #47261b;
   `;
@@ -41,6 +68,7 @@ const MainHeader = () => {
   `;
   const Up = styled.span`
     font-size: 80%;
+    line-height: 12pt;
   `;
   const Floating = styled.div`
     position: -webkit-sticky;
@@ -51,6 +79,7 @@ const MainHeader = () => {
     float: right;
     padding-right: 8.25%;
     display: none;
+    opacity: 0;
   `;
   const FloatingMenu = styled.div`
     display: inline-block;
@@ -64,6 +93,8 @@ const MainHeader = () => {
       font-size: 80%;
     }
   `;
+
+  function handleScroll() {}
   return (
     <>
       <Header id={"up"}>
@@ -82,11 +113,21 @@ const MainHeader = () => {
           </span>
         </Menu>
       </Header>
-      <Floating id={"floating-menu"}>
+      <Floating id="floating-menu" onScroll={handleScroll()}>
         <FloatingMenu>
           <Up>
-            <HashLink smooth to={`#up`}>
-              △{" "}
+            <HashLink
+              smooth
+              to={`#up`}
+              onClick={() => {
+                let menuItem = document.getElementById("floating-menu");
+
+                if (menuItem.classList.contains("fade-in"))
+                  $(menuItem).removeClass("fade-in");
+                menuItem.style.display = "none";
+              }}
+            >
+              ⍙{" "}
             </HashLink>
           </Up>
           <span
