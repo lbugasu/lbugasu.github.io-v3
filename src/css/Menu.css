@@ -12,10 +12,13 @@
   overflow: hidden;
 }
 
+.menu {
+  padding-top: 10vh;
+}
 div.mainmenu {
   --color-text: #111;
   --color-link: #c0092b;
-  --color-bg: #fff;
+  --color-bg: #f0f0f0;
   --color-link-hover: #000;
   --color-menu: #000;
   --color-menu-hover: #c0092b;
@@ -45,8 +48,8 @@ div.mainmenu {
   z-index: 1000;
   font-weight: 600;
   font-style: italic;
-  background: #f0f0f0;
-  width: 100%;
+  background: #fff2eb;
+  width: 90%;
   display: flex;
 }
 .mainmenu .frame__title {
@@ -57,6 +60,7 @@ div.mainmenu {
 .mainmenu .frame__links {
   margin: 0 1rem;
 }
+
 .mainmenu .frame__links a:not(:last-child) {
   margin-right: 1rem;
 }
@@ -173,5 +177,8 @@ div.mainmenu {
   .menu__item-inner {
     padding: 1vh 0;
     font-size: 9.5vh;
+  }
+  .menu {
+    padding-top: 0vh;
   }
 }

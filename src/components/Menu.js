@@ -7,7 +7,7 @@ import "../css/Menu.css";
 
 const MenuPage = styled.div`
   display: none;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   background-color: #fff2eb;
@@ -44,7 +44,7 @@ const MenuButton = styled.div`
     width: 35%;
   }
   @media only screen and (max-width: 600px) {
-    font-size: 80%;background
+    font-size: 80%;
   }
 `;
 const Menu = () => {
@@ -92,6 +92,10 @@ const Menu = () => {
           >
             LinkedIn
           </a>
+          {"|"} &nbsp;<Link to="/section/poetry"> Poetry</Link>
+          <Link to="/section/fiction">Fiction</Link>
+          <Link to="/section/dev">Dev</Link>
+          <Link to="/vault">Vault</Link>
         </div>
       </div>
       <div class="menu">
@@ -111,6 +115,9 @@ const Menu = () => {
           <a class="menu__item-inner">About Me</a>
         </div>
         <div class="menu__item">
+          <a class="menu__item-inner">Work</a>
+        </div>
+        <div class="menu__item">
           <a class="menu__item-inner">Suggestion & Feedback</a>
         </div>
         <div class="menu__item">
@@ -119,6 +126,7 @@ const Menu = () => {
         <div class="menu__item">
           <a class="menu__item-inner">Playlists & More</a>
         </div>
+
         <div class="menu__item">
           <a class="menu__item-inner">Gallery</a>
         </div>

@@ -29,111 +29,25 @@
 
     <script defer>
       $(document).ready(function () {
+        let menuItem = document.getElementById("floating-menu");
+        console.log(menuItem);
+        var fixmeTop = $("#floating-menu").offset().top; // get initial position of the element
+
         $(window).scroll(function () {
-          slideHead();
-        });
+          // assign scroll event listener
 
-        $("document").on(
-          $(".darkMode").click(function (e) {
-            console.log("clicked dark");
-            changeToDark();
-            e.preventDefault();
-          }),
-          $(".lightMode").click(function (e) {
-            console.log("clicked light");
-            changeToLight();
-            e.preventDefault();
-          })
-        );
+          var currentScroll = $(window).scrollTop(); // get current position
+          console.log("scroll: " + currentScroll);
+          if (currentScroll >= 100) {
+            // apply position: fixed if you
+            $(menuItem).css("display", "block");
+          } else {
+            // apply position: static
+            // if you scroll above it
+            $(menuItem).css("display", "block");
+          }
+        });
       });
-      var lightColor = "#f8f9f0";
-      var darkColor = "#402a1e";
-      var lightLogo =
-        "https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/logo-light.png";
-      var darkLogo =
-        "https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/logo.png";
-      var bgDark =
-        "https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/bg_dark.png";
-      var bgLight =
-        "https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/bg_light.png";
-
-      function slideHead() {
-        if (window.pageYOffset > 200) {
-          $("div#scrolling").fadeIn();
-          // $("div#top").fadeOut();
-        } else {
-          $("div#scrolling").fadeOut();
-          // $("div#top").fadeIn();
-        }
-      }
-      function changeToDark() {
-        console.log("changing to dark");
-        $("*").map(function () {
-          if ($(this).css("background-color") === hexToRgb(lightColor)) {
-            $(this).css("background-color", darkColor);
-          }
-          if ($(this).css("color") === hexToRgb(darkColor)) {
-            $(this).css("color", lightColor);
-          }
-        });
-        $(".lightDark").css("border", `${lightColor} 1px solid`);
-        $("div#scrolling").css({
-          color: `${darkColor}`,
-          "background-color": `${lightColor}`,
-        });
-        $("div#scrolling a").css({
-          color: `${darkColor}`,
-        });
-        // change the background images and Logos
-        $("#top img").attr("src", lightLogo);
-        $("#scrolling img").attr("src", darkLogo);
-        $("body").css("background-image", `url(${bgLight}`);
-        $(".seeWork").css({
-          color: "#9f8a78",
-          "background-color": "#f8f9f0",
-        });
-      }
-      function changeToLight() {
-        $("*").map(function () {
-          if ($(this).css("background-color") === hexToRgb(darkColor)) {
-            $(this).css("background-color", lightColor);
-          }
-          if ($(this).css("color") === hexToRgb(lightColor)) {
-            $(this).css("color", darkColor);
-          }
-        });
-        $(".lightDark").css("border", `${darkColor} 1px solid`);
-        $("div#scrolling").css({
-          color: `${lightColor}`,
-          "background-color": `${darkColor}`,
-        });
-        $("div#scrolling a").css({
-          color: `${lightColor}`,
-        });
-        // Change the background images
-        $("#top img").attr("src", darkLogo);
-        $("#scrolling img").attr("src", lightLogo);
-        $("body").css("background-image", `url(${bgDark}`);
-
-        $(".seeWork").css({
-          color: "#f8f9f0",
-          "background-color": "#9f8a78",
-        });
-      }
-      function hexToRgb(hex) {
-        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-
-        // Correct string should be like: "rgb(6, 137, 203)" <-- note the spaces
-        return (
-          "rgb(" +
-          parseInt(result[1], 16) +
-          ", " +
-          parseInt(result[2], 16) +
-          ", " +
-          parseInt(result[3], 16) +
-          ")"
-        );
-      }
     </script>
   </head>
   <body>

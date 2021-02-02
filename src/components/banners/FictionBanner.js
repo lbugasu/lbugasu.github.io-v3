@@ -19,7 +19,7 @@ const H1 = styled.h1`
 const FictionBanner = () => {
   return (
     <Header>
-      <H1>Poetry</H1>
+      <H1>Fiction</H1>
     </Header>
   );
 };
