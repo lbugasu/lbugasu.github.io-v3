@@ -8,6 +8,7 @@
     "@contentful/rich-text-types": "^14.1.2",
     "@testing-library/jest-dom": "^5.11.5",
     "contentful": "^8.1.4",
+    "feed": "^4.2.2",
     "jquery": "^3.5.1",
     "markdown-headings": "^2.0.0",
     "prism-react-renderer": "^1.1.1",
@@ -23,7 +24,9 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "remark-gfm": "^1.0.0",
-    "web-vitals": "^0.2.4"
+    "rss-generator": "0.0.3",
+    "web-vitals": "^0.2.4",
+    "xml-renderer": "^4.0.4"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -20,6 +20,7 @@ import {
   PostPage,
   SectionPage,
   TagPage,
+  RssFeed,
 } from "./pages";
 
 import { Menu } from "./components";
@@ -47,6 +48,7 @@ const App = ({ posts, startLoadingPosts, generateTags }) => {
       <Route path="/section/:section" component={SectionPage} />
       <Route path="/dev/:id" component={DevPostPage} />
       <Route path="/playground" component={Playground} exact />
+      <Route path="/rss" component={RssFeed} exact />
     </Router>
   );
 };

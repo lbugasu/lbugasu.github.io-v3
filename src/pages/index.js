@@ -5,6 +5,7 @@ import Playground from "./Playground";
 import SectionPage from "./SectionPage";
 import TagPage from "./TagPage";
 import PostPage from "./PostPage";
+import RssFeed from "./RssFeed";
 export {
   About,
   DevPostPage,
@@ -13,4 +14,5 @@ export {
   SectionPage,
   PostPage,
   TagPage,
+  RssFeed,
 };

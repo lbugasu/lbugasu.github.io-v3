@@ -17,6 +17,15 @@ const H1 = styled.h1`
   font-size: 600%;
   text-align: center;
   padding: 1%;
+  @media only screen and (max-width: 1200px) {
+    font-size: 450%;
+  }
+  @media only screen and (max-width: 900px) {
+    font-size: 300%;
+  }
+  @media only screen and (max-width: 600px) {
+    font-size: 200%;
+  }
 `;
 const FictionBanner = () => {
   return (

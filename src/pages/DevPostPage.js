@@ -9,9 +9,9 @@ import MainHeader from "../components/MainHeader";
 import ReactMarkdown from "react-markdown";
 import { HashLink } from "react-router-hash-link";
 import styled from "styled-components";
+
 // Syntax higlighter highlights syntax for code blocks
 import markdownHeadings from "markdown-headings";
-
 import Highlight, { defaultProps } from "prism-react-renderer";
 
 const gfm = require("remark-gfm");
@@ -146,7 +146,10 @@ const DevPostPage = ({ posts }) => {
     };
     const renderers = {
       code: ({ language, value }) => {
-        console.log(typeof value);
+        const Pre = styled.pre`
+          width: 100%;
+          word-wrap: break-word;
+        `;
         return (
           <Highlight
             {...defaultProps}
@@ -214,6 +217,30 @@ const DevPostPage = ({ posts }) => {
 
           default:
         }
+      },
+      image: (image) => {
+        const Image = styled.img`
+          width: 100%;
+        `;
+        const Caption = styled.figcaption`
+          font-size: 12pt;
+          text-align: center;
+          font-style: italic;
+        `;
+        return (
+          <figure>
+            <Image src={image.src} />
+            <Caption>{image.alt}</Caption>
+          </figure>
+        );
+      },
+      paragraph: (paragraph) => {
+        const P = styled.p`
+          width: 100%;
+          word-wrap: break-word;
+        `;
+        console.log(paragraph);
+        return <P>{paragraph.children}</P>;
       },
     };
 
