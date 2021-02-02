@@ -89,44 +89,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
 /**
  * Styled components
  */
-const ImageFrame = styled.div`
-  width: 28%;
-  padding: 1%;
-  display: inline-block;
-  vertical-align: top;
-  @media only screen and (max-width: 600px) {
-    display: none;
-  }
-`;
-const PhoneImage = styled.div`
-  width: 100%;
-  padding: 1%;
-  display: none;
-  vertical-align: top;
-  @media only screen and (max-width: 600px) {
-    display: block;
-  }
-`;
+
 const Image = styled.img`
   width: 100%;
 `;
-const PostData = styled.div`
-  width: 68%;
-  margin-left: 1%;
-  display: inline-block;
-  @media only screen and (max-width: 600px) {
-    width: 100%;
-  }
-`;
 
-const Title = styled.h2`
-  @media only screen and (max-width: 600px) {
-    font-size: 75%;
-  }
-`;
-const Small = styled.small`
-  font-size: 12pt;
-`;
 const EyeEmImage = styled.div`
   padding: 10% 2% 0 0;
   height: 100%;

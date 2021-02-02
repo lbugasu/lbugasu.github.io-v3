@@ -108,6 +108,10 @@ const Hr = styled.hr`
 const DevPostPage = ({ posts }) => {
   const { id } = useParams();
 
+  /**
+   * For rendering custom image element inside the block
+   * TODO: This might be useful later
+   */
   const options = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
