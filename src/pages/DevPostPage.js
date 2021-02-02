@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { BLOCKS } from "@contentful/rich-text-types";
-
-import { useSingleExperiment } from "../custom-hooks";
+import { connect } from "react-redux";
+import { getPosts } from "../state/selectors";
 import { readableDate } from "../components/helpers";
 // import components
 import MainHeader from "../components/MainHeader";
@@ -105,10 +105,8 @@ const Hr = styled.hr`
   color: #47261b; /* old IE */
   background-color: #bd7d51; /* Modern Browsers */
 `;
-export default function PostPage() {
+const DevPostPage = ({ posts }) => {
   const { id } = useParams();
-  const [post, isLoading] = useSingleExperiment(id);
-  let titles = [];
 
   const options = {
     renderNode: {
@@ -120,8 +118,8 @@ export default function PostPage() {
     },
   };
   const renderPost = () => {
-    if (isLoading) return <p>Loading...</p>;
-
+    if (!posts.postsLoaded) return <p>Loading...</p>;
+    const post = posts.posts.find((post) => post.fields.slug === id).fields;
     /**
      * Get a list of headings on the page
      */
@@ -131,7 +129,6 @@ export default function PostPage() {
         const level = (heading.match(/#/g) || []).length;
 
         let text = heading.replace(/#/g, "").trim();
-        console.log(text);
         const P = styled.p`
           margin-left: ${7.5 * level}px;
           font-size: 12pt;
@@ -248,4 +245,9 @@ export default function PostPage() {
     );
   };
   return <div>{renderPost()}</div>;
-}
+};
+
+const mapStateToProps = (state) => ({
+  posts: getPosts(state),
+});
+export default connect(mapStateToProps)(DevPostPage);

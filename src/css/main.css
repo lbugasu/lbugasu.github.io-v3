@@ -293,7 +293,7 @@ div.footer {
 }
 div.footer div {
   width: 20%;
-  padding: 0 2.5% 0 2.5%;
+  margin: 0 2% 0 3%;
   display: inline-block;
   vertical-align: top;
 }
@@ -684,48 +684,6 @@ div.sharable {
   }
 }
 @media (max-width: 450px) {
-  :root {
-    --max-height: 25px;
-  }
-  div.logo {
-    width: 40%;
-  }
-  div.menu {
-    width: 100%;
-    text-align: center;
-  }
-  div.logo {
-    width: 100%;
-    text-align: center;
-  }
-
-  .logo img:not(#top) {
-    width: 10%;
-  }
-  div#scrolling div.logo {
-    width: 10%;
-  }
-  div#scrolling div.menu {
-    width: 80%;
-  }
-  span.lightDark {
-    display: inline-block;
-  }
-
-  div.singlePost {
-    width: 40%;
-    margin: 5% 2.5% 2.5% 2.5%;
-    padding: 2%;
-    vertical-align: top;
-    border: 1px solid #402a1e;
-    border-radius: 12px;
-  }
-
-  /* Media: Playlists and podcasts
-  -------------------------------*/
-  div.media {
-    width: 92%;
-  }
 }
 code {
   /* font-family: monospace; */

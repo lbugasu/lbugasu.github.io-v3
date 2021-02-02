@@ -110,38 +110,42 @@ const Menu = () => {
       </div>
       <div class="menu">
         <div class="menu__item">
-          <a class="menu__item-inner">The Year is 2021</a>
+          <Link class="menu__item-inner">The Year is 2021</Link>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">Articles</a>
+          <Link class="menu__item-inner">Articles</Link>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">Blog progress Updates</a>
+          <Link class="menu__item-inner">Blog progress Updates</Link>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">Letters</a>
+          <Link to="/section/letters" class="menu__item-inner">
+            Letters
+          </Link>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">About Me</a>
+          <Link to="/about" class="menu__item-inner">
+            About Me
+          </Link>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">Work</a>
+          <Link class="menu__item-inner">Work</Link>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">Suggestion & Feedback</a>
+          <Link class="menu__item-inner">Suggestion & Feedback</Link>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">Get In Touch</a>
+          <Link class="menu__item-inner">Get In Touch</Link>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">Playlists & More</a>
+          <Link class="menu__item-inner">Playlists & More</Link>
         </div>
 
         <div class="menu__item">
-          <a class="menu__item-inner">Gallery</a>
+          <Link class="menu__item-inner">Gallery</Link>
         </div>
         <div class="menu__item">
-          <a class="menu__item-inner">Credits</a>
+          <Link class="menu__item-inner">Credits</Link>
         </div>
       </div>
     </MenuPage>

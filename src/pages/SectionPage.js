@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import React from "react";
+import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
 
 import { getPosts } from "../state/selectors";
 import {
   MainHeader,
-  WritingFooter,
+  Footer,
   PostPreview,
   PoetryBanner,
   DevBanner,
@@ -20,10 +20,9 @@ const SectionPage = ({ posts }) => {
       return post.fields.section.indexOf(section) !== -1;
     else return false;
   });
-
   const renderPage = () => {
     return sectionnedPosts.map((post, i) => (
-      <PostPreview post={post} divider={i !== posts.length - 1} />
+      <PostPreview post={post} divider={i !== sectionnedPosts.length - 1} />
     ));
   };
   return (
@@ -33,7 +32,7 @@ const SectionPage = ({ posts }) => {
       {section === "dev" ? <DevBanner devPosts={sectionnedPosts} /> : <></>}
       {section === "fiction" ? <FictionBanner /> : <></>}
       <div>{renderPage()}</div>
-      <WritingFooter />
+      <Footer />
     </div>
   );
 };

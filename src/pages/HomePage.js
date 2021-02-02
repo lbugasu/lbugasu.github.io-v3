@@ -1,14 +1,12 @@
-import React, { useEffect, useState, setState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { useFeed } from "../custom-hooks/";
-import { loadFeatureImage } from "../state/thunks";
+
 //import components
 import { MainHeader, SecondaryHeader, PostPreview } from "../components";
-import { Link } from "react-router-dom";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import { readableDate } from "../components/helpers";
+
 import { getTags } from "../state/actions";
+import { loadFeatureImage } from "../state/thunks";
 import { getPosts, getFeatureImage } from "../state/selectors";
 
 const HomePage = ({ posts, featuredImage, startLoadingFeaturedImage }) => {

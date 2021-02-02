@@ -1,11 +1,11 @@
 import React from "react";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { useParams } from "react-router-dom";
+import { connect } from "react-redux";
 import styled from "styled-components";
-import { useSinglePost } from "../custom-hooks";
 import { readableDate } from "../components/helpers";
-import { MainHeader } from "../components";
-import WritingFooter from "../components/WritingFooter";
+import { MainHeader, Footer } from "../components";
+import { getPosts } from "../state/selectors";
 
 const Side = styled.div`
   vertical-align: top;
@@ -61,12 +61,11 @@ const Content = styled.div`
     font-size: 75%;
   }
 `;
-export default function PostPage() {
+const PostPage = ({ posts }) => {
   const { id } = useParams();
-  const [post, isLoading] = useSinglePost(id);
-
   const renderPost = () => {
-    if (isLoading) return <p>Loading...</p>;
+    if (!posts.postsLoaded) return <p>Loading...</p>;
+    const post = posts.posts.find((post) => post.fields.slug === id).fields;
     return (
       <div>
         <MainHeader />
@@ -87,9 +86,13 @@ export default function PostPage() {
           ></Content>
         </Body>
 
-        <WritingFooter />
+        <Footer />
       </div>
     );
   };
   return <div className="post">{renderPost()}</div>;
-}
+};
+const mapStateToProps = (state) => ({
+  posts: getPosts(state),
+});
+export default connect(mapStateToProps)(PostPage);

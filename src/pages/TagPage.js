@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
-import { WritingFooter, MainHeader } from "../components";
+import { Footer, MainHeader } from "../components";
 import { getPosts } from "../state/selectors";
 import { PostPreview } from "../components/";
 const TagTitle = styled.h1`
@@ -59,7 +59,7 @@ const TagPage = ({ posts }) => {
       <TagTitle>{subject}</TagTitle>
       <Hr />
       <PostsFrame>{renderPage()}</PostsFrame>
-      <WritingFooter />
+      <Footer />
     </>
   );
 };

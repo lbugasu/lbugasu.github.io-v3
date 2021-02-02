@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { loadPosts } from "./state/thunks";
 import { getTags } from "./state/actions";
 import { getPosts } from "./state/selectors";
+
 //import css
 import "./css/main.css";
 import "./css/palette.css";
@@ -13,8 +14,6 @@ import "./css/CodeBlock.css";
 // import components
 import {
   About,
-  Blog,
-  Dev,
   DevPostPage,
   HomePage,
   Playground,
@@ -45,13 +44,9 @@ const App = ({ posts, startLoadingPosts, generateTags }) => {
       <Route path="/about" component={About} exact />
       <Route path="/tag/:subject" component={TagPage} />
       <Route path="/writing/:id" component={PostPage} />
-      <Route path="/blog" component={Blog} exact />
-
       <Route path="/section/:section" component={SectionPage} />
-      <Route path="/dev" component={Dev} exact />
-      <Route path="/playground" component={Playground} exact />
-
       <Route path="/dev/:id" component={DevPostPage} />
+      <Route path="/playground" component={Playground} exact />
     </Router>
   );
 };
