@@ -4,8 +4,9 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import { connect } from "react-redux";
 import { getPosts } from "../state/selectors";
 import { readableDate } from "../components/helpers";
+
 // import components
-import MainHeader from "../components/MainHeader";
+import { MainHeader, LikeButton } from "../components";
 import ReactMarkdown from "react-markdown";
 import { HashLink } from "react-router-hash-link";
 import styled from "styled-components";
@@ -253,7 +254,6 @@ const DevPostPage = ({ posts }) => {
         ></ReactMarkdown>
       );
     }
-    // console.log(post.body);
     return (
       <>
         <MainHeader />
@@ -268,10 +268,11 @@ const DevPostPage = ({ posts }) => {
           <Date>{readableDate(post.date)}</Date>
           <Aside>{post.description}</Aside>
           <Image src={post.feature_image.fields.file.url}></Image>
-
           <Content>{displayPostBody()}</Content>
         </Body>
-        <Side className={"headings"}></Side>
+        <Side className={"headings"}>
+          <LikeButton slug={post.slug} />
+        </Side>
       </>
     );
   };

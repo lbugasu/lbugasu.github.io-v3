@@ -11,6 +11,7 @@ import Misc from "./Misc";
 import PoetryBanner from "./banners/PoetryBanner";
 import DevBanner from "./banners/DevBanner";
 import FictionBanner from "./banners/FictionBanner";
+import LikeButton from "./LikeButton";
 export {
   CodeBlock,
   MainHeader,
@@ -25,4 +26,5 @@ export {
   AboutMe,
   Work,
   Misc,
+  LikeButton,
 };

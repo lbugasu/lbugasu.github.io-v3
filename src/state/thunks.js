@@ -89,6 +89,7 @@ export const loadPostsData = () => (dispatch, getState) => {
  * Whenever a user sends a like to a post
  */
 export const sendLike = (slug) => async (dispatch, getState) => {
+  console.log(slug);
   dispatch(sendPostLikeInProgress);
   try {
     const options = {
@@ -96,11 +97,16 @@ export const sendLike = (slug) => async (dispatch, getState) => {
       body: JSON.stringify({
         slug: slug,
       }),
+      mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
       },
     };
     let request = await fetch(`${endpoint}/like`, options);
+    console.log(request);
+    let result = await request.json();
+    console.log(result);
+
     if (request.saved === true) {
       dispatch(sendPostLikeSuccess);
     } else {
