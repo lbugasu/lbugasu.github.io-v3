@@ -5,9 +5,27 @@ import {
   postsLoadingInProgress,
   postsLoadingSuccess,
   postsLoadingFailure,
+  loadingAllPostDataInProgress,
+  loadingAllPostDataFailure,
+  loadingAllPostDataSuccess,
+  loadPostLikesInProgress,
+  loadPostLikesSuccess,
+  loadPostLikesFailure,
+  sendPostLikeInProgress,
+  sendPostLikeSuccess,
+  sendPostLikeFailure,
+  sendPostCommentInProgress,
+  sendPostCommentSuccess,
+  sendPostCommentFailure,
+  loadPostCommentsInProgress,
+  loadPostCommentsSuccess,
+  loadPostCommentsFailure,
 } from "./actions";
 
 import { getAllPosts } from "../contentful";
+
+// API endpoint
+let endpoint = "http://ec2-3-19-54-69.us-east-2.compute.amazonaws.com";
 
 export const loadFeatureImage = () => (dispatch, getState) => {
   dispatch(getFeatureImageInProgress());
@@ -44,7 +62,7 @@ export const loadPosts = () => (dispatch, getState) => {
       });
       posts.map((post) => {
         const url = post.fields.feature_image.fields.file.url;
-        post.fields.feature_image.fields.file.url = "https://" + url;
+        post.fields.feature_image.fields.file.url = url;
       });
       dispatch(postsLoadingSuccess(posts));
     });
@@ -58,22 +76,92 @@ export const loadPosts = () => (dispatch, getState) => {
   }
 };
 
+export const loadPostsData = () => (dispatch, getState) => {
+  dispatch(loadingAllPostDataInProgress);
+  try {
+    let request = fetch(`${endpoint}/allpostdata `);
+    dispatch(loadingAllPostDataSuccess(request.likes));
+  } catch (error) {
+    dispatch(loadingAllPostDataFailure);
+  }
+};
 /**
  * Whenever a user sends a like to a post
  */
-export const sendLike = () => (dispatch, getState) => {};
+export const sendLike = (slug) => async (dispatch, getState) => {
+  dispatch(sendPostLikeInProgress);
+  try {
+    const options = {
+      method: "POST",
+      body: JSON.stringify({
+        slug: slug,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    let request = await fetch(`${endpoint}/like`, options);
+    if (request.saved === true) {
+      dispatch(sendPostLikeSuccess);
+    } else {
+      dispatch(sendPostLikeFailure);
+    }
+  } catch (error) {
+    dispatch(sendPostLikeFailure);
+  }
+};
 
 /**
  * Whenever a user posts a comment to a post
  */
-export const sendComment = () => (dispatch, getState) => {};
+export const sendComment = (comment) => async (dispatch, getState) => {
+  dispatch(sendPostCommentInProgress);
+  try {
+    const options = {
+      method: "POST",
+      body: JSON.stringify({
+        slug: comment.slug,
+        email: comment.email,
+        name: comment.name,
+        comment: comment,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    let request = await fetch(`${endpoint}/comment`, options);
+    if (request.saved === true) {
+      dispatch(sendPostCommentSuccess);
+    } else {
+      dispatch(sendPostCommentFailure);
+    }
+  } catch (error) {
+    dispatch(sendPostCommentFailure);
+  }
+};
 
 /**
  * Get the likes of a post
  */
-export const getLikes = () => (dispatch, getState) => {};
+export const getLikes = (slug) => (dispatch, getState) => {
+  dispatch(loadPostLikesInProgress);
+  try {
+    let request = fetch(`${endpoint}/likes/${slug}`);
+    dispatch(loadPostLikesSuccess(request.likes));
+  } catch (error) {
+    dispatch(loadPostLikesFailure);
+  }
+};
 
 /**
  * Get the comments of a post
  */
-export const getComments = () => (dispatch, getState) => {};
+export const getComments = (slug) => async (dispatch, getState) => {
+  dispatch(loadPostCommentsInProgress);
+  try {
+    let request = fetch(`${endpoint}/comments/${slug}`);
+    dispatch(loadPostCommentsSuccess(request.comments));
+  } catch (error) {
+    dispatch(loadPostCommentsFailure);
+  }
+};

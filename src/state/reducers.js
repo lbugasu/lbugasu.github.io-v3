@@ -6,6 +6,21 @@ import {
   POSTS_LOADING_SUCCESS,
   POSTS_LOADING_FAILURE,
   GET_TAGS,
+  LOADING_ALL_POST_DATA_IN_PROGRESS,
+  LOADING_ALL_POST_DATA_SUCCESS,
+  LOADING_ALL_POST_DATA_FAILURE,
+  LOAD_POST_LIKES_IN_PROGRESS,
+  LOAD_POST_LIKES_SUCCESS,
+  LOAD_POST_LIKES_FAILURE,
+  SEND_POST_COMMENT_IN_PROGRESS,
+  SEND_POST_COMMENT_SUCCESS,
+  SEND_POST_COMMENT_FAILURE,
+  SEND_POST_LIKE_IN_PROGRESS,
+  SEND_POST_LIKE_SUCCESS,
+  SEND_POST_LIKE_FAILURE,
+  LOAD_POST_COMMENTS_IN_PROGRESS,
+  LOAD_POST_COMMENTS_SUCCESS,
+  LOAD_POST_COMMENTS_FAILURE,
 } from "./actions";
 const Funcs = require("../components/helpers");
 const initialState = {
@@ -16,6 +31,15 @@ const initialState = {
   postsLoaded: false,
   postsLoading: false,
   tags: [],
+  commentLoading: false,
+  commentsLoaded: false,
+  postsDataLoading: false,
+  postCommentsLoading: false,
+  postLikesLoading: false,
+  likeInProgress: false,
+  likeSuccess: false,
+  commentInProgress: false,
+  commentSuccess: false,
 };
 
 export const posts = (state = initialState, action) => {
@@ -95,6 +119,130 @@ export const posts = (state = initialState, action) => {
         ...state,
         postsLoaded: false,
         postsLoading: false,
+      };
+    case LOADING_ALL_POST_DATA_IN_PROGRESS:
+      return {
+        ...state,
+        postsDataLoading: false,
+      };
+    // will load all the likes
+    case LOADING_ALL_POST_DATA_SUCCESS:
+      const data = payload;
+      /**
+       * map all the likes to each podcast
+       * the podcasts returned will only contain
+       * podcasts in the database
+       */
+      let tempPosts = [...state.posts];
+      data.map((post) => {
+        let thisPostIndex = tempPosts.findIndex(
+          (p) => p.slug === post.fields.slug
+        );
+        if (thisPostIndex >= 0) {
+          tempPosts[thisPostIndex] = {
+            ...tempPosts[thisPostIndex],
+            likes: post.likes,
+            likesLoaded: true,
+          };
+        }
+      });
+      return {
+        ...state,
+        posts: tempPosts,
+        postsDataLoading: false,
+      };
+
+    case LOADING_ALL_POST_DATA_FAILURE:
+      return {
+        ...state,
+        postsDataLoading: false,
+      };
+    case LOAD_POST_LIKES_IN_PROGRESS:
+      return {
+        ...state,
+        postLikesLoading: true,
+      };
+    case LOAD_POST_LIKES_SUCCESS:
+      const postData = payload;
+      const postIndex = state.posts.findIndex(
+        (post) => post.fields.slug === postData.slug
+      );
+      const thisPost = state.posts[postIndex];
+      thisPost.likes = postData.likes;
+      thisPost.likesLoaded = true;
+      const tempPostsData = [...state.posts];
+      tempPostsData[postIndex] = thisPost;
+
+      return {
+        ...state,
+        posts: tempPostsData,
+        postLikesLoading: false,
+      };
+    case LOAD_POST_LIKES_FAILURE:
+      return {
+        ...state,
+        postLikesLoading: false,
+      };
+
+    // COMMENTING
+    case SEND_POST_COMMENT_IN_PROGRESS:
+      return {
+        ...state,
+        commentInProgress: true,
+      };
+    case SEND_POST_COMMENT_SUCCESS:
+      return {
+        ...state,
+        commentInProgress: false,
+        commentSuccess: true,
+      };
+    case SEND_POST_COMMENT_FAILURE:
+      return {
+        ...state,
+        commentInProgress: false,
+        commentSuccess: false,
+      };
+    case SEND_POST_LIKE_IN_PROGRESS:
+      return { ...state, likeInProgress: true };
+    case SEND_POST_LIKE_SUCCESS:
+      return {
+        ...state,
+        likeInProgress: false,
+        likeSuccess: true,
+      };
+    case SEND_POST_LIKE_FAILURE:
+      return {
+        ...state,
+        likeInProgress: false,
+        likeSuccess: false,
+      };
+    case LOAD_POST_COMMENTS_IN_PROGRESS:
+      return {
+        ...state,
+        commentsLoading: true,
+      };
+    case LOAD_POST_COMMENTS_SUCCESS:
+      const postCommentData = payload;
+      const postIndx = state.posts.findIndex(
+        (post) => post.fields.slug === postCommentData.slug
+      );
+      const currPost = state.posts[postIndx];
+      currPost.comments = postCommentData.comments;
+      currPost.commentsLoaded = true;
+      const tempPostData = [...state.posts];
+      tempPostData[postIndx] = thisPost;
+
+      return {
+        ...state,
+        posts: tempPostData,
+        commentsLoading: false,
+        commentsLoaded: true,
+      };
+    case LOAD_POST_COMMENTS_FAILURE:
+      return {
+        ...state,
+        commentsLoading: false,
+        commentsLoaded: false,
       };
     default:
       return { ...state };
