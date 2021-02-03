@@ -25,7 +25,8 @@ import {
 import { getAllPosts } from "../contentful";
 
 // API endpoint
-let endpoint = "http://ec2-3-19-54-69.us-east-2.compute.amazonaws.com";
+let endpoint = "http://localhost:4000";
+let amzn = "http://ec2-3-19-54-69.us-east-2.compute.amazonaws.com";
 
 export const loadFeatureImage = () => (dispatch, getState) => {
   dispatch(getFeatureImageInProgress());
@@ -90,14 +91,15 @@ export const loadPostsData = () => (dispatch, getState) => {
  */
 export const sendLike = (slug) => async (dispatch, getState) => {
   console.log(slug);
-  dispatch(sendPostLikeInProgress);
+  dispatch(sendPostLikeInProgress());
   try {
     const options = {
       method: "POST",
       body: JSON.stringify({
         slug: slug,
       }),
-      mode: "no-cors",
+      "Access-Control-Allow-Origin": "*",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
@@ -105,14 +107,11 @@ export const sendLike = (slug) => async (dispatch, getState) => {
     let request = await fetch(`${endpoint}/like`, options);
     console.log(request);
     let result = await request.json();
-    console.log(result);
+    result.slug = slug;
 
-    if (request.saved === true) {
-      dispatch(sendPostLikeSuccess);
-    } else {
-      dispatch(sendPostLikeFailure);
-    }
+    dispatch(sendPostLikeSuccess(result));
   } catch (error) {
+    console.log(error.message);
     dispatch(sendPostLikeFailure);
   }
 };

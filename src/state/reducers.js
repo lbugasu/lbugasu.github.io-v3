@@ -205,8 +205,22 @@ export const posts = (state = initialState, action) => {
     case SEND_POST_LIKE_IN_PROGRESS:
       return { ...state, likeInProgress: true };
     case SEND_POST_LIKE_SUCCESS:
+      const likedObject = payload;
+      console.log("x_x");
+      console.log(likedObject);
+      const thisIndx = state.posts.findIndex(
+        (obj) => obj.fields.slug === likedObject.slug
+      );
+      console.log(thisIndx);
+      const tempPostList = [...state.posts];
+      const thisOne = state.posts[thisIndx];
+      thisOne.likes = likedObject.likes;
+      tempPostList[thisIndx] = thisOne;
+
+      console.log(tempPostList[thisIndx]);
       return {
         ...state,
+        posts: tempPostList,
         likeInProgress: false,
         likeSuccess: true,
       };

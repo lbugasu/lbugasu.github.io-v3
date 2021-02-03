@@ -240,7 +240,6 @@ const DevPostPage = ({ posts }) => {
           width: 100%;
           word-wrap: break-word;
         `;
-        console.log(paragraph);
         return <P>{paragraph.children}</P>;
       },
     };

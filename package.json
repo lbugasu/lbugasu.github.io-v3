@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://lbugasu.github.io/lbugasu.github.io",
+  "proxy": "http://localhost:4000",
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^14.1.2",
     "@contentful/rich-text-types": "^14.1.2",

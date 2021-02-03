@@ -78,9 +78,9 @@ export const sendPostLikeInProgress = () => ({
   type: SEND_POST_LIKE_IN_PROGRESS,
 });
 export const SEND_POST_LIKE_SUCCESS = "SEND_POST_LIKE_SUCCESS";
-export const sendPostLikeSuccess = (posts) => ({
+export const sendPostLikeSuccess = (likes) => ({
   type: SEND_POST_LIKE_SUCCESS,
-  payload: posts,
+  payload: likes,
 });
 export const SEND_POST_LIKE_FAILURE = "SEND_POST_LIKE_FAILURE";
 export const sendPostLikeFailure = () => ({
