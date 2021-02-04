@@ -34,6 +34,7 @@ const initialState = {
   commentLoading: false,
   commentsLoaded: false,
   postsDataLoading: false,
+  postsDataLoaded: false,
   postCommentsLoading: false,
   postLikesLoading: false,
   likeInProgress: false,
@@ -103,6 +104,7 @@ export const posts = (state = initialState, action) => {
             tagsList.push({ tag: tag, count: 1 });
           }
         });
+        post.likeLevel = 0;
       });
       tagsList.map((tag, i) => {
         tag.color = colors[i % colors.length];
@@ -127,16 +129,17 @@ export const posts = (state = initialState, action) => {
       };
     // will load all the likes
     case LOADING_ALL_POST_DATA_SUCCESS:
-      const data = payload;
+      const data = payload.data;
       /**
        * map all the likes to each podcast
        * the podcasts returned will only contain
        * podcasts in the database
        */
+      console.log(data);
       let tempPosts = [...state.posts];
       data.map((post) => {
         let thisPostIndex = tempPosts.findIndex(
-          (p) => p.slug === post.fields.slug
+          (p) => p.fields.slug === post.slug
         );
         if (thisPostIndex >= 0) {
           tempPosts[thisPostIndex] = {
@@ -150,12 +153,14 @@ export const posts = (state = initialState, action) => {
         ...state,
         posts: tempPosts,
         postsDataLoading: false,
+        postsDataLoaded: true,
       };
 
     case LOADING_ALL_POST_DATA_FAILURE:
       return {
         ...state,
         postsDataLoading: false,
+        postsDataLoaded: false,
       };
     case LOAD_POST_LIKES_IN_PROGRESS:
       return {
@@ -206,8 +211,6 @@ export const posts = (state = initialState, action) => {
       return { ...state, likeInProgress: true };
     case SEND_POST_LIKE_SUCCESS:
       const likedObject = payload;
-      console.log("x_x");
-      console.log(likedObject);
       const thisIndx = state.posts.findIndex(
         (obj) => obj.fields.slug === likedObject.slug
       );
@@ -215,6 +218,7 @@ export const posts = (state = initialState, action) => {
       const tempPostList = [...state.posts];
       const thisOne = state.posts[thisIndx];
       thisOne.likes = likedObject.likes;
+      thisOne.likeLevel += 1;
       tempPostList[thisIndx] = thisOne;
 
       console.log(tempPostList[thisIndx]);
@@ -230,6 +234,7 @@ export const posts = (state = initialState, action) => {
         likeInProgress: false,
         likeSuccess: false,
       };
+
     case LOAD_POST_COMMENTS_IN_PROGRESS:
       return {
         ...state,
@@ -237,6 +242,9 @@ export const posts = (state = initialState, action) => {
       };
     case LOAD_POST_COMMENTS_SUCCESS:
       const postCommentData = payload;
+      console.log("0x0");
+      console.log(postCommentData);
+
       const postIndx = state.posts.findIndex(
         (post) => post.fields.slug === postCommentData.slug
       );
@@ -244,7 +252,7 @@ export const posts = (state = initialState, action) => {
       currPost.comments = postCommentData.comments;
       currPost.commentsLoaded = true;
       const tempPostData = [...state.posts];
-      tempPostData[postIndx] = thisPost;
+      tempPostData[postIndx] = currPost;
 
       return {
         ...state,

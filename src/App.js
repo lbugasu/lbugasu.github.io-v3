@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
 import { connect } from "react-redux";
-import { loadPosts } from "./state/thunks";
+import { loadPosts, loadPostsData } from "./state/thunks";
 import { getTags } from "./state/actions";
 import { getPosts } from "./state/selectors";
 
@@ -25,7 +25,7 @@ import {
 
 import { Menu } from "./components";
 
-const App = ({ posts, startLoadingPosts, generateTags }) => {
+const App = ({ posts, startLoadingPosts, generateTags, getPostsLikes }) => {
   useEffect(() => {
     /**
      * If the posts have been loaded, don't load the posts again
@@ -37,7 +37,12 @@ const App = ({ posts, startLoadingPosts, generateTags }) => {
     if (posts.posts.postsLoaded) {
       generateTags();
     }
-  });
+
+    if (posts.postsLoaded && !posts.postsDataLoaded) {
+      getPostsLikes();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [posts.posts.postsLoaded, posts.postsLoaded]);
   return (
     <Router>
       <Menu />
@@ -58,5 +63,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   startLoadingPosts: () => dispatch(loadPosts()),
   generateTags: () => dispatch(getTags()),
+  getPostsLikes: () => dispatch(loadPostsData()),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(App);

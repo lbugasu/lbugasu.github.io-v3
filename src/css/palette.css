@@ -36,4 +36,23 @@
   --maximum-blue: #40bcd8ff;
   --vivid-sky-blue: #56cbf9ff;
   --plum: #8f3985ff;
+
+  /* Global Color variables
+  -------------------------*/
+
+  /* Header */
+  --border: #47261b;
+
+  --textarea-bg: #fff6ea;
+  --hr: #47261b;
+  --hr-bg: #bd7d51;
+  --aside-bg: #f7e4d7;
+  --aside-border: #735240;
+
+  /* Dev Page*/
+  --h1-banner: white;
+  --dev-tags-bg: rgba(248, 226, 233, 0.7);
+
+  /* Menu Page*/
+  --menupage-bg: #fff2eb;
 }

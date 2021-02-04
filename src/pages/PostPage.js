@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { readableDate } from "../components/helpers";
-import { MainHeader, Footer } from "../components";
+import { MainHeader, CommentArea, Footer, LikeButton } from "../components";
 import { getPosts } from "../state/selectors";
 
 const Side = styled.div`
@@ -19,6 +19,9 @@ const Side = styled.div`
   @media only screen and (max-width: 900px) {
     display: none;
   }
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 `;
 const Body = styled.div`
   width: 60%;
@@ -30,6 +33,26 @@ const Body = styled.div`
     width: 100%;
   }
 `;
+const Stats = styled.div`
+  vertical-align: top;
+  width: 20%;
+  display: inline-block;
+  margin-top: 2%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 25vh;
+  ${"" /* TODO: Add responsiveness here */}
+
+  @media only screen and (max-width: 1200px) {
+    padding-top: 0;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    top: 0;
+    text-align: right;
+  }
+`;
+
 const Date = styled.small`
   display: none;
   @media only screen and (max-width: 900px) {
@@ -61,6 +84,10 @@ const Content = styled.div`
     font-size: 75%;
   }
 `;
+const PostDate = styled.small`
+  margin-top: 5%;
+  display: inline-block;
+`;
 const PostPage = ({ posts }) => {
   const { id } = useParams();
   const renderPost = () => {
@@ -70,7 +97,7 @@ const PostPage = ({ posts }) => {
       <div>
         <MainHeader />
         <Side>
-          <small>{readableDate(post.date)}</small>
+          <PostDate>{readableDate(post.date)}</PostDate>
         </Side>
 
         <Body className={`${post.section[0]}`}>
@@ -85,7 +112,10 @@ const PostPage = ({ posts }) => {
             }}
           ></Content>
         </Body>
-
+        <Stats>
+          <LikeButton slug={post.slug} />
+        </Stats>
+        <CommentArea slug={post.slug} />
         <Footer />
       </div>
     );

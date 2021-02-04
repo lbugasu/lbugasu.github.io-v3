@@ -36,7 +36,7 @@ const MainHeader = () => {
     });
   });
   const Header = styled.div`
-    border-bottom: 1px solid #47261b;
+    border-bottom: 1px solid var(--hr);
   `;
   const Title = styled.div`
     width: 50%;
@@ -95,6 +95,9 @@ const MainHeader = () => {
     }
     @media only screen and (max-width: 600px) {
       font-size: 80%;
+    }
+    :hover {
+      cursor: pointer;
     }
   `;
 

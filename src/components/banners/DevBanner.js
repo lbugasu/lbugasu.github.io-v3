@@ -18,7 +18,7 @@ const Header = styled.div`
 const H1 = styled.div`
   width: 40%;
   display: inline-block;
-  color: white;
+  color: var(--h1-banner);
   font-weight: 600;
   font-size: 600%;
   text-align: center;
@@ -33,12 +33,12 @@ const H1 = styled.div`
     font-size: 200%;
   }
 `;
-const color = Funcs.hexToRGB("#f8e9e2");
 
 const Tags = styled.div`
   margin: 1%;
   padding: 0.5%;
-  background-color: rgba(${color.red}, ${color.green}, ${color.blue}, 0.7);
+  background-color: var(--dev-tags-bg);
+
   width: 28%;
   display: inline-block;
   border-radius: 10px;

@@ -57,15 +57,28 @@ export const loadPosts = () => (dispatch, getState) => {
   // load all the blog posts from contentful
 
   try {
-    getAllPosts().then((result) => {
+    getAllPosts().then(async (result) => {
       const posts = result.sort(function (a, b) {
         return new Date(b.fields.date) - new Date(a.fields.date);
       });
-      posts.map((post) => {
-        const url = post.fields.feature_image.fields.file.url;
-        post.fields.feature_image.fields.file.url = url;
-      });
-      dispatch(postsLoadingSuccess(posts));
+      /**
+       * To ensure that the browser doesn't block my images,
+       * I call the api that converts the images to base64 and the
+       * browser then just simply reads the data
+       */
+      await Promise.all(
+        posts.map(async (post) => {
+          const url = post.fields.feature_image.fields.file.url;
+          const result = await fetch(
+            `http://localhost:4000/photo?link=https:${url}`
+          );
+          const imageData = await result.json();
+          var base64Flag = "data:image/jpeg;base64,";
+
+          post.fields.feature_image.fields.file.url =
+            base64Flag + imageData.image;
+        })
+      ).then(() => dispatch(postsLoadingSuccess(posts)));
     });
   } catch (error) {
     /**
@@ -77,12 +90,14 @@ export const loadPosts = () => (dispatch, getState) => {
   }
 };
 
-export const loadPostsData = () => (dispatch, getState) => {
+export const loadPostsData = () => async (dispatch, getState) => {
   dispatch(loadingAllPostDataInProgress);
   try {
-    let request = fetch(`${endpoint}/allpostdata `);
-    dispatch(loadingAllPostDataSuccess(request.likes));
+    let request = await fetch(`${endpoint}/allpostdata `);
+    let data = await request.json();
+    dispatch(loadingAllPostDataSuccess(data));
   } catch (error) {
+    console.log(error.message);
     dispatch(loadingAllPostDataFailure);
   }
 };
@@ -124,17 +139,13 @@ export const sendComment = (comment) => async (dispatch, getState) => {
   try {
     const options = {
       method: "POST",
-      body: JSON.stringify({
-        slug: comment.slug,
-        email: comment.email,
-        name: comment.name,
-        comment: comment,
-      }),
+      body: JSON.stringify(comment),
       headers: {
         "Content-Type": "application/json",
       },
     };
-    let request = await fetch(`${endpoint}/comment`, options);
+    let sendRequest = await fetch(`${endpoint}/comment`, options);
+    let request = await sendRequest.json();
     if (request.saved === true) {
       dispatch(sendPostCommentSuccess);
     } else {
@@ -164,9 +175,12 @@ export const getLikes = (slug) => (dispatch, getState) => {
 export const getComments = (slug) => async (dispatch, getState) => {
   dispatch(loadPostCommentsInProgress);
   try {
-    let request = fetch(`${endpoint}/comments/${slug}`);
-    dispatch(loadPostCommentsSuccess(request.comments));
+    let request = await fetch(`${endpoint}/comments?slug=${slug}`);
+    let comments = await request.json();
+    console.log(comments);
+    dispatch(loadPostCommentsSuccess(comments));
   } catch (error) {
+    console.log(error.message);
     dispatch(loadPostCommentsFailure);
   }
 };

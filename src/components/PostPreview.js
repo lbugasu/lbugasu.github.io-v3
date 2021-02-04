@@ -19,7 +19,6 @@ const PostPreview = ({ posts, post, divider }) => {
   useEffect(() => {
     if (!!post) {
       setLoading(true);
-      console.log(post);
     }
   }, []);
   const showTags = (tagList) => {
@@ -163,6 +162,6 @@ const Hr = styled.hr`
   height: 1px;
   display: block;
   /* Set the hr color */
-  color: #47261b; /* old IE */
-  background-color: #47261b; /* Modern Browsers */
+  color: var(--hr); /* old IE */
+  background-color: var(--hr); /* Modern Browsers */
 `;

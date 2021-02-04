@@ -6,7 +6,7 @@ import { getPosts } from "../state/selectors";
 import { readableDate } from "../components/helpers";
 
 // import components
-import { MainHeader, LikeButton } from "../components";
+import { MainHeader, LikeButton, Footer } from "../components";
 import ReactMarkdown from "react-markdown";
 import { HashLink } from "react-router-hash-link";
 import styled from "styled-components";
@@ -43,6 +43,23 @@ const Side = styled.div`
   position: sticky;
   top: 0;
   margin-top: 25%;
+`;
+const Stats = styled.div`
+  vertical-align: top;
+  width: 20%;
+  display: inline-block;
+  margin-top: 2%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 25vh;
+  ${"" /* TODO: Add responsiveness here */}
+
+  @media only screen and (max-width: 1200px) {
+    padding-top: 0;
+    width: 100%;
+    position: relative;
+    margin: 0;
+  }
 `;
 const Body = styled.div`
   width: 60%;
@@ -87,8 +104,8 @@ const Content = styled.div`
 `;
 const Aside = styled.aside`
   font-size: 14pt;
-  border-left: 2px solid #735240;
-  background-color: #f7e4d7;
+  border-left: 2px solid var(--aside-border);
+  background-color: var(--aside-bg);
   padding: 1%;
   margin-bottom: 1%;
   @media only screen and (max-width: 600px) {
@@ -103,8 +120,8 @@ const Hr = styled.hr`
   height: 0.5px;
   display: block;
   /* Set the hr color */
-  color: #47261b; /* old IE */
-  background-color: #bd7d51; /* Modern Browsers */
+  color: var(--hr); /* old IE */
+  background-color: var(--hr-bg); /* Modern Browsers */
 `;
 const DevPostPage = ({ posts }) => {
   const { id } = useParams();
@@ -122,6 +139,16 @@ const DevPostPage = ({ posts }) => {
       },
     },
   };
+  async function getImage(image) {
+    console.log(image);
+    const result = await fetch(
+      `http://localhost:4000/photo?link=https:${image}`
+    );
+    const imageData = await result.json();
+    const base64Flag = "data:image/jpeg;base64,";
+    const imageSource = base64Flag + imageData.image;
+    return imageSource;
+  }
   const renderPost = () => {
     if (!posts.postsLoaded) return <p>Loading...</p>;
     const post = posts.posts.find((post) => post.fields.slug === id).fields;
@@ -220,6 +247,7 @@ const DevPostPage = ({ posts }) => {
         }
       },
       image: (image) => {
+        console.log(image);
         const Image = styled.img`
           width: 100%;
         `;
@@ -228,6 +256,7 @@ const DevPostPage = ({ posts }) => {
           text-align: center;
           font-style: italic;
         `;
+
         return (
           <figure>
             <Image src={image.src} />
@@ -255,7 +284,6 @@ const DevPostPage = ({ posts }) => {
     }
     return (
       <>
-        <MainHeader />
         <Side className={"headings"}>
           <small>{readableDate(post.date)}</small>
           <Hr />
@@ -269,13 +297,19 @@ const DevPostPage = ({ posts }) => {
           <Image src={post.feature_image.fields.file.url}></Image>
           <Content>{displayPostBody()}</Content>
         </Body>
-        <Side className={"headings"}>
+        <Stats className={"headings"}>
           <LikeButton slug={post.slug} />
-        </Side>
+        </Stats>
       </>
     );
   };
-  return <div>{renderPost()}</div>;
+  return (
+    <div>
+      <MainHeader />
+      {renderPost()}
+      <Footer />
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => ({

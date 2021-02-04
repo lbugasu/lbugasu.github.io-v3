@@ -3,7 +3,12 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 
 //import components
-import { MainHeader, SecondaryHeader, PostPreview } from "../components";
+import {
+  MainHeader,
+  SecondaryHeader,
+  PostPreview,
+  Footer,
+} from "../components";
 
 import { getTags } from "../state/actions";
 import { loadFeatureImage } from "../state/thunks";
@@ -72,7 +77,7 @@ const HomePage = ({ posts, featuredImage, startLoadingFeaturedImage }) => {
         <Latest>Latest</Latest>
         <div className="postlist">{renderPosts()}</div>
       </PostsDiv>
-      {/* <Footer /> */}
+      <Footer />
     </Home>
   );
 };

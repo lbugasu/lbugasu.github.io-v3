@@ -22,7 +22,7 @@ const TagTitle = styled.h1`
 const Hr = styled.hr`
   border: none;
   height: 1px;
-  background-color: #47261b;
+  background-color: var(--hr);
   width: 60%;
 `;
 const PostsFrame = styled.div`

@@ -12,6 +12,8 @@ import PoetryBanner from "./banners/PoetryBanner";
 import DevBanner from "./banners/DevBanner";
 import FictionBanner from "./banners/FictionBanner";
 import LikeButton from "./LikeButton";
+import SendIcon from "./SendIcon";
+import CommentArea from "./CommentArea";
 export {
   CodeBlock,
   MainHeader,
@@ -27,4 +29,6 @@ export {
   Work,
   Misc,
   LikeButton,
+  SendIcon,
+  CommentArea,
 };

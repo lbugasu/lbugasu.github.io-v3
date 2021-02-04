@@ -10,7 +10,7 @@ const MenuPage = styled.div`
   position: fixed;
   left: 0;
   top: 0;
-  background-color: #fff2eb;
+  background-color: var(--menupage-bg);
   padding: 0 5% 0 5%;
   z-index: 11; /* 1px higher than the overlay layer */
 `;

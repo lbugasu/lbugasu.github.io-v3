@@ -13,7 +13,7 @@ const Header = styled.div`
  * TODO: Remove the mix-blend-mode whenever there is something else overlaying
  */
 const H1 = styled.h1`
-  color: white;
+  color: var(--h1-banner);
   font-weight: 600;
   font-size: 600%;
   text-align: center;

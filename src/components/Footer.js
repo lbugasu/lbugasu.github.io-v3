@@ -7,8 +7,8 @@ const Hr = styled.hr`
   height: 0.5px;
   display: block;
   /* Set the hr color */
-  color: #47261b; /* old IE */
-  background-color: #47261b; /* Modern Browsers */
+  color: var(--hr); /* old IE */
+  background-color: var(--hr); /* Modern Browsers */
 `;
 
 const Footer = () => (
