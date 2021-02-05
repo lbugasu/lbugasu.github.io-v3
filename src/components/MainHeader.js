@@ -106,7 +106,26 @@ const MainHeader = () => {
     height: 100%;
     vertical-align: middle;
   `;
-  function handleScroll() {}
+  function toggleMode() {
+    // If the user's OS setting is dark and matches our .dark-mode class...
+    if (prefersDarkScheme.matches) {
+      // ...then toggle the light mode class
+      document.body.classList.toggle("light-mode");
+      // ...but use .dark-mode if the .light-mode class is already on the body,
+      var theme = document.body.classList.contains("light-mode")
+        ? "light"
+        : "dark";
+    } else {
+      // Otherwise let's do the same thing, but for .dark-mode
+      document.body.classList.toggle("dark-mode");
+      var theme = document.body.classList.contains("dark-mode")
+        ? "dark"
+        : "light";
+    }
+    // Finally, let's save the current preference to localStorage to keep using it
+    localStorage.setItem("theme", theme);
+  }
+
   return (
     <>
       <Header id={"up"}>
@@ -114,7 +133,9 @@ const MainHeader = () => {
           <Link to="/">LAURENCE ININDA</Link>
         </Title>
         <Menu>
-          <LightToggle>🌕🌑</LightToggle>
+          <LightToggle className="btn-toggle" onClick={toggleMode()}>
+            🌕🌑
+          </LightToggle>
           <span
             onClick={() => {
               let menu = document.querySelector("div.mainmenu");
@@ -126,7 +147,7 @@ const MainHeader = () => {
           </span>
         </Menu>
       </Header>
-      <Floating id="floating-menu" onScroll={handleScroll()}>
+      <Floating id="floating-menu">
         <FloatingMenu>
           <Up>
             <HashLink
