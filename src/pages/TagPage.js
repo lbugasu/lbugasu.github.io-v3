@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { Footer, MainHeader } from "../components";
 import { getPosts } from "../state/selectors";
 import { PostPreview } from "../components/";
+
 const TagTitle = styled.h1`
   text-align: center;
   font-size: 300%;

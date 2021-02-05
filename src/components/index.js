@@ -15,6 +15,7 @@ import LettersBanner from "./banners/LettersBanner";
 import LikeButton from "./LikeButton";
 import SendIcon from "./SendIcon";
 import CommentArea from "./CommentArea";
+import Loading from "./Loading";
 export {
   CodeBlock,
   MainHeader,
@@ -32,5 +33,6 @@ export {
   Misc,
   LikeButton,
   SendIcon,
+  Loading,
   CommentArea,
 };

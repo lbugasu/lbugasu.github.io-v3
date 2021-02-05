@@ -4,7 +4,13 @@ import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { readableDate } from "../components/helpers";
-import { MainHeader, CommentArea, Footer, LikeButton } from "../components";
+import {
+  MainHeader,
+  CommentArea,
+  Footer,
+  LikeButton,
+  Loading,
+} from "../components";
 import { getPosts } from "../state/selectors";
 
 const Side = styled.div`
@@ -91,7 +97,7 @@ const PostDate = styled.small`
 const PostPage = ({ posts }) => {
   const { id } = useParams();
   const renderPost = () => {
-    if (!posts.postsLoaded) return <p>Loading...</p>;
+    if (!posts.postsLoaded) return <Loading />;
     const post = posts.posts.find((post) => post.fields.slug === id).fields;
     return (
       <div>

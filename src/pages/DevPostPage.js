@@ -6,7 +6,13 @@ import { getPosts } from "../state/selectors";
 import { readableDate } from "../components/helpers";
 
 // import components
-import { MainHeader, LikeButton, Footer } from "../components";
+import {
+  MainHeader,
+  LikeButton,
+  Footer,
+  Loading,
+  CommentArea,
+} from "../components";
 import ReactMarkdown from "react-markdown";
 import { HashLink } from "react-router-hash-link";
 import styled from "styled-components";
@@ -150,7 +156,7 @@ const DevPostPage = ({ posts }) => {
     return imageSource;
   }
   const renderPost = () => {
-    if (!posts.postsLoaded) return <p>Loading...</p>;
+    if (!posts.postsLoaded) return <Loading />;
     const post = posts.posts.find((post) => post.fields.slug === id).fields;
     /**
      * Get a list of headings on the page
@@ -300,6 +306,7 @@ const DevPostPage = ({ posts }) => {
         <Stats className={"headings"}>
           <LikeButton slug={post.slug} />
         </Stats>
+        <CommentArea slug={post.slug} />
       </>
     );
   };

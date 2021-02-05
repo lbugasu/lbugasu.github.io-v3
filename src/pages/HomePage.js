@@ -8,6 +8,7 @@ import {
   SecondaryHeader,
   PostPreview,
   Footer,
+  Loading,
 } from "../components";
 
 import { getTags } from "../state/actions";
@@ -55,7 +56,7 @@ const HomePage = ({ posts, featuredImage, startLoadingFeaturedImage }) => {
       );
   };
   const renderPosts = () => {
-    if (posts.postsLoading) return <p>Loading...</p>;
+    if (posts.postsLoading) return <Loading />;
 
     return posts.posts.slice(0, 7).map((singlePost, i) => (
       <>

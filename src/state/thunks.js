@@ -73,7 +73,13 @@ export const loadPosts = () => (dispatch, getState) => {
     const result = fetch(`${endpoint}/allposts`);
     result.then((data) => {
       data.json().then((result) => {
-        dispatch(postsLoadingSuccess(result.posts));
+        /**
+         * Sort the posts by date
+         */
+        const posts = result.posts.sort(function (a, b) {
+          return new Date(b.fields.date) - new Date(a.fields.date);
+        });
+        dispatch(postsLoadingSuccess(posts));
       });
     });
   } catch (error) {

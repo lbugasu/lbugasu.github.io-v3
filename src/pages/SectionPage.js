@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 
 import { getPosts } from "../state/selectors";
+
 import {
   MainHeader,
   Footer,
@@ -22,19 +23,31 @@ const SectionPage = ({ posts }) => {
       return post.fields.section.indexOf(section) !== -1;
     else return false;
   });
+
   const renderPage = () => {
     return sectionnedPosts.map((post, i) => (
       <PostPreview post={post} divider={i !== sectionnedPosts.length - 1} />
     ));
   };
+  const renderTitle = (section) => {
+    switch (section) {
+      case "poetry":
+        return <PoetryBanner />;
+      case "dev":
+        return <DevBanner devPosts={sectionnedPosts} />;
+      case "fiction":
+        return <FictionBanner />;
+      case "letters":
+        return <LettersBanner />;
+      default:
+        return <SectionTitle>{section}</SectionTitle>;
+    }
+  };
   return (
     <div className={section}>
       <MainHeader />
-      {section === "poetry" ? <PoetryBanner /> : <></>}
-      {section === "dev" ? <DevBanner devPosts={sectionnedPosts} /> : <></>}
-      {section === "fiction" ? <FictionBanner /> : <></>}
-      {section === "letters" ? <LettersBanner /> : <></>}
-      <div>{renderPage()}</div>
+      {renderTitle(section)}
+      <Posts>{renderPage()}</Posts>
       <Footer />
     </div>
   );
@@ -55,5 +68,17 @@ const SectionTitle = styled.h1`
   }
   @media only screen and (max-width: 600px) {
     font-size: 150%;
+  }
+`;
+const Posts = styled.div`
+  width: 80%;
+  padding: 0 10% 0 10%;
+  @media only screen and (max-width: 900px) {
+    width: 90%;
+    padding: 0 5% 0 5%;
+  }
+  @media only screen and (max-width: 700px) {
+    width: 100%;
+    padding: 0 0% 0 0%;
   }
 `;

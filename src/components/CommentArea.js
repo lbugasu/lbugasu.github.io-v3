@@ -7,6 +7,7 @@ import SendIcon from "./SendIcon";
 import { sendComment, getComments } from "../state/thunks";
 import { getPosts } from "../state/selectors";
 import { readableDate, validateEmail } from "./helpers";
+import Loading from "./Loading";
 const Frame = styled.div`
   width: 75%;
   margin-top: 2.5%;
@@ -150,7 +151,7 @@ const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
         </CommentText>
       ));
     } else {
-      return <div>loading comments</div>;
+      return <Loading size={0.3} />;
     }
   };
   /**
