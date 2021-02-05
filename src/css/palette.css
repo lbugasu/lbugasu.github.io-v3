@@ -1,4 +1,4 @@
-:root {
+body {
   --flirt: rgb(248, 78, 191);
   --cerulean-blue: rgb(126, 164, 252);
   --xanadu: rgb(145, 172, 150);
@@ -39,22 +39,112 @@
 
   /* Global Color variables
   -------------------------*/
-
-  /* Header */
+  --text: #735240;
+  --background-color: #f8e9e2;
+  --item-bg: #f8e9e2;
   --border: #47261b;
 
+  --h3: #885725;
   --textarea-bg: #fff6ea;
   --hr: #47261b;
   --hr-bg: #bd7d51;
   --aside-bg: #f7e4d7;
   --aside-border: #735240;
-
+  --border: #c07a35;
+  /* Links */
+  --menu-hover: #c0092b;
   /* Dev Page*/
   --h1-banner: white;
   --dev-tags-bg: rgba(248, 226, 233, 0.7);
 
   /* Menu Page*/
   --menupage-bg: #fff2eb;
+  --color-text: #111;
+  --color-link: #c0092b;
+  --color-bg: #f0f0f0;
+  --color-link-hover: #000;
+  --color-menu: #000;
+  --color-menu-hover: #c0092b;
+  --menu-frame: #fff2eb;
 
   --light-text: #e3dfd6;
+
+  /* About Me Page*/
+  --work-link-bg: #9f8a78;
+  --work-link: #f8f9f0;
+}
+body {
+  --flirt: rgba(248, 78, 191, 0.7);
+  --cerulean-blue: rgba(126, 164, 252, 0.7);
+  --xanadu: rgba(145, 172, 150, 0.7);
+  --unbleached-silk: #ffe2d1b3;
+  --saffron: #f8c630b3;
+  --windsor-tan: rgba(214, 147, 99, 0.7);
+  --orange-pantone: rgba(255, 149, 83, 0.7);
+  --manatee: #8d99aeb3;
+  --maize-crayola: #e7bb41b3;
+  --mint-green: #94fbabb3;
+  --flame: rgba(241, 125, 90, 0.7);
+  --marigold: #f3a712b3;
+  --spring-green: #64f58db3;
+  --pacific-blue: #22aed1b3;
+  --artichoke: #7e846bb3;
+  --dark-sky-blue: #9bbec7b3;
+  --emerald: #59cd90b3;
+  --mandarin: #ef8354b3;
+  --skobeloff: #0f7173b3;
+  --rhythm: #857c8db3;
+  --aquamarine: #5dfdcbb3;
+  --light-sky-blue: #90d7ffb3;
+  --aero: #6bbaecb3;
+  --tea-green: #c2eabdb3;
+  --inchworm: #9cec5bb3;
+  --banana-mania: #ffeaaeb3;
+  --minion-yellow: #fce762b3;
+  --cadet-blue: #4da1a9b3;
+  --unbleached-silk: #f3d8c7b3;
+  --tea-green: #c2f9bbb3;
+  --old-lavender: rgba(138, 128, 148, 0.7);
+  --pearly-purple: #ae76a6b3;
+  --cedar-chest: rgba(255, 123, 118, 0.7);
+  --china-pink: #e56399b3;
+  --maximum-blue: #40bcd8b3;
+  --vivid-sky-blue: #56cbf9b3;
+  --plum: #8f3985b3;
+
+  --text: #f1d9c9;
+  --background-color: #01081d;
+  --item-bg: #0d193f;
+
+  --border: #f1d9c9;
+
+  --h3: #ddb294;
+  --textarea-bg: #021d40;
+  --hr: #f1d9c9;
+  --hr-bg: #f1d9c9;
+  --aside-bg: #47261b;
+  --aside-border: #735240;
+  --border: #ddb294;
+  --tag-opacity: 0.75;
+  /* Links */
+  --menu-hover: #9aedb6;
+  /* Dev Page*/
+  --h1-banner: #e7ded9;
+  --dev-tags-bg: #735240;
+
+  /* Menu Page*/
+  --menupage-bg: #021d40;
+  --color-text: #f1d9c9;
+  --color-link: #a1a9fe;
+  --color-bg: #021d40;
+  --color-link-hover: #9aedb6;
+  --color-menu: #d9d9d9;
+  --color-menu-hover: #9aedb6;
+  --menu-frame: #f1d9c9;
+
+  --light-text: #f1d9c9;
+
+  /* About Me Page*/
+  --work-link-bg: #9f8a78;
+  --work-link: #f8f9f0;
 }

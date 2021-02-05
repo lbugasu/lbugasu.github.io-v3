@@ -100,7 +100,12 @@ const MainHeader = () => {
       cursor: pointer;
     }
   `;
-
+  const LightToggle = styled.span`
+    font-size: 65%;
+    padding: 2%;
+    height: 100%;
+    vertical-align: middle;
+  `;
   function handleScroll() {}
   return (
     <>
@@ -109,6 +114,7 @@ const MainHeader = () => {
           <Link to="/">LAURENCE ININDA</Link>
         </Title>
         <Menu>
+          <LightToggle>🌕🌑</LightToggle>
           <span
             onClick={() => {
               let menu = document.querySelector("div.mainmenu");
@@ -125,7 +131,7 @@ const MainHeader = () => {
           <Up>
             <HashLink
               smooth
-              to={`#up`}
+              to={` up`}
               onClick={() => {
                 let menuItem = document.getElementById("floating-menu");
 

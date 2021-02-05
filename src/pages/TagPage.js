@@ -21,10 +21,13 @@ const TagTitle = styled.h1`
   }
 `;
 const Hr = styled.hr`
+  width: 60%;
   border: none;
   height: 1px;
-  background-color: var(--hr);
-  width: 60%;
+  display: block;
+  /* Set the hr color */
+  color: var(--hr); /* old IE */
+  background-color: var(--hr); /* Modern Browsers */
 `;
 const PostsFrame = styled.div`
   margin: 0 17.5% 0 17.5%;

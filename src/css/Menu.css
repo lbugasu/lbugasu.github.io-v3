@@ -16,12 +16,6 @@
   padding-top: 10vh;
 }
 div.mainmenu {
-  --color-text: #111;
-  --color-link: #c0092b;
-  --color-bg: #f0f0f0;
-  --color-link-hover: #000;
-  --color-menu: #000;
-  --color-menu-hover: #c0092b;
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -48,7 +42,7 @@ div.mainmenu {
   z-index: 1000;
   font-weight: 600;
   font-style: italic;
-  background: #fff2eb;
+  background: var(--menu-frame-bg);
   width: 90%;
   display: flex;
 }

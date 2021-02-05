@@ -40,7 +40,12 @@ const SectionPage = ({ posts }) => {
       case "letters":
         return <LettersBanner />;
       default:
-        return <SectionTitle>{section}</SectionTitle>;
+        return (
+          <SectionTitle>
+            {section}
+            <Hr />
+          </SectionTitle>
+        );
     }
   };
   return (
@@ -81,4 +86,13 @@ const Posts = styled.div`
     width: 100%;
     padding: 0 0% 0 0%;
   }
+`;
+const Hr = styled.hr`
+  width: 75%;
+  border: none;
+  height: 1px;
+  display: block;
+  /* Set the hr color */
+  color: var(--hr); /* old IE */
+  background-color: var(--hr); /* Modern Browsers */
 `;

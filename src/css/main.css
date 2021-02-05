@@ -183,7 +183,7 @@ table {
 }
 .specialChar:hover {
   cursor: pointer;
-  color: #c0092b;
+  color: var(--menu-hover);
   animation: animateFont 0.75s ease 0s infinite normal none running;
 }
 /* Global declarations
@@ -196,20 +196,20 @@ html {
 }
 body {
   font-family: adobe-caslon-pro, serif;
-  background-color: #f8e9e2;
-  color: #735240;
+  background-color: var(--background-color);
+  color: var(--text);
   font-size: 24px;
   padding: 0.75% 7.5% 0 7.5%;
 }
 a {
   text-decoration: none;
-  color: #402a1e;
+  color: var(--text);
 }
 a:hover {
   text-decoration: none;
 }
 .showHover a:hover {
-  color: #c0092b;
+  color: var(--menu-hover);
 }
 h1 {
   font-family: "Etoile";
@@ -226,7 +226,7 @@ p {
   margin: 1% 0 1% 0;
 }
 h3 {
-  color: #885725;
+  color: var(--h3);
 }
 /* Home page
 -------------*/
@@ -334,7 +334,7 @@ div.subjectPostFrame {
   margin: 1%;
   padding: 1%;
   /* border: 1px solid #c07a35; */
-  border-bottom: 1px solid #c07a35;
+  border-bottom: 1px solid var(--border);
 
   border-radius: 20px;
   vertical-align: top;
@@ -366,36 +366,7 @@ div.subjectPostFrame img {
   margin-bottom: 0;
   vertical-align: middle;
 }
-div#scrolling {
-  vertical-align: text-top;
-  display: none;
-  font-size: 75%;
-  color: #f8f9f0;
-  background-color: #402a1e;
-  padding-top: 0.5%;
-  padding-bottom: 0.5%;
-  position: fixed;
-  transition: all 2s smooth;
-  top: 0px;
-  width: 100%;
-  height: 0;
-  -moz-animation: slide 1s ease 0s forwards;
-  -webkit-animation: slide 1s ease 0s forwards;
-  -o-animation: slide 1s ease 0s forwards;
-  -ms-animation: slide 1s ease 0s forwards;
-  animation: slide 1s ease 0s forwards;
-}
 
-div#scrolling div.menu {
-  padding-right: 2.5%;
-  width: 40%;
-}
-div#scrolling a {
-  color: #f8f9f0;
-}
-#scrolling img {
-  width: 4.25%;
-}
 /* About
 ----------------------*/
 div.about {
@@ -433,33 +404,6 @@ div.center {
 }
 span.emph {
   text-decoration: underline;
-}
-
-/* Posts
----------*/
-div#writing {
-  padding-top: 5%;
-}
-div.posts {
-  margin: 5%;
-}
-.posts h3 {
-  font-family: "Agrandir-TextBold";
-  font-size: 80%;
-  margin-bottom: 1%;
-}
-.posts h5 {
-  font-size: 65%;
-}
-.posts p {
-  font-size: 50%;
-}
-.posts a:hover {
-  text-decoration: underline;
-}
-div.singlePost {
-  width: 33.3%;
-  display: inline-block;
 }
 
 /* Work
@@ -519,8 +463,8 @@ div.projectStack {
 .seeWork {
   padding: 2%;
   font-size: 50%;
-  background-color: #9f8a78;
-  color: #f8f9f0;
+  background-color: var(--work-link-bg);
+  color: var(--work-link);
   border-radius: 5px;
 }
 
@@ -549,7 +493,7 @@ p.copyright {
 hr.separator {
   width: 75%;
   height: 2px;
-  background: #9f8a78;
+  background: var(--hr-bg);
 }
 p.separator {
   padding: 5% 0 2.5% 0;
@@ -569,7 +513,36 @@ div.sharable {
   width: 100%;
   padding-bottom: 2.5%;
 }
-
+.dropcap {
+  font-size: 6rem;
+  float: left;
+  margin: 0.15em 0.1em 0.1em 0;
+  line-height: 1.5;
+}
+.dropcap:before,
+.dropcap:after {
+  content: "";
+  display: block;
+}
+.dropcap:before {
+  margin-top: -0.2em;
+}
+.dropcap:after {
+  margin-bottom: -0.25em;
+}
+/* https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html */
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.postBody a {
+  text-decoration: underline;
+}
 /*  Media Queries
 -------------------*/
 

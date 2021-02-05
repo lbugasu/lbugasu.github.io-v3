@@ -49,6 +49,7 @@ const TextArea = styled.textarea`
   border: 0;
   background-color: var(--textarea-bg);
   border: none;
+  color: var(--text);
   :focus {
     outline: none;
   }
@@ -60,6 +61,7 @@ const TextArea = styled.textarea`
 const Input = styled.input`
   font-family: adobe-caslon-pro, serif;
   background-color: var(--textarea-bg);
+  color: var(--text);
   border: none;
   width: 80%;
   :focus {

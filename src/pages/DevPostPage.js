@@ -301,7 +301,7 @@ const DevPostPage = ({ posts }) => {
           <Date>{readableDate(post.date)}</Date>
           <Aside>{post.description}</Aside>
           <Image src={post.feature_image.fields.file.url}></Image>
-          <Content>{displayPostBody()}</Content>
+          <Content className={"postBody"}>{displayPostBody()}</Content>
         </Body>
         <Stats className={"headings"}>
           <LikeButton slug={post.slug} />

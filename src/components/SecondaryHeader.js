@@ -10,7 +10,7 @@ const SecondaryHeader = () => {
     padding: 0.5% 0 0.5% 0;
     margin: 0 20% 0 20%;
     width: 60%;
-    border-bottom: 1px solid #47261b;
+    border-bottom: 1px solid var(--border);
     @media only screen and (max-width: 900px) {
       font-size: 90%;
       width: 70%;

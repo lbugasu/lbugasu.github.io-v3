@@ -83,6 +83,7 @@ const Image = styled.img`
   width: 100%;
 `;
 const Content = styled.div`
+  padding-top: 2.5%;
   @media only screen and (max-width: 900px) {
     font-size: 100%;
   }
@@ -99,9 +100,13 @@ const PostPage = ({ posts }) => {
   const renderPost = () => {
     if (!posts.postsLoaded) return <Loading />;
     const post = posts.posts.find((post) => post.fields.slug === id).fields;
+    let postBody = documentToHtmlString(post.body);
+    let mod =
+      `<p><span class="dropcap">${postBody.substr(3, 1)}</span>` +
+      postBody.substr(4);
+    console.log(mod);
     return (
       <div>
-        <MainHeader />
         <Side>
           <PostDate>{readableDate(post.date)}</PostDate>
         </Side>
@@ -114,19 +119,26 @@ const PostPage = ({ posts }) => {
 
           <Content
             dangerouslySetInnerHTML={{
-              __html: documentToHtmlString(post.body),
+              __html: mod,
             }}
+            className={"postBody"}
           ></Content>
         </Body>
         <Stats>
           <LikeButton slug={post.slug} />
         </Stats>
         <CommentArea slug={post.slug} />
-        <Footer />
       </div>
     );
   };
-  return <div className="post">{renderPost()}</div>;
+  return (
+    <div className="post">
+      <MainHeader />
+
+      {renderPost()}
+      <Footer />
+    </div>
+  );
 };
 const mapStateToProps = (state) => ({
   posts: getPosts(state),

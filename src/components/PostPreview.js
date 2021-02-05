@@ -48,7 +48,7 @@ const PostPreview = ({ posts, post, divider }) => {
     return <div></div>;
   } else
     return (
-      <div key={post.fields.slug}>
+      <PreviewFrame key={post.fields.slug}>
         <Link
           key={"/writing/" + post.fields.slug}
           to={`${
@@ -103,7 +103,7 @@ const PostPreview = ({ posts, post, divider }) => {
           </Link>
         </PostData>
         {divider ? <Hr /> : <></>}
-      </div>
+      </PreviewFrame>
     );
 };
 const mapStateToProps = (state) => ({
@@ -114,6 +114,12 @@ export default connect(mapStateToProps)(PostPreview);
 /**
  * Styled components
  */
+const PreviewFrame = styled.div`
+  background-color: var(--item-bg);
+  border-radius: 25px;
+  margin-bottom: 2%;
+  padding: 1%;
+`;
 const ImageFrame = styled.div`
   width: 28%;
   padding: 1%;
