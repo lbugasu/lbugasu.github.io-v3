@@ -22,17 +22,16 @@ import {
   loadPostCommentsFailure,
 } from "./actions";
 
-import { getAllPosts } from "../contentful";
-
 // API endpoint
-let endpoint = "http://localhost:4000";
-let amzn = "http://ec2-3-19-54-69.us-east-2.compute.amazonaws.com";
+let prod = "https://laudebugs.tamaduni.org";
+let dev = "http://localhost:4000";
+let endpoint = prod;
 
 export const loadFeatureImage = () => (dispatch, getState) => {
   dispatch(getFeatureImageInProgress());
   try {
     const image = fetch(
-      "https://lbugasu-cors-proxy.herokuapp.com/http://ec2-3-19-54-69.us-east-2.compute.amazonaws.com/randomImage",
+      `https://lbugasu-cors-proxy.herokuapp.com/${endpoint}/randomImage`,
       {
         method: "GET",
         mode: "cors",
@@ -57,28 +56,11 @@ export const loadPosts = () => (dispatch, getState) => {
   // load all the blog posts from contentful
 
   try {
-    getAllPosts().then(async (result) => {
-      const posts = result.sort(function (a, b) {
-        return new Date(b.fields.date) - new Date(a.fields.date);
+    const result = fetch(`${endpoint}/allposts`);
+    result.then((data) => {
+      data.json().then((result) => {
+        dispatch(postsLoadingSuccess(result.posts));
       });
-      /**
-       * To ensure that the browser doesn't block my images,
-       * I call the api that converts the images to base64 and the
-       * browser then just simply reads the data
-       */
-      await Promise.all(
-        posts.map(async (post) => {
-          const url = post.fields.feature_image.fields.file.url;
-          const result = await fetch(
-            `http://localhost:4000/photo?link=https:${url}`
-          );
-          const imageData = await result.json();
-          var base64Flag = "data:image/jpeg;base64,";
-
-          post.fields.feature_image.fields.file.url =
-            base64Flag + imageData.image;
-        })
-      ).then(() => dispatch(postsLoadingSuccess(posts)));
     });
   } catch (error) {
     /**
@@ -113,9 +95,9 @@ export const sendLike = (slug) => async (dispatch, getState) => {
       body: JSON.stringify({
         slug: slug,
       }),
-      "Access-Control-Allow-Origin": "*",
       mode: "cors",
       headers: {
+        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       },
     };
@@ -141,6 +123,7 @@ export const sendComment = (comment) => async (dispatch, getState) => {
       method: "POST",
       body: JSON.stringify(comment),
       headers: {
+        "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       },
     };
