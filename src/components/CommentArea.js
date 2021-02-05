@@ -13,6 +13,11 @@ const Frame = styled.div`
   margin: 3% 12.5% 0 12.5%;
   display: inline-block;
   vertical-align: top;
+  @media only screen and (max-width: 850px) {
+    width: 95%;
+    margin-top: 2.5%;
+    margin: 3% 2.5% 0 2.5%;
+  }
 `;
 
 const InputArea = styled.div`

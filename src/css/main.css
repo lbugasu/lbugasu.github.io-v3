@@ -288,21 +288,16 @@ span.darkMode:hover {
 }
 /* Footer
 -------------*/
-div.footer {
-  padding: 0 5% 0 5%;
-}
-div.footer div {
-  width: 20%;
-  margin: 0 2% 0 3%;
-  display: inline-block;
-  vertical-align: top;
-}
-div.footer h3 {
-  font-size: 75%;
-  padding-bottom: 2.5%;
-}
+
 div.footer a {
   display: block;
+  width: 100%;
+}
+@media only screen and (max-width: 800px) {
+  div.footer a {
+    font-style: italic;
+    text-align: center;
+  }
 }
 /* Main Header
 ---------------*/

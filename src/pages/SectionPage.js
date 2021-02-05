@@ -11,10 +11,12 @@ import {
   PoetryBanner,
   DevBanner,
   FictionBanner,
+  LettersBanner,
 } from "../components/";
 
 const SectionPage = ({ posts }) => {
   const { section } = useParams();
+  console.log(section);
   let sectionnedPosts = posts.filter((post) => {
     if (!!post.fields.section)
       return post.fields.section.indexOf(section) !== -1;
@@ -31,6 +33,7 @@ const SectionPage = ({ posts }) => {
       {section === "poetry" ? <PoetryBanner /> : <></>}
       {section === "dev" ? <DevBanner devPosts={sectionnedPosts} /> : <></>}
       {section === "fiction" ? <FictionBanner /> : <></>}
+      {section === "letters" ? <LettersBanner /> : <></>}
       <div>{renderPage()}</div>
       <Footer />
     </div>

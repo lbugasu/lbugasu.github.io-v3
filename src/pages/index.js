@@ -6,6 +6,7 @@ import SectionPage from "./SectionPage";
 import TagPage from "./TagPage";
 import PostPage from "./PostPage";
 import RssFeed from "./RssFeed";
+import Vault from "./Vault";
 export {
   About,
   DevPostPage,
@@ -15,4 +16,5 @@ export {
   PostPage,
   TagPage,
   RssFeed,
+  Vault,
 };

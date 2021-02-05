@@ -2,6 +2,9 @@ import {
   GET_FEATURE_IMAGE_FAILURE,
   GET_FEATURE_IMAGE_IN_PROGRESS,
   GET_FEATURE_IMAGE_SUCCESS,
+  GET_IMAGE_FAILURE,
+  GET_IMAGE_IN_PROGRESS,
+  GET_IMAGE_SUCCESS,
   POSTS_LOADING_IN_PROGRESS,
   POSTS_LOADING_SUCCESS,
   POSTS_LOADING_FAILURE,
@@ -121,6 +124,44 @@ export const posts = (state = initialState, action) => {
         ...state,
         postsLoaded: false,
         postsLoading: false,
+      };
+    case GET_IMAGE_IN_PROGRESS:
+      let targetSlug = payload;
+      let targetIndex = state.posts.find((p) => p.fields.slug === targetSlug);
+      let cachedPost = state.posts[targetIndex];
+      cachedPost.imageLoading = true;
+      cachedPost.imageLoaded = false;
+      let tempCache = [...state.posts];
+      tempCache[targetIndex] = cachedPost;
+      return {
+        ...state,
+        posts: tempCache,
+      };
+    case GET_IMAGE_SUCCESS:
+      targetSlug = payload.slug;
+      let targetImage = payload.image;
+      targetIndex = state.posts.find((p) => p.fields.slug === targetSlug);
+      cachedPost = state.posts[targetIndex];
+      cachedPost.imageLoading = false;
+      cachedPost.imageLoaded = true;
+      cachedPost.fields.feature_image.fields.file.url = targetImage;
+      tempCache = [...state.posts];
+      tempCache[targetIndex] = cachedPost;
+      return {
+        ...state,
+        posts: tempCache,
+      };
+    case GET_IMAGE_FAILURE:
+      targetSlug = payload;
+      targetIndex = state.posts.find((p) => p.fields.slug === targetSlug);
+      cachedPost = state.posts[targetIndex];
+      cachedPost.imageLoading = false;
+      cachedPost.imageLoaded = true;
+      tempCache = [...state.posts];
+      tempCache[targetIndex] = cachedPost;
+      return {
+        ...state,
+        posts: tempCache,
       };
     case LOADING_ALL_POST_DATA_IN_PROGRESS:
       return {

@@ -2,6 +2,9 @@ import {
   getFeatureImageInProgress,
   getFeatureImageSuccess,
   getFeatureImageFailure,
+  getImageInProgress,
+  getImageSuccess,
+  getImageFailure,
   postsLoadingInProgress,
   postsLoadingSuccess,
   postsLoadingFailure,
@@ -30,15 +33,12 @@ let endpoint = prod;
 export const loadFeatureImage = () => (dispatch, getState) => {
   dispatch(getFeatureImageInProgress());
   try {
-    const image = fetch(
-      `https://lbugasu-cors-proxy.herokuapp.com/${endpoint}/randomImage`,
-      {
-        method: "GET",
-        mode: "cors",
-        cache: "no-cache",
-        credentials: "same-origin",
-      }
-    );
+    const image = fetch(`${endpoint}/randomImage`, {
+      method: "GET",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+    });
     image.then((response) => {
       response.json().then((result) => {
         dispatch(getFeatureImageSuccess(result.link));
@@ -46,6 +46,20 @@ export const loadFeatureImage = () => (dispatch, getState) => {
     });
   } catch (error) {
     dispatch(getFeatureImageFailure());
+  }
+};
+export const loadImage = (slug, url) => async (dispatch, getState) => {
+  dispatch(getImageInProgress(slug));
+  try {
+    const result = await fetch(`${endpoint}/photo?link=https:${url}`);
+    const imageData = await result.json();
+    var base64Flag = "data:image/jpeg;base64,";
+
+    let resultingImate = base64Flag + imageData.image;
+    dispatch(getImageSuccess({ slug: slug, image: resultingImate }));
+  } catch (error) {
+    console.log(error.message);
+    dispatch(getImageFailure());
   }
 };
 /**

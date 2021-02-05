@@ -21,6 +21,7 @@ import {
   SectionPage,
   TagPage,
   RssFeed,
+  Vault,
 } from "./pages";
 
 import { Menu } from "./components";
@@ -48,6 +49,7 @@ const App = ({ posts, startLoadingPosts, generateTags, getPostsLikes }) => {
       <Menu />
       <Route path="/" component={HomePage} exact />
       <Route path="/about" component={About} exact />
+      <Route path="/vault" component={Vault} exact />
       <Route path="/tag/:subject" component={TagPage} />
       <Route path="/writing/:id" component={PostPage} />
       <Route path="/section/:section" component={SectionPage} />

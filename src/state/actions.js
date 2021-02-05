@@ -14,6 +14,26 @@ export const GET_FEATURE_IMAGE_FAILURE = "GET_FEATURE_IMAGE_FAILURE";
 export const getFeatureImageFailure = () => ({
   type: GET_FEATURE_IMAGE_FAILURE,
 });
+/**
+ * Actions for loading a single image
+ */
+/**
+ * Actions for getting the feature Image
+ */
+export const GET_IMAGE_IN_PROGRESS = "GET_IMAGE_IN_PROGRESS";
+export const getImageInProgress = (slug) => ({
+  type: GET_IMAGE_IN_PROGRESS,
+  payload: { slug },
+});
+export const GET_IMAGE_SUCCESS = "GET_IMAGE_SUCCESS";
+export const getImageSuccess = (object) => ({
+  type: GET_IMAGE_SUCCESS,
+  payload: { object },
+});
+export const GET_IMAGE_FAILURE = "GET_IMAGE_FAILURE";
+export const getImageFailure = () => ({
+  type: GET_IMAGE_FAILURE,
+});
 
 export const POSTS_LOADING_IN_PROGRESS = "POSTS_LOADING_IN_PROGRESS";
 export const postsLoadingInProgress = () => ({
