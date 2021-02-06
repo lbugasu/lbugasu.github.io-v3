@@ -120,6 +120,9 @@ const Latest = styled.h2`
   font-weight: 400;
   font-style: italic;
   margin-left: 2%;
+  @media only screen and (max-width: 900px) {
+    text-align: center;
+  }
 `;
 const HalfDiv = styled.div`
   width: 50%;

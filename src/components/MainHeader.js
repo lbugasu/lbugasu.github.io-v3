@@ -36,14 +36,6 @@ const MainHeader = () => {
       }
     });
   });
-  useEffect(() => {
-    const currentTheme = localStorage.getItem("theme");
-    if (currentTheme === null) {
-      // set default theme
-      localStorage.setItem("theme", "light");
-      setMode("light");
-    }
-  });
 
   const Header = styled.div`
     border-bottom: 1px solid var(--hr);
@@ -125,7 +117,8 @@ const MainHeader = () => {
     console.log(localStorage);
 
     const currentTheme = localStorage.getItem("theme");
-    if (currentTheme === "dark") {
+
+    if (currentTheme === "dark" || currentTheme === null) {
       // ...let's toggle the .dark-theme class on the body
       document.body.classList.toggle("dark-mode");
       document.body.classList.toggle("light-mode");
