@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import styled from "styled-components";
 import $ from "jquery";
 
 const MainHeader = () => {
+  const [mode, setMode] = useState("light");
   /**
    * JQuery function to listen to when a user scrolls
    */
@@ -35,6 +36,15 @@ const MainHeader = () => {
       }
     });
   });
+  useEffect(() => {
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme === null) {
+      // set default theme
+      localStorage.setItem("theme", "light");
+      setMode("light");
+    }
+  });
+
   const Header = styled.div`
     border-bottom: 1px solid var(--hr);
   `;
@@ -105,25 +115,32 @@ const MainHeader = () => {
     padding: 2%;
     height: 100%;
     vertical-align: middle;
+    opacity: 0.7;
+    :hover {
+      cursor: pointer;
+    }
   `;
   function toggleMode() {
     // If the user's OS setting is dark and matches our .dark-mode class...
-    if (prefersDarkScheme.matches) {
-      // ...then toggle the light mode class
-      document.body.classList.toggle("light-mode");
-      // ...but use .dark-mode if the .light-mode class is already on the body,
-      var theme = document.body.classList.contains("light-mode")
-        ? "light"
-        : "dark";
-    } else {
-      // Otherwise let's do the same thing, but for .dark-mode
+    console.log(localStorage);
+
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme === "dark") {
+      // ...let's toggle the .dark-theme class on the body
       document.body.classList.toggle("dark-mode");
-      var theme = document.body.classList.contains("dark-mode")
-        ? "dark"
-        : "light";
+      document.body.classList.toggle("light-mode");
+
+      localStorage.setItem("theme", "light");
+      setMode("dark");
+      // Otherwise, if the user's preference in localStorage is light...
+    } else if (currentTheme === "light") {
+      // ...let's toggle the .light-theme class on the body
+      document.body.classList.toggle("light-mode");
+      document.body.classList.toggle("dark-mode");
+
+      localStorage.setItem("theme", "dark");
+      setMode("light");
     }
-    // Finally, let's save the current preference to localStorage to keep using it
-    localStorage.setItem("theme", theme);
   }
 
   return (
@@ -133,8 +150,8 @@ const MainHeader = () => {
           <Link to="/">LAURENCE ININDA</Link>
         </Title>
         <Menu>
-          <LightToggle className="btn-toggle" onClick={toggleMode()}>
-            🌕🌑
+          <LightToggle className="btn-toggle" onClick={toggleMode}>
+            {mode === "light" ? <>🌑</> : <>🌕</>}
           </LightToggle>
           <span
             onClick={() => {

@@ -1,4 +1,4 @@
-body {
+body.light-mode {
   --flirt: rgb(248, 78, 191);
   --cerulean-blue: rgb(126, 164, 252);
   --xanadu: rgb(145, 172, 150);
@@ -73,7 +73,7 @@ body {
   --work-link-bg: #9f8a78;
   --work-link: #f8f9f0;
 }
-body {
+body.dark-mode {
   --flirt: rgba(248, 78, 191, 0.7);
   --cerulean-blue: rgba(126, 164, 252, 0.7);
   --xanadu: rgba(145, 172, 150, 0.7);
@@ -114,7 +114,7 @@ body {
 
   --text: #f1d9c9;
   --background-color: #01081d;
-  --item-bg: #0d193f;
+  --item-bg: #0b1431;
 
   --border: #f1d9c9;
 
