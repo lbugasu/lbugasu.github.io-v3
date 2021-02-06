@@ -117,8 +117,8 @@ export default connect(mapStateToProps)(PostPreview);
 const PreviewFrame = styled.div`
   background-color: var(--item-bg);
   border-radius: 25px;
-  margin-bottom: 2%;
-  padding: 1%;
+  margin-bottom: 1%;
+  padding: 0.5%;
 `;
 const ImageFrame = styled.div`
   width: 28%;
@@ -165,6 +165,7 @@ const Hr = styled.hr`
   width: 75%;
   float: left;
   border: none;
+  margin-left: 1%;
   height: 1px;
   display: block;
   /* Set the hr color */
