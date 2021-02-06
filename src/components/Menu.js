@@ -23,11 +23,11 @@ const Title = styled.div`
   font-size: 150%;
   margin: 0;
   @media only screen and (max-width: 900px) {
-    font-size: 90%;
+    font-size: 100%;
     width: 65%;
   }
   @media only screen and (max-width: 600px) {
-    font-size: 80%;
+    font-size: 100%;
     width: 75%;
   }
 `;
@@ -44,7 +44,8 @@ const MenuButton = styled.div`
     width: 35%;
   }
   @media only screen and (max-width: 600px) {
-    font-size: 80%;
+    font-size: 120%;
+    width: 25%;
   }
 `;
 const Menu = () => {

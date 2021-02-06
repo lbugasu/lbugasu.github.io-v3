@@ -48,11 +48,13 @@ const MainHeader = () => {
     font-size: 150%;
     margin: 0;
     @media only screen and (max-width: 900px) {
-      font-size: 90%;
+      font-size: 125%;
+
       width: 65%;
     }
     @media only screen and (max-width: 600px) {
-      font-size: 80%;
+      font-size: 125%;
+
       width: 75%;
     }
   `;
@@ -63,11 +65,12 @@ const MainHeader = () => {
     text-align: right;
     font-size: 150%;
     @media only screen and (max-width: 900px) {
-      font-size: 90%;
+      font-size: 125%;
+
       width: 35%;
     }
     @media only screen and (max-width: 600px) {
-      font-size: 80%;
+      font-size: 150%;
       width: 25%;
     }
   `;
