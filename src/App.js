@@ -24,7 +24,7 @@ import {
   Vault,
 } from "./pages";
 
-import { Menu } from "./components";
+import { Menu, ScrollToTop } from "./components";
 
 const App = ({ posts, startLoadingPosts, generateTags, getPostsLikes }) => {
   useEffect(() => {

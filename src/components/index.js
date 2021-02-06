@@ -16,7 +16,7 @@ import LikeButton from "./LikeButton";
 import SendIcon from "./SendIcon";
 import CommentArea from "./CommentArea";
 import Loading from "./Loading";
-import ScrollToTop from "./ScrollToTop";
+import ScrollToTopOnMount from "./ScrollToTopOnMount";
 export {
   CodeBlock,
   MainHeader,
@@ -36,5 +36,5 @@ export {
   SendIcon,
   Loading,
   CommentArea,
-  ScrollToTop,
+  ScrollToTopOnMount,
 };

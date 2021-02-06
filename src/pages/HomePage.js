@@ -9,6 +9,7 @@ import {
   PostPreview,
   Footer,
   Loading,
+  ScrollToTopOnMount,
 } from "../components";
 
 import { getTags } from "../state/actions";
@@ -69,10 +70,47 @@ const HomePage = ({ posts, featuredImage, startLoadingFeaturedImage }) => {
 
   return (
     <Home>
+      <ScrollToTopOnMount />
       <MainHeader />
       <SecondaryHeader />
       <HalfDiv>
         <FeatureImage />
+        <Things>
+          <p style={{ textAlign: "center", width: "100%" }}>
+            Playlist of the week
+          </p>
+          <iframe
+            src="https://open.spotify.com/embed/playlist/62tlZ0eUjlEZxxiwStwStW"
+            width="100%"
+            height="500"
+            frameborder="0"
+            allowtransparency="true"
+            allow="encrypted-media"
+          ></iframe>
+          <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+            <iframe
+              src="https://player.vimeo.com/video/467037345?dnt=1&muted=1&loop=1&autoplay=1&controls=0&color=ffffff&title=0&byline=0&portrait=0"
+              style={{
+                position: "absolute",
+                top: "0",
+                left: "0",
+                width: "100%",
+                height: "100%",
+              }}
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p style={{ textAlign: "center" }}>
+            <a href="https://vimeo.com/467037345">Di&aacute;logo</a>
+            <span style={{ fontStyle: "italic" }}>
+              {" "}
+              from <a href="https://vimeo.com/bloquestudio">blo que</a> on{" "}
+            </span>
+            <a href="https://vimeo.com">Vimeo</a>.
+          </p>
+        </Things>
       </HalfDiv>
       <PostsDiv>
         <Latest>Latest</Latest>
@@ -102,10 +140,10 @@ const Image = styled.img`
 
 const EyeEmImage = styled.div`
   padding: 10% 2% 0 0;
-  height: 100%;
 `;
 const FeaturedImage = styled.img`
   width: 100%;
+  height: auto;
 `;
 const Caption = styled.figcaption`
   font-size: 10pt;
@@ -145,4 +183,7 @@ const PostsDiv = styled.div`
   @media only screen and (max-width: 900px) {
     width: 100%;
   }
+`;
+const Things = styled.div`
+  margin: 0 2% 0 0;
 `;

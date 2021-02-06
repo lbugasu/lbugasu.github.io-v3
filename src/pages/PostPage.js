@@ -10,6 +10,7 @@ import {
   Footer,
   LikeButton,
   Loading,
+  ScrollToTopOnMount,
 } from "../components";
 import { getPosts } from "../state/selectors";
 
@@ -133,6 +134,7 @@ const PostPage = ({ posts }) => {
   };
   return (
     <div className="post">
+      <ScrollToTopOnMount />
       <MainHeader />
 
       {renderPost()}

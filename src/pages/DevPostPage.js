@@ -12,6 +12,7 @@ import {
   Footer,
   Loading,
   CommentArea,
+  ScrollToTopOnMount,
 } from "../components";
 import ReactMarkdown from "react-markdown";
 import { HashLink } from "react-router-hash-link";
@@ -312,6 +313,7 @@ const DevPostPage = ({ posts }) => {
   };
   return (
     <div>
+      <ScrollToTopOnMount />
       <MainHeader />
       {renderPost()}
       <Footer />
