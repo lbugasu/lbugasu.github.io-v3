@@ -8,6 +8,7 @@
     "@contentful/rich-text-types": "^14.1.2",
     "@testing-library/jest-dom": "^5.11.5",
     "contentful": "^8.1.4",
+    "esbuild": "^0.8.42",
     "feed": "^4.2.2",
     "jquery": "^3.5.1",
     "markdown-headings": "^2.0.0",

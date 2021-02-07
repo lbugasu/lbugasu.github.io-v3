@@ -18,7 +18,7 @@ const LightToggle = styled.span`
 const LightDarkToggle = ({ mode, toggle }) => {
   return (
     <LightToggle className="btn-toggle" onClick={() => toggle()}>
-      {"dark" === "dark" ? <>🌑</> : <>🌕</>}
+      {mode === "dark" ? <>🌑</> : <>🌕</>}
     </LightToggle>
   );
 };
