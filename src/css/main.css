@@ -641,6 +641,27 @@ div.sharable {
     width: 40%;
   }
 }
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--hr);
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hr);
+}
+
 @media only screen and (max-width: 600px) {
   body {
     padding: 0.75% 5% 0 5%;

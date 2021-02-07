@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import styled from "styled-components";
+import LightDarkToggle from "./LightDarkToggle";
 import $ from "jquery";
 
 const MainHeader = () => {
@@ -105,39 +106,6 @@ const MainHeader = () => {
       cursor: pointer;
     }
   `;
-  const LightToggle = styled.span`
-    font-size: 65%;
-    padding: 2%;
-    height: 100%;
-    vertical-align: middle;
-    opacity: 0.7;
-    :hover {
-      cursor: pointer;
-    }
-  `;
-  function toggleMode() {
-    // If the user's OS setting is dark and matches our .dark-mode class...
-    console.log(localStorage);
-
-    const currentTheme = localStorage.getItem("theme");
-
-    if (currentTheme === "dark" || currentTheme === null) {
-      // ...let's toggle the .dark-theme class on the body
-      document.body.classList.toggle("dark-mode");
-      document.body.classList.toggle("light-mode");
-
-      localStorage.setItem("theme", "light");
-      setMode("dark");
-      // Otherwise, if the user's preference in localStorage is light...
-    } else if (currentTheme === "light") {
-      // ...let's toggle the .light-theme class on the body
-      document.body.classList.toggle("light-mode");
-      document.body.classList.toggle("dark-mode");
-
-      localStorage.setItem("theme", "dark");
-      setMode("light");
-    }
-  }
 
   return (
     <>
@@ -146,9 +114,7 @@ const MainHeader = () => {
           <Link to="/">LAURENCE ININDA</Link>
         </Title>
         <Menu>
-          <LightToggle className="btn-toggle" onClick={toggleMode}>
-            {mode === "light" ? <>🌑</> : <>🌕</>}
-          </LightToggle>
+          <LightDarkToggle />
           <span
             onClick={() => {
               let menu = document.querySelector("div.mainmenu");

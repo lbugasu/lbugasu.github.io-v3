@@ -17,6 +17,10 @@ export const getFeatureImageFailure = () => ({
 /**
  * Actions for loading a single image
  */
+export const SWITCHMODE = "SWITCHMODE";
+export const switchMode = () => ({
+  type: SWITCHMODE,
+});
 /**
  * Actions for getting the feature Image
  */

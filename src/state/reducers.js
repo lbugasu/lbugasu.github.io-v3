@@ -24,6 +24,7 @@ import {
   LOAD_POST_COMMENTS_IN_PROGRESS,
   LOAD_POST_COMMENTS_SUCCESS,
   LOAD_POST_COMMENTS_FAILURE,
+  SWITCHMODE,
 } from "./actions";
 const Funcs = require("../components/helpers");
 const initialState = {
@@ -41,11 +42,23 @@ const initialState = {
   postCommentsLoading: false,
   postLikesLoading: false,
   likeInProgress: false,
-  likeSuccess: false,
-  commentInProgress: false,
+  mode: 0,
   commentSuccess: false,
 };
 
+export const mode = (state = initialState, action) => {
+  const { type, payload } = action;
+
+  switch (type) {
+    case SWITCHMODE:
+      return {
+        ...state,
+        mode: !state.mode,
+      };
+    default:
+      return state;
+  }
+};
 export const posts = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
@@ -308,7 +321,7 @@ export const posts = (state = initialState, action) => {
         commentsLoaded: false,
       };
     default:
-      return { ...state };
+      return state;
   }
 };
 export const featuredImage = (state = initialState, action) => {
@@ -335,7 +348,7 @@ export const featuredImage = (state = initialState, action) => {
         featuredImageLoaded: false,
       };
     default:
-      return { ...state };
+      return state;
   }
 };
 
@@ -353,6 +366,6 @@ export const tags = (state = initialState, action) => {
         tags: {},
       };
     default:
-      return { ...state };
+      return state;
   }
 };
