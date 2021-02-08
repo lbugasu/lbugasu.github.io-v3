@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { MainHeader } from "../components";
-let endpoint = "http://localhost:4000";
 
+let prod = "https://laudebugs.tamaduni.org";
+
+let local = "http://localhost:4000";
+let endpoint = prod;
 const ApprovalPage = () => {
   const [comments, setComments] = useState([]);
   const [loaded, setLoaded] = useState(false);

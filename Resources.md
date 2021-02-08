@@ -9,6 +9,7 @@
 - For the Infinitely Scrollable menu: [Scroll Loop Menu](https://github.com/codrops/ScrollLoopMenu/)
 
 - Toggling light and dark mode[Css Tricks](https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/)
+- [Cookies Banner](https://github.com/Alex-D/Cookies-EU-banner)
 
 ### Wallpapers
 

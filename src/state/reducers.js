@@ -42,8 +42,9 @@ const initialState = {
   postCommentsLoading: false,
   postLikesLoading: false,
   likeInProgress: false,
-  mode:
-    new Date() > new Date().setHours(6) && new Date() < new Date().setHours(18),
+  mode: !(
+    new Date() > new Date().setHours(6) && new Date() < new Date().setHours(18)
+  ),
   commentSuccess: false,
 };
 

@@ -41,15 +41,26 @@
 
     <!-- Infinite Scroll Menu Refer to: -->
     <link rel="stylesheet" href="https://use.typekit.net/rtr2vsr.css" />
-    <script src="%PUBLIC_URL%/scripts/menu.js"></script>
-    <script src="https://player.vimeo.com/api/player.js"></script>
 
-    <script defer>
-      $(document).ready(function () {});
-    </script>
+    <!-- Cookies banner script  -->
+    <script src="%PUBLIC_URL%/lib/cookies-eu-banner.min.js"></script>
+
+    <script src="%PUBLIC_URL%/scripts/menu.js"></script>
+    <script src="%PUBLIC_URL%/scripts/main.js"></script>
+
+    <script src="https://player.vimeo.com/api/player.js"></script>
   </head>
   <body class="light-mode">
+    <!-- Cookie banner -->
+    <div id="cookies-eu-banner" style="display: none">
+      By continuing your visit to this site, you accept the use of cookies by
+      Google Analytics to make visits statistics.
+      <a href="./read-more.html" id="cookies-eu-more">Read more</a>
+      <button id="cookies-eu-reject">Reject</button>
+      <button id="cookies-eu-accept">Accept</button>
+    </div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
     <div id="root"></div>
   </body>
 </html>

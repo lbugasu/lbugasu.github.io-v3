@@ -1,3 +1,3 @@
-import InfiniteMenu from "./infinitemenu";
+// import InfiniteMenu from "./infinitemenu";
 
 // const menu = new InfiniteMenu(document.querySelector("nav.menu"));
