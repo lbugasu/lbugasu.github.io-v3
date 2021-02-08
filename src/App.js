@@ -4,7 +4,7 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { loadPosts, loadPostsData } from "./state/thunks";
 import { getTags } from "./state/actions";
-import { getPosts } from "./state/selectors";
+import { getPosts, getMode } from "./state/selectors";
 
 //import css
 import "./css/main.css";
@@ -22,12 +22,31 @@ import {
   TagPage,
   RssFeed,
   Vault,
+  ApprovalPage,
 } from "./pages";
 
 import { Menu, ScrollToTop } from "./components";
 
-const App = ({ posts, startLoadingPosts, generateTags, getPostsLikes }) => {
+const App = ({
+  posts,
+  mode,
+  startLoadingPosts,
+  generateTags,
+  getPostsLikes,
+}) => {
   useEffect(() => {
+    console.log("MMM: " + mode);
+    if (!mode) {
+      // ...let's toggle the .dark-theme class on the body
+      document.body.classList.add("dark-mode");
+      document.body.classList.remove("light-mode");
+
+      // Otherwise, if the user's preference in localStorage is light...
+    } else {
+      // ...let's toggle the .light-theme class on the body
+      document.body.classList.add("light-mode");
+      document.body.classList.remove("dark-mode");
+    }
     /**
      * If the posts have been loaded, don't load the posts again
      */
@@ -56,11 +75,13 @@ const App = ({ posts, startLoadingPosts, generateTags, getPostsLikes }) => {
       <Route path="/dev/:id" component={DevPostPage} />
       <Route path="/playground" component={Playground} exact />
       <Route path="/rss" component={RssFeed} exact />
+      <Route path="/approvalpage" component={ApprovalPage} exact />
     </Router>
   );
 };
 const mapStateToProps = (state) => ({
   posts: getPosts(state),
+  mode: getMode(state).mode,
 });
 const mapDispatchToProps = (dispatch) => ({
   startLoadingPosts: () => dispatch(loadPosts()),

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import $ from "jquery";
+import { renderToString } from "react-dom/server";
 
 import SendIcon from "./SendIcon";
 import { sendComment, getComments } from "../state/thunks";
@@ -96,6 +97,7 @@ const Label = styled.label`
 const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
   const [typedSth, setTypedSth] = useState(false);
   const [thisPost, setThisPost] = useState([]);
+  const [addedComment, setAddedComment] = useState(true);
   useEffect(() => {
     if (posts.postsLoaded) {
       getPostComments(slug);
@@ -103,7 +105,9 @@ const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
       setThisPost(thisPost);
       console.log(thisPost);
     }
+    setAddedComment(false);
   }, [posts.commentsLoaded]);
+
   const CommentText = styled.div`
     border-top: 0.5px solid var(--hr);
     padding: 1% 1% 0 1%;
@@ -113,7 +117,7 @@ const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
     font-size: 60%;
     text-align: right;
   `;
-  const Date = styled.div`
+  const CommentDate = styled.div`
     width: 30%;
     display: inline-block;
     font-style: italic;
@@ -127,6 +131,22 @@ const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
     width: 20%;
     display: inline-block;
   `;
+  let cmt = (comment) => {
+    return (
+      <CommentText>
+        {comment.content}
+        <MetaData>
+          <User style={{ textAlign: "left" }}>
+            <span style={{ fontStyle: "italic" }}>by</span> {comment.user}
+          </User>
+          <Stats style={{ color: comment.approved ? "green" : "orange" }}>
+            ●
+          </Stats>
+          <CommentDate>-{readableDate(comment.createdAt)}</CommentDate>
+        </MetaData>
+      </CommentText>
+    );
+  };
   const ListOfComments = () => {
     const [loaded, setLoaded] = useState(false);
     useEffect(() => {
@@ -136,26 +156,12 @@ const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
     console.log(thisPost);
 
     if (loaded) {
-      console.log(thisPost);
-      console.log("zzz");
-      return thisPost.comments.map((comment) => (
-        <CommentText>
-          {comment.content}
-          <MetaData>
-            <User style={{ textAlign: "left" }}>
-              <span style={{ fontStyle: "italic" }}>by</span> {comment.user}
-            </User>
-            <Stats style={{ color: comment.approved ? "green" : "orange" }}>
-              ●
-            </Stats>
-            <Date>-{readableDate(comment.createdAt)}</Date>
-          </MetaData>
-        </CommentText>
-      ));
+      return thisPost.comments.map((comment) => cmt(comment));
     } else {
       return <Loading size={0.3} />;
     }
   };
+
   /**
    * Listen to typing
    */
@@ -170,10 +176,17 @@ const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
   });
   function sendAway() {
     console.log("send sth");
+
     if (typedSth) {
       const content = $("#content");
       const email = $("#email");
       const name = $("#name");
+      let comment = {
+        content: content.val(),
+        approved: false,
+        user: "you",
+        createdAt: new Date(),
+      };
 
       if (validateEmail(email.val())) {
         postComment({
@@ -182,14 +195,16 @@ const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
           name: name.val(),
           comment: content.val(),
         });
-
-        let btn = $("#send-button");
+        setAddedComment(true);
+        // let btn = $("#send-button");
         // $(btn).addClass("send-comment");
         // Erase the text area
         content.val("");
         email.val("");
         name.val("");
-
+        console.log(comment);
+        $("#comments").append(renderToString(cmt(comment)));
+        console.log(renderToString(cmt(comment)));
         // reset typedSth state
         setTypedSth(false);
       }
@@ -218,7 +233,7 @@ const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
           </span>
         </Send>
       </InputArea>
-      <PostedComments>
+      <PostedComments id="comments">
         <H3 style={{ textAlign: "right" }}>The people's thoughts</H3>
         <ListOfComments />
       </PostedComments>

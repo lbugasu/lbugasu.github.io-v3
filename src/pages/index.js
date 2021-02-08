@@ -7,6 +7,7 @@ import TagPage from "./TagPage";
 import PostPage from "./PostPage";
 import RssFeed from "./RssFeed";
 import Vault from "./Vault";
+import ApprovalPage from "./ApprovalPage";
 export {
   About,
   DevPostPage,
@@ -17,4 +18,5 @@ export {
   TagPage,
   RssFeed,
   Vault,
+  ApprovalPage,
 };

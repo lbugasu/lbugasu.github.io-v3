@@ -22,7 +22,7 @@ const LightDarkToggle = ({ mode, toggle }) => {
 
     // If the user's OS setting is dark and matches our .dark-mode class...
 
-    if (mode.mode) {
+    if (mode) {
       // ...let's toggle the .dark-theme class on the body
       document.body.classList.toggle("dark-mode");
       document.body.classList.toggle("light-mode");
@@ -36,13 +36,13 @@ const LightDarkToggle = ({ mode, toggle }) => {
   }
   return (
     <LightToggle className="btn-toggle" onClick={() => toggleMode()}>
-      {mode.mode ? <>🌑</> : <>🌕</>}
+      {mode ? <>🌑</> : <>🌕</>}
     </LightToggle>
   );
 };
 
 const mapStateToProps = (state) => ({
-  mode: getMode(state),
+  mode: getMode(state).mode,
 });
 const mapDispatchToProps = (dispatch) => ({
   toggle: () => dispatch(switchMode()),

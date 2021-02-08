@@ -467,7 +467,10 @@ div.projectStack {
   color: var(--work-link);
   border-radius: 5px;
 }
-
+div.approved button {
+  background-color: grey;
+  pointer-events: none;
+}
 /*  Misceleneous
 ------------------*/
 h3.title {
