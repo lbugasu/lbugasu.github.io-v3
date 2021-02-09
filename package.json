@@ -12,6 +12,7 @@
     "esbuild": "^0.8.42",
     "feed": "^4.2.2",
     "jquery": "^3.5.1",
+    "luxon": "^1.25.0",
     "markdown-headings": "^2.0.0",
     "prism-react-renderer": "^1.1.1",
     "prismjs": "^1.23.0",
