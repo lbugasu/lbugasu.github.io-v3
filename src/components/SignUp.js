@@ -5,7 +5,7 @@ import $ from "jquery";
 import queryString from "query-string";
 let prod = "https://laudebugs.tamaduni.org";
 let dev = "http://localhost:4000";
-let endpoint = dev;
+let endpoint = prod;
 
 const Form = styled.div`
   position: fixed;

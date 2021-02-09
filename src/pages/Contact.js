@@ -7,7 +7,7 @@ import { validateEmail } from "../components/helpers";
 
 let prod = "https://laudebugs.tamaduni.org";
 let dev = "http://localhost:4000";
-let endpoint = dev;
+let endpoint = prod;
 
 const Contact = () => {
   const [sent, setSent] = useState(0);
