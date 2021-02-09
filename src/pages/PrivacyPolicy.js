@@ -7,20 +7,31 @@ const H1 = styled.h1`
   font-weight: 700;
   font-size: 200%;
 `;
+const Strong = styled.strong`
+  font-weight: 700;
+`;
+const H2 = styled.h2`
+  font-family: "Etoile";
+  font-size: 175%;
+`;
+const H3 = styled.h3`
+  font-family: "Etoile";
+  font-size: 150%;
+`;
 const PrivacyPolicy = () => {
   return (
     <article>
       <MainHeader />
       <div class="page-body">
         <H1>
-          <strong>Privacy Policy</strong>
+          <Strong>Privacy Policy</Strong>
         </H1>
         <p>Last updated: February 09, 2021</p>
         <p>
           This Privacy Policy describes Our policies and procedures on the
-          collection, use and disclosure of Your information when
-          <em>you</em> use the site and tells you about your privacy rights and
-          how the law protects You.
+          collection, use and disclosure of Your information when <em>you</em>{" "}
+          use the site and tells you about your privacy rights and how the law
+          protects You.
         </p>
         <p>
           We use Your Personal data to provide and improve the Service. By using
@@ -28,67 +39,66 @@ const PrivacyPolicy = () => {
           accordance with this Privacy Policy.
         </p>
         <H1>
-          <strong>Interpretation and Definitions</strong>
+          <Strong>Interpretation and Definitions</Strong>
         </H1>
-        <h2>
-          <strong>Interpretation</strong>
-        </h2>
+        <H2>
+          <Strong>Interpretation</Strong>
+        </H2>
         <p>
           The words of which the initial letter is capitalized have meanings
           defined under the following conditions. The following definitions
           shall have the same meaning regardless of whether they appear in
           singular or in plural.
         </p>
-        <h2>
-          <strong>Definitions</strong>
-        </h2>
+        <H2>
+          <Strong>Definitions</Strong>
+        </H2>
         <p>For the purposes of this Privacy Policy:</p>
         <ul>
           <li>
-            <strong>Account</strong> means a unique account created for You to
+            <Strong>Account</Strong> means a unique account created for You to
             access our Service or parts of our Service.
           </li>
         </ul>
         <ul>
           <li>
-            <strong>Company</strong> (referred to as either &quot;the
+            <Strong>Company</Strong> (referred to as either &quot;the
             Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in
             this Agreement) refers to Laudebugs.
           </li>
         </ul>
         <ul>
           <li>
-            <strong>Cookies</strong> are small files that are placed on Your
+            <Strong>Cookies</Strong> are small files that are placed on Your
             computer, mobile device or any other device by a website, containing
             the details of Your browsing history on that website among its many
             uses.
           </li>
-        </ul>
-        <ul>
+
           <li>
-            <strong>Country</strong> refers to: New York, United States
+            <Strong>Country</Strong> refers to: New York, United States
           </li>
         </ul>
         <ul>
           <li>
-            <strong>Device</strong> means any device that can access the Service
+            <Strong>Device</Strong> means any device that can access the Service
             such as a computer, a cellphone or a digital tablet.
           </li>
         </ul>
         <ul>
           <li>
-            <strong>Personal Data</strong> is any information that relates to an
+            <Strong>Personal Data</Strong> is any information that relates to an
             identified or identifiable individual.
           </li>
         </ul>
         <ul>
           <li>
-            <strong>Service</strong> refers to the Website.
+            <Strong>Service</Strong> refers to the Website.
           </li>
         </ul>
         <ul>
           <li>
-            <strong>Service Provider</strong> means any natural or legal person
+            <Strong>Service Provider</Strong> means any natural or legal person
             who processes the data on behalf of the Company. It refers to
             third-party companies or individuals employed by the Company to
             facilitate the Service, to provide the Service on behalf of the
@@ -98,40 +108,40 @@ const PrivacyPolicy = () => {
         </ul>
         <ul>
           <li>
-            <strong>Third-party Social Media Service</strong> refers to any
+            <Strong>Third-party Social Media Service</Strong> refers to any
             website or any social network website through which a User can log
             in or create an account to use the Service.
           </li>
         </ul>
         <ul>
           <li>
-            <strong>Usage Data</strong> refers to data collected automatically,
+            <Strong>Usage Data</Strong> refers to data collected automatically,
             either generated by the use of the Service or from the Service
             infrastructure itself (for example, the duration of a page visit).
           </li>
         </ul>
         <ul>
           <li>
-            <strong>Website</strong> refers to Laurence, accessible from 
+            <Strong>Website</Strong> refers to Laurence, accessible from 
             <Link href="/">https://laudebugs.me/#/</Link>
           </li>
         </ul>
         <ul>
           <li>
-            <strong>You</strong> means the individual accessing or using the
+            <Strong>You</Strong> means the individual accessing or using the
             Service, or the company, or other legal entity on behalf of which
             such individual is accessing or using the Service, as applicable.
           </li>
         </ul>
         <H1>
-          <strong>Collecting and Using Your Personal Data</strong>
+          <Strong>Collecting and Using Your Personal Data</Strong>
         </H1>
-        <h2>
-          <strong>Types of Data Collected</strong>
-        </h2>
-        <h3>
-          <strong>Personal Data</strong>
-        </h3>
+        <H2>
+          <Strong>Types of Data Collected</Strong>
+        </H2>
+        <H3>
+          <Strong>Personal Data</Strong>
+        </H3>
         <p>
           While using Our Service, We may ask You to provide Us with certain
           personally identifiable information that can be used to contact or
@@ -147,15 +157,15 @@ const PrivacyPolicy = () => {
         <ul>
           <li>
             Address, State, Province, ZIP/Postal code, City - when you use the
-            siteew
+            Website
           </li>
         </ul>
         <ul>
           <li>Usage Data</li>
         </ul>
-        <h3>
-          <strong>Usage Data</strong>
-        </h3>
+        <H3>
+          <Strong>Usage Data</Strong>
+        </H3>
         <p>Usage Data is collected automatically when using the Service.</p>
         <p>
           Usage Data may include information such as Your Device&#x27;s Internet
@@ -177,9 +187,9 @@ const PrivacyPolicy = () => {
           visit our Service or when You access the Service by or through a
           mobile device.
         </p>
-        <h3>
-          <strong>Tracking Technologies and Cookies</strong>
-        </h3>
+        <H3>
+          <Strong>Tracking Technologies and Cookies</Strong>
+        </H3>
         <p>
           We use Cookies and similar tracking technologies to track the activity
           on Our Service and store certain information. Tracking technologies
@@ -189,7 +199,7 @@ const PrivacyPolicy = () => {
         </p>
         <ul>
           <li>
-            <strong>Cookies or Browser Cookies.</strong> A cookie is a small
+            <Strong>Cookies or Browser Cookies.</Strong> A cookie is a small
             file placed on Your Device. You can instruct Your browser to refuse
             all Cookies or to indicate when a Cookie is being sent. However, if
             You do not accept Cookies, You may not be able to use some parts of
@@ -213,7 +223,7 @@ const PrivacyPolicy = () => {
         </p>
         <ul>
           <li>
-            <strong>Necessary / Essential Cookies</strong>
+            <Strong>Necessary / Essential Cookies</Strong>
             <p>Type: Session Cookies</p>
             <p>Administered by: Us</p>
             <p>
@@ -228,7 +238,7 @@ const PrivacyPolicy = () => {
         </ul>
         <ul>
           <li>
-            <strong>Cookies Policy / Notice Acceptance Cookies</strong>
+            <Strong>Cookies Policy / Notice Acceptance Cookies</Strong>
             <p>Type: Persistent Cookies</p>
             <p>Administered by: Us</p>
             <p>
@@ -239,7 +249,7 @@ const PrivacyPolicy = () => {
         </ul>
         <ul>
           <li>
-            <strong>Functionality Cookies</strong>
+            <Strong>Functionality Cookies</Strong>
             <p>Type: Persistent Cookies</p>
             <p>Administered by: Us</p>
             <p>
@@ -256,19 +266,19 @@ const PrivacyPolicy = () => {
           regarding cookies, please visit our Cookies Policy or the Cookies
           section of our Privacy Policy.
         </p>
-        <h2>
-          <strong>Use of Your Personal Data</strong>
-        </h2>
+        <H2>
+          <Strong>Use of Your Personal Data</Strong>
+        </H2>
         <p>The Company may use Personal Data for the following purposes:</p>
         <ul>
           <li>
-            <strong>To provide and maintain our Service</strong>, including to
+            <Strong>To provide and maintain our Service</Strong>, including to
             monitor the usage of our Service.
           </li>
         </ul>
         <ul>
           <li>
-            <strong>To manage Comments posted by you on the site:</strong> To
+            <Strong>To manage Comments posted by you on the site:</Strong> To
             post a comment to the site means you have to provide an email and or
             name in order to ensure that you are human. The identifying
             information you provide will not be used for anything else and will
@@ -277,7 +287,7 @@ const PrivacyPolicy = () => {
         </ul>
         <ul>
           <li>
-            <strong>For the performance of a contract:</strong> the development,
+            <Strong>For the performance of a contract:</Strong> the development,
             compliance and undertaking of the purchase contract for the
             products, items or services You have purchased or of any other
             contract with Us through the Service.
@@ -285,12 +295,12 @@ const PrivacyPolicy = () => {
         </ul>
         <ul>
           <li>
-            <strong>To contact You:</strong> To contact You by email.
+            <Strong>To contact You:</Strong> To contact You by email.
           </li>
         </ul>
         <ul>
           <li>
-            <strong>To provide You</strong> with news, special offers and
+            <Strong>To provide You</Strong> with news, special offers and
             general information about other goods, services and events which we
             offer that are similar to those that you have already purchased or
             enquired about unless You have opted not to receive such
@@ -299,13 +309,13 @@ const PrivacyPolicy = () => {
         </ul>
         <ul>
           <li>
-            <strong>To manage Your requests:</strong> To attend and manage Your
+            <Strong>To manage Your requests:</Strong> To attend and manage Your
             requests to Us.
           </li>
         </ul>
         <ul>
           <li>
-            <strong>For business transfers:</strong> We may use Your information
+            <Strong>For business transfers:</Strong> We may use Your information
             to evaluate or conduct a merger, divestiture, restructuring,
             reorganization, dissolution, or other sale or transfer of some or
             all of Our assets, whether as a going concern or as part of
@@ -316,7 +326,7 @@ const PrivacyPolicy = () => {
         </ul>
         <ul>
           <li>
-            <strong>For other purposes</strong>: We may use Your information for
+            <Strong>For other purposes</Strong>: We may use Your information for
             other purposes, such as data analysis, identifying usage trends,
             determining the effectiveness of our promotional campaigns and to
             evaluate and improve our Service, products, services, marketing and
@@ -328,14 +338,14 @@ const PrivacyPolicy = () => {
         </p>
         <ul>
           <li>
-            <strong>With Service Providers:</strong> We may share Your personal
+            <Strong>With Service Providers:</Strong> We may share Your personal
             information with Service Providers to monitor and analyze the use of
             our Service, to contact You.
           </li>
         </ul>
         <ul>
           <li>
-            <strong>For business transfers:</strong> We may share or transfer
+            <Strong>For business transfers:</Strong> We may share or transfer
             Your personal information in connection with, or during negotiations
             of, any merger, sale of Company assets, financing, or acquisition of
             all or a portion of Our business to another company.
@@ -343,7 +353,7 @@ const PrivacyPolicy = () => {
         </ul>
         <ul>
           <li>
-            <strong>With Affiliates:</strong> We may share Your information with
+            <Strong>With Affiliates:</Strong> We may share Your information with
             Our affiliates, in which case we will require those affiliates to
             honor this Privacy Policy. Affiliates include Our parent company and
             any other subsidiaries, joint venture partners or other companies
@@ -352,14 +362,14 @@ const PrivacyPolicy = () => {
         </ul>
         <ul>
           <li>
-            <strong>With business partners:</strong> We may share Your
+            <Strong>With business partners:</Strong> We may share Your
             information with Our business partners to offer You certain
             products, services or promotions.
           </li>
         </ul>
         <ul>
           <li>
-            <strong>With other users:</strong> when You share personal
+            <Strong>With other users:</Strong> when You share personal
             information or otherwise interact in the public areas with other
             users, such information may be viewed by all users and may be
             publicly distributed outside. If You interact with other users or
@@ -372,13 +382,13 @@ const PrivacyPolicy = () => {
         </ul>
         <ul>
           <li>
-            <strong>With Your consent</strong>: We may disclose Your personal
+            <Strong>With Your consent</Strong>: We may disclose Your personal
             information for any other purpose with Your consent.
           </li>
         </ul>
-        <h2>
-          <strong>Retention of Your Personal Data</strong>
-        </h2>
+        <H2>
+          <Strong>Retention of Your Personal Data</Strong>
+        </H2>
         <p>
           The Company will retain Your Personal Data only for as long as is
           necessary for the purposes set out in this Privacy Policy. We will
@@ -394,9 +404,9 @@ const PrivacyPolicy = () => {
           improve the functionality of Our Service, or We are legally obligated
           to retain this data for longer time periods.
         </p>
-        <h2>
-          <strong>Transfer of Your Personal Data</strong>
-        </h2>
+        <H2>
+          <Strong>Transfer of Your Personal Data</Strong>
+        </H2>
         <p>
           Your information, including Personal Data, is processed at the
           Company&#x27;s operating offices and in any other places where the
@@ -417,49 +427,49 @@ const PrivacyPolicy = () => {
           organization or a country unless there are adequate controls in place
           including the security of Your data and other personal information.
         </p>
-        <h2>
-          <strong>Data Deletion Requests</strong>
-        </h2>
+        <H2>
+          <Strong>Data Deletion Requests</Strong>
+        </H2>
         <p>
           If you would like any data you provided to the site to be deleted, you
           can do so by submiting a request
           <Link href="https://laudebugs.me/#/data-deletion">here</Link> and can
           be done in two ways:
         </p>
-        <h3>1. Personal Identifying Information Data Deletion</h3>
+        <H3>1. Personal Identifying Information Data Deletion</H3>
         <p>
           Such a request will be granted to deletion of information that can
           identify you - including email and name that you provide to the
           website
         </p>
-        <h3>2. All Data Deletion Request</h3>
+        <H3>2. All Data Deletion Request</H3>
         <p>
           This will delete any data that you submit to the site - including your
           name, email and comments that you provide to the Website
         </p>
-        <h2>
-          <strong>Disclosure of Your Personal Data</strong>
-        </h2>
-        <h3>
-          <strong>Business Transactions</strong>
-        </h3>
+        <H2>
+          <Strong>Disclosure of Your Personal Data</Strong>
+        </H2>
+        <H3>
+          <Strong>Business Transactions</Strong>
+        </H3>
         <p>
           If the Company is involved in a merger, acquisition or asset sale,
           Your Personal Data may be transferred. We will provide notice before
           Your Personal Data is transferred and becomes subject to a different
           Privacy Policy.
         </p>
-        <h3>
-          <strong>Law enforcement</strong>
-        </h3>
+        <H3>
+          <Strong>Law enforcement</Strong>
+        </H3>
         <p>
           Under certain circumstances, the Company may be required to disclose
           Your Personal Data if required to do so by law or in response to valid
           requests by public authorities (e.g. a court or a government agency).
         </p>
-        <h3>
-          <strong>Other legal requirements</strong>
-        </h3>
+        <H3>
+          <Strong>Other legal requirements</Strong>
+        </H3>
         <p>
           The Company may disclose Your Personal Data in the good faith belief
           that such action is necessary to:
@@ -484,9 +494,9 @@ const PrivacyPolicy = () => {
         <ul>
           <li>Protect against legal liability</li>
         </ul>
-        <h2>
-          <strong>Security of Your Personal Data</strong>
-        </h2>
+        <H2>
+          <Strong>Security of Your Personal Data</Strong>
+        </H2>
         <p>
           The security of Your Personal Data is important to Us, but remember
           that no method of transmission over the Internet, or method of
@@ -495,7 +505,7 @@ const PrivacyPolicy = () => {
           its absolute security.
         </p>
         <H1>
-          <strong>Children&#x27;s Privacy</strong>
+          <Strong>Children&#x27;s Privacy</Strong>
         </H1>
         <p>
           Our Service does not address anyone under the age of 13. We do not
@@ -513,7 +523,7 @@ const PrivacyPolicy = () => {
           information.
         </p>
         <H1>
-          <strong>Children&#x27;s Privacy</strong>
+          <Strong>Children&#x27;s Privacy</Strong>
         </H1>
         <p>
           Our Service does not address anyone under the age of 13. We do not
@@ -531,12 +541,12 @@ const PrivacyPolicy = () => {
           information.
         </p>
         <H1>
-          <strong>Links to Other Websites</strong>
+          <Strong>Links to Other Websites</Strong>
         </H1>
         <p>
           Our Service may contain links to other websites that are not operated
           by Us. If You click on a third party link, You will be directed to
-          that third party&#x27;s site. We strongly advise You to review the
+          that third party&#x27;s site. We Strongly advise You to review the
           Privacy Policy of every site You visit.
         </p>
         <p>
@@ -544,7 +554,7 @@ const PrivacyPolicy = () => {
           privacy policies or practices of any third party sites or services.
         </p>
         <H1>
-          <strong>Changes to this Privacy Policy</strong>
+          <Strong>Changes to this Privacy Policy</Strong>
         </H1>
         <p>
           We may update Our Privacy Policy from time to time. We will notify You
@@ -561,7 +571,7 @@ const PrivacyPolicy = () => {
           posted on this page.
         </p>
         <H1>
-          <strong>Contact Us</strong>
+          <Strong>Contact Us</Strong>
         </H1>
         <p>
           If you have any questions about this Privacy Policy, You can contact
