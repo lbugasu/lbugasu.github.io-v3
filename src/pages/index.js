@@ -9,6 +9,7 @@ import RssFeed from "./RssFeed";
 import Vault from "./Vault";
 import ApprovalPage from "./ApprovalPage";
 import PrivacyPolicy from "./PrivacyPolicy";
+import Contact from "./Contact";
 export {
   About,
   DevPostPage,
@@ -21,4 +22,5 @@ export {
   Vault,
   ApprovalPage,
   PrivacyPolicy,
+  Contact,
 };

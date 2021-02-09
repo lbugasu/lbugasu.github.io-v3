@@ -17,6 +17,8 @@ import SendIcon from "./SendIcon";
 import CommentArea from "./CommentArea";
 import Loading from "./Loading";
 import ScrollToTopOnMount from "./ScrollToTopOnMount";
+import SignUp from "./SignUp";
+
 export {
   CodeBlock,
   MainHeader,
@@ -37,4 +39,5 @@ export {
   Loading,
   CommentArea,
   ScrollToTopOnMount,
+  SignUp,
 };

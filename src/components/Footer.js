@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import $ from "jquery";
 const Hr = styled.hr`
   width: 100%;
   border: none;
@@ -53,6 +54,13 @@ const Footer = () => (
         <h3>Contact</h3>
         <Link to="/about">about</Link>
         <Link to="/contact">write to me✎</Link>
+        <Link
+          onClick={() => {
+            $("#signupform").css({ display: "block" });
+          }}
+        >
+          Sign up for updates
+        </Link>
       </Section>
     </FooterFrame>
   </>

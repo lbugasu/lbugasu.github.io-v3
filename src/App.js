@@ -26,9 +26,10 @@ import {
   Vault,
   ApprovalPage,
   PrivacyPolicy,
+  Contact,
 } from "./pages";
 
-import { Menu, ScrollToTop } from "./components";
+import { Menu, ScrollToTop, SignUp } from "./components";
 
 const App = ({
   posts,
@@ -97,6 +98,7 @@ const App = ({
           <span className="emph">here</span>
         </Link>
       </CookieConsent>
+      <SignUp />
       <Menu />
       <Route path="/" component={HomePage} exact />
       <Route path="/about" component={About} exact />
@@ -109,6 +111,7 @@ const App = ({
       <Route path="/rss" component={RssFeed} exact />
       <Route path="/approvalpage" component={ApprovalPage} exact />
       <Route path="/privacy-policy" component={PrivacyPolicy} exact />
+      <Route path="/contact" component={Contact} exact />
     </Router>
   );
 };

@@ -6,6 +6,7 @@
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^14.1.2",
     "@contentful/rich-text-types": "^14.1.2",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.5",
     "contentful": "^8.1.4",
     "cookies-eu-banner": "^2.0.1",

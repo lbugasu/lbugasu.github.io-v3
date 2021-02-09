@@ -45,6 +45,7 @@ body.light-mode {
   --border: #47261b;
 
   --h3: #885725;
+
   --cookie-banner: #47261b;
   --cookie-text: white;
   --textarea-bg: #fff6ea;
@@ -58,6 +59,10 @@ body.light-mode {
   /* Dev Page*/
   --h1-banner: white;
   --dev-tags-bg: rgba(248, 226, 233, 0.7);
+
+  /* Sign up */
+  --signup-bg: #f6f4f1;
+  --signup-text: #cb8e7e;
 
   /* Menu Page*/
   --menupage-bg: #fff2eb;
@@ -131,6 +136,10 @@ body.dark-mode {
   --aside-border: #735240;
   --border: #ddb294;
   --tag-opacity: 0.75;
+
+  /* Sign up */
+  --signup-text: #f6f4f1;
+  --signup-bg: #cb8e7e;
   /* Links */
   --menu-hover: #9aedb6;
   /* Dev Page*/
