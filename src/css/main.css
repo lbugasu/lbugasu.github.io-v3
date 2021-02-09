@@ -682,6 +682,37 @@ code {
   /* font-family: "Cascadia Code"; */
   font-size: 14pt;
 }
+.CookieBannner {
+  text-align: center;
+}
+.cookieContent {
+  font-family: adobe-caslon-pro, serif;
+  font-size: 75%;
+}
+.italic,
+.emph {
+  font-style: italic;
+  text-decoration: none;
+}
+
+.cookieBannerButton {
+  font-family: "Etoile";
+  font-weight: bold;
+  margin: 0;
+}
+.cookieContent a {
+  color: white;
+}
+@media (max-width: 470px) {
+  .cookieButtons {
+    width: 100%;
+    text-align: center;
+  }
+  .cookieContent {
+    margin-bottom: 0;
+  }
+}
+
 /* Preloader */
 
 div.loading {

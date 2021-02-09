@@ -1,7 +1,9 @@
 // import necessary packages
 import React, { useEffect } from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import CookieConsent, { Cookies } from "react-cookie-consent";
 import { loadPosts, loadPostsData } from "./state/thunks";
 import { getTags } from "./state/actions";
 import { getPosts, getMode } from "./state/selectors";
@@ -65,6 +67,35 @@ const App = ({
   }, [posts.posts.postsLoaded, posts.postsLoaded]);
   return (
     <Router>
+      <CookieConsent
+        location="bottom"
+        buttonText="SURE THING!"
+        flipButtons
+        cookieName="Cookies on site"
+        contentClasses="cookieContent"
+        buttonWrapperClasses="cookieButtons"
+        style={{
+          backgroundColor: "var(--cookie-banner)",
+          color: "var(--cookie-text)",
+        }}
+        contentStyle={{
+          marginBottom: "0",
+        }}
+        buttonStyle={{
+          color: "black",
+          backgroundColor: "white",
+          borderRadius: "5px",
+        }}
+        containerClasses="cookieBanner"
+        buttonClasses="cookieBannerButton"
+        expires={150}
+      >
+        I use cookies to <span className="italic"> improve </span>your
+        experience! By continuing, you agree to the privacy policy. Learn more{" "}
+        <Link to="/privacy-policy">
+          <span className="emph">here</span>
+        </Link>
+      </CookieConsent>
       <Menu />
       <Route path="/" component={HomePage} exact />
       <Route path="/about" component={About} exact />

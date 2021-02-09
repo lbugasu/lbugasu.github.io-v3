@@ -45,6 +45,8 @@ body.light-mode {
   --border: #47261b;
 
   --h3: #885725;
+  --cookie-banner: #47261b;
+  --cookie-text: white;
   --textarea-bg: #fff6ea;
   --hr: #47261b;
   --hr-bg: #bd7d51;
@@ -119,6 +121,9 @@ body.dark-mode {
   --border: #f1d9c9;
 
   --h3: #ddb294;
+  --cookie-banner: #47261b;
+  --cookie-text: white;
+
   --textarea-bg: #021d40;
   --hr: #f1d9c9;
   --hr-bg: #f1d9c9;
