@@ -110,9 +110,9 @@ const Menu = () => {
         </div>
       </div>
       <div class="menu">
-        <div class="menu__item">
+        {/* <div class="menu__item">
           <Link class="menu__item-inner">The Year is 2021</Link>
-        </div>
+        </div> */}
         <div class="menu__item">
           <Link to="/section/articles" class="menu__item-inner">
             Articles
