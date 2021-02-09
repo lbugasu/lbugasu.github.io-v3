@@ -131,7 +131,7 @@ const MainHeader = () => {
           <Up>
             <HashLink
               smooth
-              to={` up`}
+              to={`#up`}
               onClick={() => {
                 let menuItem = document.getElementById("floating-menu");
 

@@ -130,15 +130,9 @@ const Menu = () => {
           </Link>
         </div>
         <div class="menu__item">
-          <Link class="menu__item-inner">Work</Link>
-        </div>
-        <div class="menu__item">
           <Link to="/contact" class="menu__item-inner">
-            Suggestion & Feedback
+            Get In Touch
           </Link>
-        </div>
-        <div class="menu__item">
-          <Link class="menu__item-inner">Get In Touch</Link>
         </div>
         <div class="menu__item">
           <Link class="menu__item-inner">Playlists & More</Link>

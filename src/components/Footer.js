@@ -47,7 +47,7 @@ const Footer = () => (
       <Section>
         <h3>More</h3>
         <Link to="/">home</Link>
-        <Link to="/">progress reports</Link>
+        {/* <Link to="/">progress reports</Link> */}
         <Link to="/experiments">Experiments</Link>
       </Section>
       <Section>
