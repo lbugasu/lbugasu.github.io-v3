@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CancelIcon from "@material-ui/icons/Cancel";
 import styled from "styled-components";
 import $ from "jquery";
-
+import queryString from "query-string";
 let prod = "https://laudebugs.tamaduni.org";
 let dev = "http://localhost:4000";
 let endpoint = dev;
@@ -72,6 +72,28 @@ async function subscribe() {
   }
 }
 const SignUp = () => {
+  /**
+   * Referenced: https://stackoverflow.com/questions/4656843/get-querystring-from-url-using-jquery
+   */
+  function getUrlVars() {
+    var vars = [],
+      hash;
+    var hashes = window.location.href
+      .slice(window.location.href.indexOf("?") + 1)
+      .split("&");
+    for (var i = 0; i < hashes.length; i++) {
+      hash = hashes[i].split("=");
+      vars.push(hash[0]);
+      vars[hash[0]] = hash[1];
+    }
+    return vars;
+  }
+  useEffect(() => {
+    let params = getUrlVars();
+    if (params.subscribe === "true") {
+      $("#signupform").css({ display: "block" });
+    }
+  }, []);
   return (
     <Form id="signupform" style={{ display: "none" }}>
       <CancelIcon
