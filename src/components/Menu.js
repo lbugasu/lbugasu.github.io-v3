@@ -114,11 +114,13 @@ const Menu = () => {
           <Link class="menu__item-inner">The Year is 2021</Link>
         </div>
         <div class="menu__item">
-          <Link class="menu__item-inner">Articles</Link>
+          <Link to="/section/articles" class="menu__item-inner">
+            Articles
+          </Link>
         </div>
-        <div class="menu__item">
+        {/* <div class="menu__item">
           <Link class="menu__item-inner">Blog progress Updates</Link>
-        </div>
+        </div> */}
         <div class="menu__item">
           <Link to="/section/letters" class="menu__item-inner">
             Letters
@@ -134,16 +136,16 @@ const Menu = () => {
             Get In Touch
           </Link>
         </div>
-        <div class="menu__item">
+        {/* <div class="menu__item">
           <Link class="menu__item-inner">Playlists & More</Link>
-        </div>
-
+        </div> */}
+        {/* 
         <div class="menu__item">
           <Link class="menu__item-inner">Gallery</Link>
         </div>
         <div class="menu__item">
           <Link class="menu__item-inner">Credits</Link>
-        </div>
+        </div> */}
       </div>
     </MenuPage>
   );
