@@ -136,9 +136,16 @@ const Menu = () => {
             Get In Touch
           </Link>
         </div>
-        {/* <div class="menu__item">
-          <Link class="menu__item-inner">Playlists & More</Link>
-        </div> */}
+        <div class="menu__item">
+          <Link
+            onClick={() => {
+              $("#signupform").css({ display: "block" });
+            }}
+            class="menu__item-inner"
+          >
+            Sign up for Updates
+          </Link>
+        </div>
         {/* 
         <div class="menu__item">
           <Link class="menu__item-inner">Gallery</Link>

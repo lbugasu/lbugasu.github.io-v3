@@ -22,14 +22,14 @@ const Form = styled.div`
   padding: 1%;
   @media only screen and (max-width: 900px) {
     width: 50vw;
-    height: 30vh;
+    height: 300px;
     text-align: center;
     top: 30vh;
     left: 25vw;
   }
   @media only screen and (max-width: 600px) {
     width: 80vw;
-    height: 30vh;
+    height: 250px;
     text-align: center;
     top: 20vh;
     left: 10vw;
@@ -43,35 +43,9 @@ const Subtext = styled.p`
   font-style: italic;
   font-size: 80%;
 `;
-async function subscribe() {
-  const sneakpeeks = $("#sneakpeeks").is(":checked");
-  const newposts = $("#newposts").is(":checked");
-  const name = $("#signupname").val();
-  const email = $("#signupemail").val();
 
-  const options = {
-    method: "POST",
-    body: JSON.stringify({
-      name: name,
-      email: email,
-      newposts: newposts,
-      sneakpeeks: sneakpeeks,
-    }),
-    mode: "cors",
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Content-Type": "application/json",
-    },
-  };
-  const promise = await fetch(`${endpoint}/note`, options);
-  const result = await promise.json();
-
-  if (result.posted) {
-    // setSubscribed(true)
-    $("#signupform").css({ display: "none" });
-  }
-}
 const SignUp = () => {
+  const [send, updateSend] = useState(false);
   /**
    * Referenced: https://stackoverflow.com/questions/4656843/get-querystring-from-url-using-jquery
    */
@@ -94,6 +68,87 @@ const SignUp = () => {
       $("#signupform").css({ display: "block" });
     }
   }, []);
+  async function subscribe() {
+    const sneakpeeks = $("#sneakpeeks").is(":checked");
+    const newposts = $("#newposts").is(":checked");
+    const name = $("#signupname").val();
+    const email = $("#signupemail").val();
+
+    const options = {
+      method: "POST",
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        newposts: newposts,
+        sneakpeeks: sneakpeeks,
+      }),
+      mode: "cors",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    };
+    const promise = await fetch(`${endpoint}/note`, options);
+    const result = await promise.json();
+
+    if (result.posted) {
+      updateSend(true);
+      //   $("#signupform").css({ display: "none" });
+    }
+  }
+  let Message = () => {
+    if (send) {
+      return (
+        <div style={{ paddingTop: "10%" }}>
+          Thank you for signing up! Look out for a{" "}
+          <em style={{ fontStyle: "italic" }}>really cool email</em> in your
+          inbox real soon!
+        </div>
+      );
+    } else {
+      return (
+        <>
+          <section>
+            <Label for="signupname">Name:</Label>
+            <Input id="signupname"></Input>
+          </section>
+          <section>
+            <Label for="signupemail">Email:</Label>
+            <Input id="signupemail"></Input>
+          </section>
+          <section>
+            <span style={{ paddingRight: "5%" }}>
+              <input
+                type="checkbox"
+                id="newposts"
+                name="newposts"
+                value="New Posts"
+              />
+              <Item for="newposts">New Posts</Item>
+            </span>
+            <span>
+              <input
+                type="checkbox"
+                id="sneakpeeks"
+                name="sneakpeeks"
+                // value="Sneak Peeks"
+              />
+              <Item for="newposts">Sneak Peeks</Item>
+            </span>
+          </section>
+          <Button
+            onClick={() => {
+              subscribe();
+            }}
+          >
+            Sign up!
+          </Button>
+          <Subtext>No spam - I promise!</Subtext>
+        </>
+      );
+    }
+  };
+
   return (
     <Form id="signupform" style={{ display: "none" }}>
       <CancelIcon
@@ -112,42 +167,7 @@ const SignUp = () => {
         }}
       />
       <H2>Sign up for updates</H2>
-      <section>
-        <Label for="signupname">Name:</Label>
-        <Input id="signupname"></Input>
-      </section>
-      <section>
-        <Label for="signupemail">Email:</Label>
-        <Input id="signupemail"></Input>
-      </section>
-      <section>
-        <span style={{ paddingRight: "5%" }}>
-          <input
-            type="checkbox"
-            id="newposts"
-            name="newposts"
-            value="New Posts"
-          />
-          <Item for="newposts">New Posts</Item>
-        </span>
-        <span>
-          <input
-            type="checkbox"
-            id="sneakpeeks"
-            name="sneakpeeks"
-            // value="Sneak Peeks"
-          />
-          <Item for="newposts">Sneak Peeks</Item>
-        </span>
-      </section>
-      <Button
-        onClick={() => {
-          subscribe();
-        }}
-      >
-        Sign up!
-      </Button>
-      <Subtext>No spam - I promise!</Subtext>
+      {Message()}
     </Form>
   );
 };
