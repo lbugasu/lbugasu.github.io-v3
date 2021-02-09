@@ -25,6 +25,7 @@ import {
   RssFeed,
   Vault,
   ApprovalPage,
+  PrivacyPolicy,
 } from "./pages";
 
 import { Menu, ScrollToTop } from "./components";
@@ -107,6 +108,7 @@ const App = ({
       <Route path="/playground" component={Playground} exact />
       <Route path="/rss" component={RssFeed} exact />
       <Route path="/approvalpage" component={ApprovalPage} exact />
+      <Route path="/privacy-policy" component={PrivacyPolicy} exact />
     </Router>
   );
 };

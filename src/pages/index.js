@@ -8,6 +8,7 @@ import PostPage from "./PostPage";
 import RssFeed from "./RssFeed";
 import Vault from "./Vault";
 import ApprovalPage from "./ApprovalPage";
+import PrivacyPolicy from "./PrivacyPolicy";
 export {
   About,
   DevPostPage,
@@ -19,4 +20,5 @@ export {
   RssFeed,
   Vault,
   ApprovalPage,
+  PrivacyPolicy,
 };
