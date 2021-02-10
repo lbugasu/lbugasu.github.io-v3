@@ -1,8 +1,8 @@
 {
   "name": "laudebugs",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "homepage": "https://lbugasu.github.io/lbugasu.github.io",
+  "homepage": "https://laudebugs.me/#/",
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^14.1.2",
     "@contentful/rich-text-types": "^14.1.2",
@@ -39,7 +39,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && cp CNAME build/CNAME",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
