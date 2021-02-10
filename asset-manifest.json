@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/lbugasu.github.io/static/css/main.bf90f9f6.chunk.css",
+    "main.js": "/lbugasu.github.io/static/js/main.e1f4380d.chunk.js",
+    "main.js.map": "/lbugasu.github.io/static/js/main.e1f4380d.chunk.js.map",
+    "runtime-main.js": "/lbugasu.github.io/static/js/runtime-main.bf688e67.js",
+    "runtime-main.js.map": "/lbugasu.github.io/static/js/runtime-main.bf688e67.js.map",
+    "static/js/2.27b6b87a.chunk.js": "/lbugasu.github.io/static/js/2.27b6b87a.chunk.js",
+    "static/js/2.27b6b87a.chunk.js.map": "/lbugasu.github.io/static/js/2.27b6b87a.chunk.js.map",
+    "static/js/3.c13598c3.chunk.js": "/lbugasu.github.io/static/js/3.c13598c3.chunk.js",
+    "static/js/3.c13598c3.chunk.js.map": "/lbugasu.github.io/static/js/3.c13598c3.chunk.js.map",
+    "index.html": "/lbugasu.github.io/index.html",
+    "static/css/main.bf90f9f6.chunk.css.map": "/lbugasu.github.io/static/css/main.bf90f9f6.chunk.css.map",
+    "static/js/2.27b6b87a.chunk.js.LICENSE.txt": "/lbugasu.github.io/static/js/2.27b6b87a.chunk.js.LICENSE.txt",
+    "static/media/main.css": "/lbugasu.github.io/static/media/profile_image_eye_em_1.3dc99b25.jpg",
+    "static/media/LoadingGif.6a74c286.gif": "/lbugasu.github.io/static/media/LoadingGif.6a74c286.gif",
+    "static/media/be.8daa02a1.png": "/lbugasu.github.io/static/media/be.8daa02a1.png",
+    "static/media/fiction_bg.ba6abc1b.jpg": "/lbugasu.github.io/static/media/fiction_bg.ba6abc1b.jpg",
+    "static/media/letters_bg.14245218.jpg": "/lbugasu.github.io/static/media/letters_bg.14245218.jpg",
+    "static/media/linkedIn.c7797912.png": "/lbugasu.github.io/static/media/linkedIn.c7797912.png",
+    "static/media/poetry_bg.72369791.jpg": "/lbugasu.github.io/static/media/poetry_bg.72369791.jpg",
+    "static/media/tech_photo_bg.b08e2b41.jpg": "/lbugasu.github.io/static/media/tech_photo_bg.b08e2b41.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bf688e67.js",
+    "static/js/2.27b6b87a.chunk.js",
+    "static/css/main.bf90f9f6.chunk.css",
+    "static/js/main.e1f4380d.chunk.js"
+  ]
+}
