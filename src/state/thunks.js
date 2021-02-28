@@ -24,19 +24,26 @@ import {
   loadPostCommentsSuccess,
   loadPostCommentsFailure,
 } from "./actions";
-import { getRandomImage } from "../api/queries";
+import {
+  getRandomImage,
+  getBlogPosts,
+  postLike,
+  getPostLikes,
+  postComment,
+} from "../api/queries";
 
 // API endpoint
 let prod = "https://laudebugs.tamaduni.org";
 let dev = "http://localhost:4000";
 let endpoint = prod;
+
 export const loadFeatureImage = () => (dispatch, getState) => {
   dispatch(getFeatureImageInProgress());
   try {
     const image = getRandomImage();
-    console.log("******");
-    console.log(image);
-    // dispatch(getFeatureImageSuccess(image.url));
+    image.then((result) => {
+      dispatch(getFeatureImageSuccess(result.url));
+    });
   } catch (error) {
     dispatch(getFeatureImageFailure());
   }
@@ -63,17 +70,9 @@ export const loadPosts = () => (dispatch, getState) => {
   // load all the blog posts from contentful
 
   try {
-    const result = fetch(`${endpoint}/allposts`);
-    result.then((data) => {
-      data.json().then((result) => {
-        /**
-         * Sort the posts by date
-         */
-        const posts = result.posts.sort(function (a, b) {
-          return new Date(b.fields.date) - new Date(a.fields.date);
-        });
-        dispatch(postsLoadingSuccess(posts));
-      });
+    const request = getBlogPosts();
+    request.then((data) => {
+      dispatch(postsLoadingSuccess(data));
     });
   } catch (error) {
     /**
@@ -132,6 +131,7 @@ export const sendLike = (slug) => async (dispatch, getState) => {
 export const sendComment = (comment) => async (dispatch, getState) => {
   dispatch(sendPostCommentInProgress);
   try {
+    console.log(comment);
     const options = {
       method: "POST",
       body: JSON.stringify(comment),
