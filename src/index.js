@@ -9,6 +9,7 @@ import { PersistGate } from "redux-persist/lib/integration/react";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import * as serviceWorker from "./serviceWorker";
 import { Loading } from "./components";
 
 const store = configureStore();
@@ -24,3 +25,4 @@ ReactDOM.render(
 );
 
 reportWebVitals();
+serviceWorker.register();

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
@@ -6,15 +6,15 @@ import { connect } from "react-redux";
 import {
   MainHeader,
   SecondaryHeader,
-  PostPreview,
   Footer,
   Loading,
   ScrollToTopOnMount,
 } from "../components";
-
 import { getTags } from "../state/actions";
 import { loadFeatureImage } from "../state/thunks";
 import { getPosts, getFeatureImage } from "../state/selectors";
+
+const PostPreview = lazy(() => import("../components/PostPreview"));
 
 const HomePage = ({ posts, featuredImage, startLoadingFeaturedImage }) => {
   useEffect(() => {
@@ -61,7 +61,9 @@ const HomePage = ({ posts, featuredImage, startLoadingFeaturedImage }) => {
 
     return posts.posts.slice(0, 7).map((singlePost, i) => (
       <>
-        <PostPreview post={singlePost} divider={i !== 6} />
+        <Suspense fallback={Loading}>
+          <PostPreview post={singlePost} divider={i !== 6} />
+        </Suspense>
       </>
     ));
   };
@@ -80,16 +82,18 @@ const HomePage = ({ posts, featuredImage, startLoadingFeaturedImage }) => {
             Playlist of the week
           </p>
           <iframe
-            src="https://open.spotify.com/embed/playlist/62tlZ0eUjlEZxxiwStwStW"
+            src="https://open.spotify.com/embed/playlist/3VrLVBsCC66rmirKko0g0p"
+            title={"African Passort"}
             width="100%"
             height="500"
             frameborder="0"
             allowtransparency="true"
             allow="encrypted-media"
           ></iframe>
+
           <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
             <iframe
-              src="https://player.vimeo.com/video/467037345?dnt=1&muted=1&loop=1&autoplay=1&controls=0&color=ffffff&title=0&byline=0&portrait=0"
+              src="https://player.vimeo.com/video/458472240?color=ffffff&title=0&byline=0&portrait=0"
               style={{
                 position: "absolute",
                 top: "0",
@@ -97,17 +101,17 @@ const HomePage = ({ posts, featuredImage, startLoadingFeaturedImage }) => {
                 width: "100%",
                 height: "100%",
               }}
+              title="video of the week"
               frameborder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowfullscreen
             ></iframe>
           </div>
+          <script src="https://player.vimeo.com/api/player.js"></script>
           <p style={{ textAlign: "center" }}>
-            <a href="https://vimeo.com/467037345">Di&aacute;logo</a>
-            <span style={{ fontStyle: "italic" }}>
-              {" "}
-              from <a href="https://vimeo.com/bloquestudio">blo que</a> on{" "}
-            </span>
+            <a href="https://vimeo.com/458472240">kai - A little too much</a>{" "}
+            <span style={{ fontStyle: "italic" }}>from </span>
+            <a href="https://vimeo.com/martinascarpelli">martina</a> on{" "}
             <a href="https://vimeo.com">Vimeo</a>.
           </p>
         </Things>

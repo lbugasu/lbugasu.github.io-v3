@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import styled from "styled-components";
 import LightDarkToggle from "./LightDarkToggle";
+
 import $ from "jquery";
 
 const MainHeader = () => {
