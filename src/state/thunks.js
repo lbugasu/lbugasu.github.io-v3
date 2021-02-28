@@ -24,26 +24,19 @@ import {
   loadPostCommentsSuccess,
   loadPostCommentsFailure,
 } from "./actions";
+import { getRandomImage } from "../api/queries";
 
 // API endpoint
 let prod = "https://laudebugs.tamaduni.org";
 let dev = "http://localhost:4000";
 let endpoint = prod;
-
 export const loadFeatureImage = () => (dispatch, getState) => {
   dispatch(getFeatureImageInProgress());
   try {
-    const image = fetch(`${endpoint}/randomImage`, {
-      method: "GET",
-      mode: "cors",
-      cache: "no-cache",
-      credentials: "same-origin",
-    });
-    image.then((response) => {
-      response.json().then((result) => {
-        dispatch(getFeatureImageSuccess(result.link));
-      });
-    });
+    const image = getRandomImage();
+    console.log("******");
+    console.log(image);
+    // dispatch(getFeatureImageSuccess(image.url));
   } catch (error) {
     dispatch(getFeatureImageFailure());
   }
