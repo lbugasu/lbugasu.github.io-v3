@@ -115,7 +115,8 @@ export const posts = (state = initialState, action) => {
       Funcs.shuffleArray(colors);
       let tagsList = [];
       posts.map((post) => {
-        let postTags = post.fields.tags;
+        let postTags = post.tags;
+        console.log(post);
         postTags.map((tag) => {
           let currentTag = tagsList.find((tagObj) => tagObj.tag === tag);
           if (!!currentTag) {
@@ -124,6 +125,7 @@ export const posts = (state = initialState, action) => {
             tagsList.push({ tag: tag, count: 1 });
           }
         });
+        console.log("FIXXXXX");
         post.likeLevel = 0;
       });
       tagsList.map((tag, i) => {
@@ -144,7 +146,7 @@ export const posts = (state = initialState, action) => {
       };
     case GET_IMAGE_IN_PROGRESS:
       let targetSlug = payload;
-      let targetIndex = state.posts.find((p) => p.fields.slug === targetSlug);
+      let targetIndex = state.posts.find((p) => p.slug === targetSlug);
       let cachedPost = state.posts[targetIndex];
       cachedPost.imageLoading = true;
       cachedPost.imageLoaded = false;
@@ -157,11 +159,11 @@ export const posts = (state = initialState, action) => {
     case GET_IMAGE_SUCCESS:
       targetSlug = payload.slug;
       let targetImage = payload.image;
-      targetIndex = state.posts.find((p) => p.fields.slug === targetSlug);
+      targetIndex = state.posts.find((p) => p.slug === targetSlug);
       cachedPost = state.posts[targetIndex];
       cachedPost.imageLoading = false;
       cachedPost.imageLoaded = true;
-      cachedPost.fields.feature_image.fields.file.url = targetImage;
+      cachedPost.featuredImage = targetImage;
       tempCache = [...state.posts];
       tempCache[targetIndex] = cachedPost;
       return {
@@ -170,7 +172,7 @@ export const posts = (state = initialState, action) => {
       };
     case GET_IMAGE_FAILURE:
       targetSlug = payload;
-      targetIndex = state.posts.find((p) => p.fields.slug === targetSlug);
+      targetIndex = state.posts.find((p) => p.slug === targetSlug);
       cachedPost = state.posts[targetIndex];
       cachedPost.imageLoading = false;
       cachedPost.imageLoaded = true;
@@ -196,9 +198,7 @@ export const posts = (state = initialState, action) => {
       console.log(data);
       let tempPosts = [...state.posts];
       data.map((post) => {
-        let thisPostIndex = tempPosts.findIndex(
-          (p) => p.fields.slug === post.slug
-        );
+        let thisPostIndex = tempPosts.findIndex((p) => p.slug === post.slug);
         if (thisPostIndex >= 0) {
           tempPosts[thisPostIndex] = {
             ...tempPosts[thisPostIndex],
@@ -228,7 +228,7 @@ export const posts = (state = initialState, action) => {
     case LOAD_POST_LIKES_SUCCESS:
       const postData = payload;
       const postIndex = state.posts.findIndex(
-        (post) => post.fields.slug === postData.slug
+        (post) => post.slug === postData.slug
       );
       const thisPost = state.posts[postIndex];
       thisPost.likes = postData.likes;
@@ -269,10 +269,10 @@ export const posts = (state = initialState, action) => {
       return { ...state, likeInProgress: true };
     case SEND_POST_LIKE_SUCCESS:
       const likedObject = payload;
+      console.log(likedObject);
       const thisIndx = state.posts.findIndex(
-        (obj) => obj.fields.slug === likedObject.slug
+        (obj) => obj.slug === likedObject.slug
       );
-      console.log(thisIndx);
       const tempPostList = [...state.posts];
       const thisOne = state.posts[thisIndx];
       thisOne.likes = likedObject.likes;
@@ -300,11 +300,8 @@ export const posts = (state = initialState, action) => {
       };
     case LOAD_POST_COMMENTS_SUCCESS:
       const postCommentData = payload;
-      console.log("0x0");
-      console.log(postCommentData);
-
       const postIndx = state.posts.findIndex(
-        (post) => post.fields.slug === postCommentData.slug
+        (post) => post.slug === postCommentData.slug
       );
       const currPost = state.posts[postIndx];
       currPost.comments = postCommentData.comments;

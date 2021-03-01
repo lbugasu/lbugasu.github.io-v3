@@ -25,7 +25,7 @@ const Vault = ({ posts }) => {
       let sections = [];
       let postList = {};
       posts.posts.map((post) => {
-        let year = String(new Date(post.fields.date).getFullYear());
+        let year = String(new Date(post.date).getFullYear());
         if (years.indexOf(year) === -1) {
           years.push(year);
         }
@@ -40,14 +40,14 @@ const Vault = ({ posts }) => {
         list.push(postList[year]);
       }
       list = list.sort(function (a, b) {
-        return new Date(b[0].fields.date) - new Date(a[0].fields.date);
+        return new Date(b[0].date) - new Date(a[0].date);
       });
       let showPosts = () => {
         return list.map((year) => {
           console.log(year);
           return (
-            <div id={new Date(year[0].fields.date).getFullYear()}>
-              <Yr>{new Date(year[0].fields.date).getFullYear()}</Yr>
+            <div id={new Date(year[0].date).getFullYear()}>
+              <Yr>{new Date(year[0].date).getFullYear()}</Yr>
               {year.map((post, i) => {
                 return (
                   <PostPreview post={post} divider={i !== year.length - 1} />

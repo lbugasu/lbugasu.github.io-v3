@@ -20,8 +20,7 @@ const SectionPage = ({ posts }) => {
   const { section } = useParams();
   console.log(section);
   let sectionnedPosts = posts.filter((post) => {
-    if (!!post.fields.section)
-      return post.fields.section.indexOf(section) !== -1;
+    if (!!post.section) return post.section.indexOf(section) !== -1;
     else return false;
   });
 

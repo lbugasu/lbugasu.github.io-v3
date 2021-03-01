@@ -39,7 +39,6 @@ const App = ({
   getPostsLikes,
 }) => {
   useEffect(() => {
-    console.log("MMM: " + mode);
     if (!mode) {
       // ...let's toggle the .dark-theme class on the body
       document.body.classList.add("dark-mode");

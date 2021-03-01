@@ -100,8 +100,8 @@ const PostPage = ({ posts }) => {
   const { id } = useParams();
   const renderPost = () => {
     if (!posts.postsLoaded) return <Loading />;
-    const post = posts.posts.find((post) => post.fields.slug === id).fields;
-    let postBody = documentToHtmlString(post.body);
+    const post = posts.posts.find((post) => post.slug === id);
+    let postBody = post.body;
     let mod =
       `<p><span class="dropcap">${postBody.substr(3, 1)}</span>` +
       postBody.substr(4);
@@ -116,7 +116,7 @@ const PostPage = ({ posts }) => {
           <Title> {post.title} </Title>
           <Date>{readableDate(post.date)}</Date>
           <p>{post.description}</p>
-          <Image src={post.feature_image.fields.file.url}></Image>
+          <Image src={post.featuredImage}></Image>
 
           <Content
             dangerouslySetInnerHTML={{
