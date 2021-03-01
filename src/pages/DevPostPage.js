@@ -158,7 +158,7 @@ const DevPostPage = ({ posts }) => {
   }
   const renderPost = () => {
     if (!posts.postsLoaded) return <Loading />;
-    const post = posts.posts.find((post) => post.fields.slug === id).fields;
+    const post = posts.posts.find((post) => post.slug === id);
     /**
      * Get a list of headings on the page
      */
@@ -301,7 +301,7 @@ const DevPostPage = ({ posts }) => {
           <Title> {post.title} </Title>
           <Date>{readableDate(post.date)}</Date>
           <Aside>{post.description}</Aside>
-          <Image src={post.feature_image.fields.file.url}></Image>
+          <Image src={post.featuredImage}></Image>
           <Content className={"postBody"}>{displayPostBody()}</Content>
         </Body>
         <Stats className={"headings"}>

@@ -48,55 +48,45 @@ const PostPreview = ({ posts, post, divider }) => {
     return <div></div>;
   } else
     return (
-      <PreviewFrame key={post.fields.slug}>
+      <PreviewFrame key={post.slug}>
         <Link
-          key={"/writing/" + post.fields.slug}
-          to={`${
-            post.sys.contentType.sys.id === "project" ? "/dev/" : "/writing/"
-          }${post.fields.slug}`}
+          key={"/writing/" + post.slug}
+          to={`${post.type === "project" ? "/dev/" : "/writing/"}${post.slug}`}
           className="preview"
         >
           <ImageFrame>
-            <Image
-              src={post.fields.feature_image.fields.file.url}
-              alt={post.fields.title}
-            />
+            <Image src={post.featuredImage} alt={post.title} />
           </ImageFrame>
         </Link>
         <PostData>
           <Link
-            key={"/writing/" + post.fields.slug}
-            to={`${
-              post.sys.contentType.sys.id === "project" ? "/dev/" : "/writing/"
-            }${post.fields.slug}`}
+            key={"/writing/" + post.slug}
+            to={`${post.type === "project" ? "/dev/" : "/writing/"}${
+              post.slug
+            }`}
             className="preview"
           >
-            <Title>{post.fields.title}</Title>
+            <Title>{post.title}</Title>
           </Link>
-          <Small>{readableDate(post.fields.date)}</Small>
-          {showTags(post.fields.tags)}
+          <Small>{post.date}</Small>
+          {showTags(post.tags)}
           <Link
-            key={"/writing/" + post.fields.slug}
-            to={`${
-              post.sys.contentType.sys.id === "project" ? "/dev/" : "/writing/"
-            }${post.fields.slug}`}
+            key={"/writing/" + post.slug}
+            to={`${post.type === "project" ? "/dev/" : "/writing/"}${
+              post.slug
+            }`}
             className="preview"
           >
             <PhoneImage>
-              <Image
-                src={post.fields.feature_image.fields.file.url}
-                alt={post.fields.title}
-              />
+              <Image src={post.featuredImage} alt={post.title} />
             </PhoneImage>
 
-            {!!post.fields.description ? (
-              <Preview>{post.fields.description}</Preview>
+            {!!post.description ? (
+              <Preview>{post.description}</Preview>
             ) : (
               <Preview
                 dangerouslySetInnerHTML={{
-                  __html:
-                    documentToHtmlString(post.fields.body).substring(0, 200) +
-                    "   ... ",
+                  __html: post.body.substring(0, 200) + "   ... ",
                 }}
               ></Preview>
             )}

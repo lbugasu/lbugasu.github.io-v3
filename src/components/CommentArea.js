@@ -101,9 +101,8 @@ const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
   useEffect(() => {
     if (posts.postsLoaded) {
       getPostComments(slug);
-      let thisPost = posts.posts.find((post) => post.fields.slug === slug);
+      let thisPost = posts.posts.find((post) => post.slug === slug);
       setThisPost(thisPost);
-      console.log(thisPost);
     }
     setAddedComment(false);
   }, [posts.commentsLoaded]);
@@ -137,12 +136,12 @@ const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
         {comment.content}
         <MetaData>
           <User style={{ textAlign: "left" }}>
-            <span style={{ fontStyle: "italic" }}>by</span> {comment.user}
+            <span style={{ fontStyle: "italic" }}>by</span> {comment.user.name}
           </User>
           <Stats style={{ color: comment.approved ? "green" : "orange" }}>
             ●
           </Stats>
-          <CommentDate>-{readableDate(comment.createdAt)}</CommentDate>
+          <CommentDate>-{comment.createdAt}</CommentDate>
         </MetaData>
       </CommentText>
     );
@@ -152,9 +151,6 @@ const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
     useEffect(() => {
       setLoaded(thisPost.commentsLoaded);
     }, []);
-    console.log("ppp: ");
-    console.log(thisPost);
-
     if (loaded) {
       return thisPost.comments.map((comment) => cmt(comment));
     } else {
@@ -175,8 +171,6 @@ const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
     }
   });
   function sendAway() {
-    console.log("send sth");
-
     if (typedSth) {
       const content = $("#content");
       const email = $("#email");
@@ -185,7 +179,7 @@ const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
         content: content.val(),
         approved: false,
         user: "you",
-        createdAt: new Date(),
+        createdAt: new Date().toDateString(),
       };
 
       if (validateEmail(email.val())) {
@@ -204,7 +198,6 @@ const CommentArea = ({ posts, getPostComments, postComment, slug }) => {
         name.val("");
         console.log(comment);
         $("#comments").append(renderToString(cmt(comment)));
-        console.log(renderToString(cmt(comment)));
         // reset typedSth state
         setTypedSth(false);
       }

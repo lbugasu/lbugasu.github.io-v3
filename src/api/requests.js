@@ -1,15 +1,15 @@
 import axios from "axios";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
-let prod = "https://laudebugs.tamaduni.org/graphql/";
-let dev = "http://localhost:8080/graphql/";
+let prod = "https://laudebugs.tamaduni.org/graphql";
+let dev = "http://localhost:8080/graphql";
 let endpoint;
 
 if (process.env.NODE_ENV === "development") endpoint = dev;
 else endpoint = prod;
 
 export const graphQLClient = new ApolloClient({
-  uri: endpoint + "/graphql/",
+  uri: endpoint,
   cache: new InMemoryCache({
     addTypename: false,
   }),
@@ -38,19 +38,29 @@ export const getBlogPosts = async () => {
           tags
           section
           body
+          likeLevel
+          type
+          date
+          featuredImage
+          description
+          slug
         }
       }
     `,
   });
   let posts = request.data.getBlogPosts;
+
   return posts;
 };
 
 export const postLike = async (slug) => {
-  let request = await graphQLClient.mutation({
+  let request = await graphQLClient.mutate({
     mutation: gql`
-            postLike(slug:${slug})
-        `,
+      mutation postLike($slug: String!) {
+        postLike(slug: $slug)
+      }
+    `,
+    variables: { slug: slug },
   });
   let likes = request.data.postLike;
   return likes;
@@ -59,34 +69,51 @@ export const postLike = async (slug) => {
 export const getPostLikes = async (slug) => {
   let request = await graphQLClient.query({
     query: gql`
-            getLikes(${slug})    
-        `,
+      query getLikes($slug: String!) {
+        getLikes(slug: $slug)
+      }
+    `,
+    variables: { slug: slug },
   });
   return request.data.getLikes;
 };
 
 export const postComment = async (comment) => {
-  let request = await graphQLClient.mutation({
-    mutation: gql`
-            createComment(data:${comment}){
-                content
-            }
-        `,
-  });
-  return request.data.createComment.content;
+  console.log(comment);
+  let request;
+
+  try {
+    request = await graphQLClient.mutate({
+      mutation: gql`
+        mutation createComment($data: CommentInput!) {
+          createComment(data: $data) {
+            content
+          }
+        }
+      `,
+      variables: { data: comment },
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+  return request;
 };
 
-export const getComments = async (slug) => {
+export const getPostComments = async (slug) => {
   let request = await graphQLClient.query({
     query: gql`
-            getComments(${slug}){
-                content
-                approved
-                user {
-                    name
-                }
-            }
-        `,
+      query getComments($slug: String!) {
+        getComments(slug: $slug) {
+          content
+          approved
+          user {
+            name
+          }
+          createdAt
+        }
+      }
+    `,
+    variables: { slug: slug },
   });
   return request.data.getComments;
 };

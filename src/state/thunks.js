@@ -30,7 +30,8 @@ import {
   postLike,
   getPostLikes,
   postComment,
-} from "../api/queries";
+  getPostComments,
+} from "../api/requests";
 
 // API endpoint
 let prod = "https://laudebugs.tamaduni.org";
@@ -58,7 +59,6 @@ export const loadImage = (slug, url) => async (dispatch, getState) => {
     let resultingImate = base64Flag + imageData.image;
     dispatch(getImageSuccess({ slug: slug, image: resultingImate }));
   } catch (error) {
-    console.log(error.message);
     dispatch(getImageFailure());
   }
 };
@@ -72,7 +72,10 @@ export const loadPosts = () => (dispatch, getState) => {
   try {
     const request = getBlogPosts();
     request.then((data) => {
-      dispatch(postsLoadingSuccess(data));
+      let blogPosts = data.map((post) => {
+        return { ...post };
+      });
+      dispatch(postsLoadingSuccess(blogPosts));
     });
   } catch (error) {
     /**
@@ -102,23 +105,11 @@ export const sendLike = (slug) => async (dispatch, getState) => {
   console.log(slug);
   dispatch(sendPostLikeInProgress());
   try {
-    const options = {
-      method: "POST",
-      body: JSON.stringify({
-        slug: slug,
-      }),
-      mode: "cors",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
-    };
-    let request = await fetch(`${endpoint}/like`, options);
+    let request = postLike(slug);
     console.log(request);
-    let result = await request.json();
-    result.slug = slug;
-
-    dispatch(sendPostLikeSuccess(result));
+    request.then((result) => {
+      dispatch(sendPostLikeSuccess({ slug: slug, likes: result }));
+    });
   } catch (error) {
     console.log(error.message);
     dispatch(sendPostLikeFailure);
@@ -131,22 +122,10 @@ export const sendLike = (slug) => async (dispatch, getState) => {
 export const sendComment = (comment) => async (dispatch, getState) => {
   dispatch(sendPostCommentInProgress);
   try {
-    console.log(comment);
-    const options = {
-      method: "POST",
-      body: JSON.stringify(comment),
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
-    };
-    let sendRequest = await fetch(`${endpoint}/comment`, options);
-    let request = await sendRequest.json();
-    if (request.saved === true) {
+    let request = postComment(comment);
+    request.then(() => {
       dispatch(sendPostCommentSuccess);
-    } else {
-      dispatch(sendPostCommentFailure);
-    }
+    });
   } catch (error) {
     dispatch(sendPostCommentFailure);
   }
@@ -158,8 +137,10 @@ export const sendComment = (comment) => async (dispatch, getState) => {
 export const getLikes = (slug) => (dispatch, getState) => {
   dispatch(loadPostLikesInProgress);
   try {
-    let request = fetch(`${endpoint}/likes/${slug}`);
-    dispatch(loadPostLikesSuccess(request.likes));
+    let request = getPostLikes(slug);
+    request.then((response) => {
+      dispatch(loadPostLikesSuccess(response));
+    });
   } catch (error) {
     dispatch(loadPostLikesFailure);
   }
@@ -171,10 +152,12 @@ export const getLikes = (slug) => (dispatch, getState) => {
 export const getComments = (slug) => async (dispatch, getState) => {
   dispatch(loadPostCommentsInProgress);
   try {
-    let request = await fetch(`${endpoint}/comments?slug=${slug}`);
-    let comments = await request.json();
-    console.log(comments);
-    dispatch(loadPostCommentsSuccess(comments));
+    const request = getPostComments(slug);
+    console.log(slug);
+    request.then((comments) => {
+      console.log(comments);
+      dispatch(loadPostCommentsSuccess({ slug: slug, comments: comments }));
+    });
   } catch (error) {
     console.log(error.message);
     dispatch(loadPostCommentsFailure);

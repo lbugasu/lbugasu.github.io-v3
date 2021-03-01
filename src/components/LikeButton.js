@@ -27,7 +27,7 @@ const LikeButton = ({ postLike, posts, slug, upgradeLike }) => {
   /**
    * Check here if the current user has already liked the episode
    */
-  const thisPost = posts.posts.find((post) => post.fields.slug === slug);
+  const thisPost = posts.posts.find((post) => post.slug === slug);
 
   useEffect(() => {
     updateLikeLevel(thisPost.likeLevel);

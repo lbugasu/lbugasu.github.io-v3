@@ -47,9 +47,7 @@ const PostsFrame = styled.div`
 `;
 const TagPage = ({ posts }) => {
   const { subject } = useParams();
-  let taggedPosts = posts.filter(
-    (post) => post.fields.tags.indexOf(subject) !== -1
-  );
+  let taggedPosts = posts.filter((post) => post.tags.indexOf(subject) !== -1);
 
   const renderPage = () => {
     return taggedPosts.map((post, i) => (
