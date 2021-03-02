@@ -3,21 +3,23 @@
 name: CI
 
 # Controls when the action will run.
-on:
-  # Triggers the workflow on push or pull request events but only for the master branch
-  push:
-    branches: [master]
-
+on: push
 jobs:
   build-and-deploy:
-    runs-on: Ubuntu-20.04
+    runs-on: macos-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
-
-      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
-        run: |
-          npm install
+      - name: Use Node v12
+        uses: actions/setup-node@v2
+        with:
+          node-version: "12"
+      - name: Install packages
+        run: npm install
+      - name: Build 🔧
+        run: npm run build
       - name: Deploy 🚀
-        run: |
-          npm run build
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build
