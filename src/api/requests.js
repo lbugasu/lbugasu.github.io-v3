@@ -5,7 +5,7 @@ let dev = "http://localhost:8080/graphql";
 let endpoint;
 
 if (process.env.NODE_ENV === "development") endpoint = dev;
-else endpoint = prod;
+else if (process.env.NODE_ENV === "production") endpoint = prod;
 
 export const graphQLClient = new ApolloClient({
   uri: endpoint,
