@@ -5,7 +5,9 @@ env:
   CI: false
   NODE_ENV: "production"
 # Controls when the action will run.
-on: push
+on:
+  push:
+    branches: [master]
 jobs:
   build-and-deploy:
     runs-on: macos-latest
