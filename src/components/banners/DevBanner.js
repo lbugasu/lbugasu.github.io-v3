@@ -55,7 +55,7 @@ const DevBanner = ({ allTags, devPosts }) => {
   let tags = [];
   devPosts.map((post) => {
     // eslint-disable-next-line array-callback-return
-    post.fields.tags.map((tag) => {
+    post.tags.map((tag) => {
       if (tags.indexOf(tag) === -1) {
         tags.push(tag);
       }
