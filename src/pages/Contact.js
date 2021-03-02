@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import $ from "jquery";
 import { MainHeader, SendIcon } from "../components";
-import { useSendNote } from "../custom-hooks";
 import { validateEmail } from "../components/helpers";
 
 let prod = "https://laudebugs.tamaduni.org";

@@ -1,4 +1,3 @@
-import axios from "axios";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
 let prod = "https://laudebugs.tamaduni.org/graphql";

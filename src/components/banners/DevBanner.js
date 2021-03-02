@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 // Banner Image
 import bg_image from "../../css/images/tech_photo_bg.jpg";
 import github from "../../css/images/GithubLight.png";
-const Funcs = require("../helpers");
 
 const Header = styled.div`
   background-image: url(${bg_image});
@@ -55,6 +54,7 @@ const Icon = styled.img`
 const DevBanner = ({ allTags, devPosts }) => {
   let tags = [];
   devPosts.map((post) => {
+    // eslint-disable-next-line array-callback-return
     post.fields.tags.map((tag) => {
       if (tags.indexOf(tag) === -1) {
         tags.push(tag);
@@ -64,6 +64,7 @@ const DevBanner = ({ allTags, devPosts }) => {
   console.log(allTags);
   let devTags = [];
 
+  // eslint-disable-next-line array-callback-return
   tags.map((tag) => {
     let currentTag = allTags.find((target) => target.tag === tag);
     devTags.push(currentTag);

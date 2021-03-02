@@ -7,7 +7,7 @@ import { renderToString } from "react-dom/server";
 import SendIcon from "./SendIcon";
 import { sendComment, getComments } from "../state/thunks";
 import { getPosts } from "../state/selectors";
-import { readableDate, validateEmail } from "./helpers";
+import { validateEmail } from "./helpers";
 import Loading from "./Loading";
 const Frame = styled.div`
   width: 75%;

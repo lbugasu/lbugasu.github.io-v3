@@ -1,5 +1,4 @@
 import React from "react";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import styled from "styled-components";

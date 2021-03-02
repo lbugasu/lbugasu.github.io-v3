@@ -1,6 +1,5 @@
 import React from "react";
 import * as Prism from "prismjs";
-import { loadLanguage } from "prismjs/components/index";
 export default class CodeBlock extends React.Component {
   constructor(props) {
     super(props);

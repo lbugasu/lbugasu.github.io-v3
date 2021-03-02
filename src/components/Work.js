@@ -20,7 +20,12 @@ export default function Work() {
               <li> • {t}</li>
             ))}
           </ol>
-          <a className="seeWork" href={project.link} target="_blank">
+          <a
+            className="seeWork"
+            href={project.link}
+            rel="noreferrer"
+            target="_blank"
+          >
             See Work➚
           </a>
         </div>

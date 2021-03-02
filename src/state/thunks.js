@@ -35,7 +35,6 @@ import {
 
 // API endpoint
 let prod = "https://laudebugs.tamaduni.org";
-let dev = "http://localhost:4000";
 let endpoint = prod;
 
 export const loadFeatureImage = () => (dispatch, getState) => {

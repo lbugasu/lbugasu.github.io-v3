@@ -114,8 +114,10 @@ export const posts = (state = initialState, action) => {
       ];
       Funcs.shuffleArray(colors);
       let tagsList = [];
+      // eslint-disable-next-line array-callback-return
       posts.map((post) => {
         let postTags = post.tags;
+        // eslint-disable-next-line array-callback-return
         postTags.map((tag) => {
           let currentTag = tagsList.find((tagObj) => tagObj.tag === tag);
           if (!!currentTag) {
@@ -126,6 +128,7 @@ export const posts = (state = initialState, action) => {
         });
         post.likeLevel = 0;
       });
+      // eslint-disable-next-line array-callback-return
       tagsList.map((tag, i) => {
         tag.color = colors[i % colors.length];
       });
@@ -195,6 +198,7 @@ export const posts = (state = initialState, action) => {
        */
       console.log(data);
       let tempPosts = [...state.posts];
+      // eslint-disable-next-line array-callback-return
       data.map((post) => {
         let thisPostIndex = tempPosts.findIndex((p) => p.slug === post.slug);
         if (thisPostIndex >= 0) {
@@ -357,6 +361,7 @@ export const tags = (state = initialState, action) => {
     case GET_TAGS:
       const posts = state.posts.posts;
       console.log(posts);
+      // eslint-disable-next-line array-callback-return
       posts.map((post) => {
         console.log(post);
       });

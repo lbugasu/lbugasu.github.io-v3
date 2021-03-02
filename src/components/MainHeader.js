@@ -7,7 +7,6 @@ import LightDarkToggle from "./LightDarkToggle";
 import $ from "jquery";
 
 const MainHeader = () => {
-  const [mode, setMode] = useState("light");
   /**
    * JQuery function to listen to when a user scrolls
    */

@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import CookieConsent, { Cookies } from "react-cookie-consent";
+import CookieConsent from "react-cookie-consent";
 import { loadPosts, loadPostsData } from "./state/thunks";
 import { getTags } from "./state/actions";
 import { getPosts, getMode } from "./state/selectors";
@@ -29,7 +29,7 @@ import {
   Contact,
 } from "./pages";
 
-import { Menu, ScrollToTop, SignUp } from "./components";
+import { Menu, SignUp } from "./components";
 
 const App = ({
   posts,
