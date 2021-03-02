@@ -3,7 +3,7 @@
 name: CI
 env:
   CI: false
-  NODE_ENV: "production"
+  # NODE_ENV: "production"
 # Controls when the action will run.
 on:
   push:
