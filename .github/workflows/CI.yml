@@ -4,7 +4,9 @@ name: CI
 env:
   CI: false
 # Controls when the action will run.
-on: push
+on:
+  push:
+    branches-ignore: [master]
 jobs:
   build-and-deploy:
     runs-on: macos-latest

@@ -1,6 +1,7 @@
 {
   "name": "laudebugs",
   "version": "1.0.9",
+
   "private": true,
   "homepage": "https://laudebugs.me/#/",
   "dependencies": {
