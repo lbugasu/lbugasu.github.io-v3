@@ -116,7 +116,6 @@ export const posts = (state = initialState, action) => {
       let tagsList = [];
       posts.map((post) => {
         let postTags = post.tags;
-        console.log(post);
         postTags.map((tag) => {
           let currentTag = tagsList.find((tagObj) => tagObj.tag === tag);
           if (!!currentTag) {
@@ -125,7 +124,6 @@ export const posts = (state = initialState, action) => {
             tagsList.push({ tag: tag, count: 1 });
           }
         });
-        console.log("FIXXXXX");
         post.likeLevel = 0;
       });
       tagsList.map((tag, i) => {
