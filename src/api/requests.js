@@ -3,9 +3,9 @@ import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 let prod = "https://laudebugs.tamaduni.org/graphql";
 let dev = "http://localhost:8080/graphql";
 let endpoint;
-
-if (process.env.NODE_ENV === "development") endpoint = dev;
-else if (process.env.NODE_ENV === "production") endpoint = prod;
+console.log(process.env.REACT_APP_WHAT);
+if (process.env.REACT_APP_WHAT === "development") endpoint = dev;
+else if (process.env.REACT_APP_WHAT === "production") endpoint = prod;
 
 export const graphQLClient = new ApolloClient({
   uri: endpoint,
