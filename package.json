@@ -1,6 +1,6 @@
 {
   "name": "laudebugs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "homepage": "https://laudebugs.me/#/",
   "dependencies": {
@@ -73,7 +73,12 @@
   },
   "devDependencies": {
     "babel-plugin-prismjs": "^2.0.1",
+    "coffeescript": "^2.5.1",
     "gh-pages": "^3.1.0",
+    "grunt": "^1.3.0",
+    "grunt-bump": "^0.8.0",
+    "grunt-contrib-jshint": "^3.0.0",
+    "grunt-contrib-uglify": "^5.0.0",
     "process": "^0.11.10",
     "react-persist": "^1.0.2",
     "redux-devtools-extension": "^2.13.8",
