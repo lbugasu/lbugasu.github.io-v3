@@ -1,6 +1,6 @@
 {
   "name": "laudebugs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": true,
   "homepage": "https://laudebugs.me/#/",
   "dependencies": {
@@ -51,7 +51,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build && cp CNAME build/CNAME",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "bump": "npx grunt bump",
+    "bump:minor": "npx grunt bump:minor",
+    "bump:major": "npx grunt bump:major"
   },
   "eslintConfig": {
     "extends": [
