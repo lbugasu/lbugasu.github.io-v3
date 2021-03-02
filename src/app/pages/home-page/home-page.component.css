@@ -1,0 +1,12 @@
+div.posts__frame {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+div.single__post {
+  width: 40%;
+  display: inline-block;
+}
+.single__post img {
+  width: 90%;
+}

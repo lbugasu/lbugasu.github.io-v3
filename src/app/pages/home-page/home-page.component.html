@@ -1,0 +1,9 @@
+<div class="posts__frame">
+  <div *ngFor="let post of blogPosts" class="single__post">
+    <a routerLink="/writing/{{ post.slug }}">
+      <h3>{{ post.title }}</h3>
+      <img src="{{ post.featuredImage }}" />
+      <p>{{ post.description }}</p>
+    </a>
+  </div>
+</div>
