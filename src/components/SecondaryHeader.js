@@ -8,7 +8,7 @@ const SecondaryHeader = () => {
     font-size: 85%;
     text-align: center;
     padding: 0.5% 0 0.5% 0;
-    margin: 0 20% 0 20%;
+    margin: 0 20% 1% 20%;
     width: 60%;
     border-bottom: 1px solid var(--border);
     @media only screen and (max-width: 900px) {
@@ -26,7 +26,7 @@ const SecondaryHeader = () => {
     <Menu className="showHover">
       <Link to="/section/poetry">POETRY</Link> •{" "}
       <Link to="/section/fiction">FICTION</Link> •{" "}
-      <Link to="/section/dev">DEV</Link> • <Link to="/snippets">SNIPPETS</Link>•{" "}
+      <Link to="/section/dev">DEV</Link> • <Link to="/snacks">SNACKS</Link> •{" "}
       <Link to="/vault">VAULT</Link>
     </Menu>
   );

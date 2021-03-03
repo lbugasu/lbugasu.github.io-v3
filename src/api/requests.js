@@ -1,11 +1,15 @@
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  gql,
+  ApolloLink,
+  HttpLink,
+} from "@apollo/client";
+import endpoints from "./endpoint.json";
 
-let prod = "https://laudebugs.tamaduni.org/graphql";
-let dev = "http://localhost:8080/graphql";
 let endpoint;
-console.log(process.env.REACT_APP_WHAT);
-if (process.env.REACT_APP_WHAT === "development") endpoint = dev;
-else if (process.env.REACT_APP_WHAT === "production") endpoint = prod;
+if (process.env.REACT_APP_WHAT === "development") endpoint = endpoints.dev;
+else if (process.env.REACT_APP_WHAT === "production") endpoint = endpoints.prod;
 
 export const graphQLClient = new ApolloClient({
   uri: endpoint,
@@ -14,6 +18,20 @@ export const graphQLClient = new ApolloClient({
   }),
 });
 
+export const getSnacks = async () => {
+  let request = await graphQLClient.query({
+    query: gql`
+      query {
+        getSnacks {
+          body
+          fileName
+        }
+      }
+    `,
+  });
+  let data = request.data.getSnacks;
+  return data;
+};
 export const getRandomImage = async () => {
   let request = await graphQLClient.query({
     query: gql`

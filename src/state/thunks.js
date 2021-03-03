@@ -31,6 +31,7 @@ import {
   getPostLikes,
   postComment,
   getPostComments,
+  getArticles,
 } from "../api/requests";
 
 // API endpoint
@@ -61,6 +62,7 @@ export const loadImage = (slug, url) => async (dispatch, getState) => {
     dispatch(getImageFailure());
   }
 };
+
 /**
  * Get a list of posts from the contentful CMS
  */

@@ -12,13 +12,14 @@ import PoetryBanner from "./banners/PoetryBanner";
 import DevBanner from "./banners/DevBanner";
 import FictionBanner from "./banners/FictionBanner";
 import LettersBanner from "./banners/LettersBanner";
+import SnacksBanner from "./banners/SnacksBanner";
 import LikeButton from "./LikeButton";
 import SendIcon from "./SendIcon";
 import CommentArea from "./CommentArea";
 import Loading from "./Loading";
 import ScrollToTopOnMount from "./ScrollToTopOnMount";
 import SignUp from "./SignUp";
-
+import MarkDownBody from "./MarkdownBody";
 export {
   CodeBlock,
   MainHeader,
@@ -31,6 +32,7 @@ export {
   DevBanner,
   FictionBanner,
   LettersBanner,
+  SnacksBanner,
   AboutMe,
   Work,
   Misc,
@@ -40,4 +42,5 @@ export {
   CommentArea,
   ScrollToTopOnMount,
   SignUp,
+  MarkDownBody,
 };

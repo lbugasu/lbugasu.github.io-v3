@@ -79,6 +79,8 @@ body.light-mode {
   /* About Me Page*/
   --work-link-bg: #9f8a78;
   --work-link: #f8f9f0;
+
+  --highlight: #ffe0b5;
 }
 body.dark-mode {
   --flirt: rgba(248, 78, 191, 0.7);
@@ -161,4 +163,6 @@ body.dark-mode {
   /* About Me Page*/
   --work-link-bg: #9f8a78;
   --work-link: #f8f9f0;
+
+  --highlight: #0b3954;
 }

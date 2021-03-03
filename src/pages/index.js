@@ -10,6 +10,7 @@ import Vault from "./Vault";
 import ApprovalPage from "./ApprovalPage";
 import PrivacyPolicy from "./PrivacyPolicy";
 import Contact from "./Contact";
+import Snacks from "./Snacks";
 export {
   About,
   DevPostPage,
@@ -19,6 +20,7 @@ export {
   PostPage,
   TagPage,
   RssFeed,
+  Snacks,
   Vault,
   ApprovalPage,
   PrivacyPolicy,

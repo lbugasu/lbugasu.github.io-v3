@@ -1,7 +1,6 @@
 {
   "name": "laudebugs",
-  "version": "1.0.9",
-
+  "version": "1.0.0",
   "private": true,
   "homepage": "https://laudebugs.me/#/",
   "dependencies": {
@@ -16,6 +15,7 @@
     "babel-plugin-polyfill-corejs3": "^0.1.7",
     "babel-plugin-polyfill-regenerator": "^0.1.6",
     "ccount": "^1.1.0",
+    "components": "^0.1.0",
     "contentful": "^8.1.4",
     "cookies-eu-banner": "^2.0.1",
     "dotenv": "^8.2.0",
@@ -26,6 +26,7 @@
     "luxon": "^1.25.0",
     "markdown-headings": "^2.0.0",
     "mdast-util-find-and-replace": "^1.1.1",
+    "node-sass": "^4.14.1",
     "prism-react-renderer": "^1.1.1",
     "prismjs": "^1.23.0",
     "query-string": "^4.3.4",
@@ -33,15 +34,18 @@
     "react-cookie-consent": "^6.2.2",
     "react-dom": "^17.0.1",
     "react-markdown": "^5.0.3",
+    "react-query": "^3.12.0",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-router-hash-link": "^2.2.2",
     "react-scripts": "4.0.0",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "remark-gfm": "^1.0.0",
     "rss-generator": "0.0.3",
+    "styled": "^1.0.0",
     "web-vitals": "^0.2.4",
     "xml-renderer": "^4.0.4",
     "yocto-queue": "^0.1.0"
@@ -52,10 +56,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build && cp CNAME build/CNAME",
-    "deploy": "gh-pages -d build",
-    "bump": "npx grunt bump",
-    "bump:minor": "npx grunt bump:minor",
-    "bump:major": "npx grunt bump:major"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -77,15 +78,11 @@
   },
   "devDependencies": {
     "babel-plugin-prismjs": "^2.0.1",
-    "coffeescript": "^2.5.1",
     "gh-pages": "^3.1.0",
-    "grunt": "^1.3.0",
-    "grunt-bump": "^0.8.0",
-    "grunt-contrib-jshint": "^3.0.0",
-    "grunt-contrib-uglify": "^5.0.0",
     "process": "^0.11.10",
     "react-persist": "^1.0.2",
     "redux-devtools-extension": "^2.13.8",
+    "sass-loader": "^8.0.2",
     "styled-components": "^5.2.1"
   }
 }

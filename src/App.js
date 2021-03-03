@@ -11,7 +11,7 @@ import { getPosts, getMode } from "./state/selectors";
 //import css
 import "./css/main.css";
 import "./css/palette.css";
-import "./css/CodeBlock.css";
+import "./css/CodeBlock.scss";
 
 // import components
 import {
@@ -27,6 +27,7 @@ import {
   ApprovalPage,
   PrivacyPolicy,
   Contact,
+  Snacks,
 } from "./pages";
 
 import { Menu, SignUp } from "./components";
@@ -111,6 +112,7 @@ const App = ({
       <Route path="/approvalpage" component={ApprovalPage} exact />
       <Route path="/privacy-policy" component={PrivacyPolicy} exact />
       <Route path="/contact" component={Contact} exact />
+      <Route path="/snacks" component={Snacks} exact />
     </Router>
   );
 };

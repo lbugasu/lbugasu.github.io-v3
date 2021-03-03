@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
-import { Footer, MainHeader } from "../components";
+import { Footer, MainHeader, SecondaryHeader } from "../components";
 import { getPosts } from "../state/selectors";
 import { PostPreview } from "../components/";
 
@@ -58,6 +58,7 @@ const TagPage = ({ posts }) => {
   return (
     <>
       <MainHeader />
+      <SecondaryHeader />
       <TagTitle>{subject}</TagTitle>
       <Hr />
       <PostsFrame>{renderPage()}</PostsFrame>
