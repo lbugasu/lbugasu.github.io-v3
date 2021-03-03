@@ -108,11 +108,19 @@ const SideMenu = styled.div`
   padding: 0.25%;
   border-radius: 10px;
   height: 100%;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 const Content = styled.div`
   width: 75%;
   padding: 0 5% 0 5%;
   display: inline-block;
+
+  @media only screen and (max-width: 600px) {
+    width: 95%;
+  }
 `;
 const SideTitle = styled.h3`
   font-family: var(--body-font);
@@ -127,4 +135,7 @@ const SideTitle = styled.h3`
 const Page = styled.div`
   display: flex;
   flex-direction: row;
+  @media only screen and (max-width: 600px) {
+    display: block;
+  }
 `;
