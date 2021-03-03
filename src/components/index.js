@@ -18,7 +18,7 @@ import CommentArea from "./CommentArea";
 import Loading from "./Loading";
 import ScrollToTopOnMount from "./ScrollToTopOnMount";
 import SignUp from "./SignUp";
-
+import MarkDownBody from "./MarkdownBody";
 export {
   CodeBlock,
   MainHeader,
@@ -40,4 +40,5 @@ export {
   CommentArea,
   ScrollToTopOnMount,
   SignUp,
+  MarkDownBody,
 };

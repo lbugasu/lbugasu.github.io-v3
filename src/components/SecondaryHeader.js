@@ -26,7 +26,7 @@ const SecondaryHeader = () => {
     <Menu className="showHover">
       <Link to="/section/poetry">POETRY</Link> •{" "}
       <Link to="/section/fiction">FICTION</Link> •{" "}
-      <Link to="/section/dev">DEV</Link> • <Link to="/snippets">SNIPPETS</Link>•{" "}
+      <Link to="/section/dev">DEV</Link> • <Link to="/snacks">SNACKS</Link>•{" "}
       <Link to="/vault">VAULT</Link>
     </Menu>
   );

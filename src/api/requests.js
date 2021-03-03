@@ -1,11 +1,52 @@
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  gql,
+  ApolloLink,
+  HttpLink,
+} from "@apollo/client";
+import endpoints from "./endpoint.json";
 
-let prod = "https://laudebugs.tamaduni.org/graphql";
-let dev = "http://localhost:8080/graphql";
+// Require axios to perform easy promise-based POST request
+const axios = require("axios");
+// Define constant
+// Endpoint URL
+const githubUrl = "https://api.github.com/graphql";
+// Your personal access token
+const token = "1d4bf08cc8f913da64e0ee5b59539c3ec1090a9f";
+// The Authorization in the header of the request
+const oauth = { Authorization: "bearer " + token };
+const query = `
+           {
+             repository(owner: "lbugasu", name: "articles") {
+               defaultBranchRef {
+                 target {
+                   ... on Commit {
+                     file(path: "/") {
+                       type
+                       object {
+                         ... on Tree {
+                           entries {
+                             name
+                             object {
+                               ... on Blob {
+                                 text
+                               }
+                             }
+                           }
+                         }
+                       }
+                     }
+                   }
+                 }
+               }
+             }
+           }
+         `;
+
 let endpoint;
-console.log(process.env.REACT_APP_WHAT);
-if (process.env.REACT_APP_WHAT === "development") endpoint = dev;
-else if (process.env.REACT_APP_WHAT === "production") endpoint = prod;
+if (process.env.REACT_APP_WHAT === "development") endpoint = endpoints.dev;
+else if (process.env.REACT_APP_WHAT === "production") endpoint = endpoints.prod;
 
 export const graphQLClient = new ApolloClient({
   uri: endpoint,
@@ -14,6 +55,9 @@ export const graphQLClient = new ApolloClient({
   }),
 });
 
+export const getSnacks = () => {
+  return axios.post(githubUrl, { query: query }, { headers: oauth });
+};
 export const getRandomImage = async () => {
   let request = await graphQLClient.query({
     query: gql`

@@ -1,4 +1,5 @@
 {
-  "prod": "https://laudebugs.tamaduni.org",
-  "dev": "http://localhost:4000"
+  "prod": "https://laudebugs.tamaduni.org/graphql",
+  "dev": "http://localhost:8080/graphql",
+  "github": "https://api.github.com/graphql"
 }
