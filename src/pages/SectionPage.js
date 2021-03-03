@@ -14,6 +14,7 @@ import {
   FictionBanner,
   LettersBanner,
   ScrollToTopOnMount,
+  SecondaryHeader,
 } from "../components/";
 
 const SectionPage = ({ posts }) => {
@@ -52,6 +53,7 @@ const SectionPage = ({ posts }) => {
     <div className={section}>
       <ScrollToTopOnMount />
       <MainHeader />
+      <SecondaryHeader />
       {renderTitle(section)}
       <Posts>{renderPage()}</Posts>
       <Footer />

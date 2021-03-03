@@ -190,16 +190,18 @@ table {
 ----------------------*/
 :root {
   --max-height: 50px;
+  --body-font: cronos-pro, sans-serif;
 }
 html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: adobe-caslon-pro, serif;
+  font-family: var(--body-font);
   background-color: var(--background-color);
   color: var(--text);
   font-size: 24px;
   padding: 0.75% 7.5% 0 7.5%;
+  overflow-y: scroll; /* Show vertical scrollbar */
 }
 a {
   text-decoration: none;
@@ -213,7 +215,7 @@ a:hover {
 }
 h1 {
   font-family: "Etoile";
-  font-size: 150%;
+  font-size: 5rem;
   margin: 1% 0 1% 0;
 }
 h2,
@@ -705,7 +707,7 @@ code {
   text-align: center;
 }
 .cookieContent {
-  font-family: adobe-caslon-pro, serif;
+  font-family: var(--body-font);
   font-size: 75%;
 }
 .italic,

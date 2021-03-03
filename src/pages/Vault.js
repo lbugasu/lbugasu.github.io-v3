@@ -3,7 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { HashLink } from "react-router-hash-link";
 import styled from "styled-components";
-import { MainHeader, Footer, Loading } from "../components";
+import { MainHeader, Footer, Loading, SecondaryHeader } from "../components";
 import { getPosts } from "../state/selectors";
 import { PostPreview } from "../components";
 const Vault = ({ posts }) => {
@@ -69,6 +69,7 @@ const Vault = ({ posts }) => {
   return (
     <div>
       <MainHeader />
+      <SecondaryHeader />
       {renderPosts()}
       <Footer />
     </div>
