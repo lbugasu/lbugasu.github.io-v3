@@ -1,19 +1,19 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Continuous Delivery
+name: CI
 env:
   CI: false
 # Controls when the action will run.
 on:
   push:
-    branches: [master]
+    branches-ignore: [master]
 jobs:
   build-and-deploy:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
-      - name: Use Node v12
+      - name: Use Node v12 ☋
         uses: actions/setup-node@v2
         with:
           node-version: "12"
@@ -21,8 +21,3 @@ jobs:
         run: npm install
       - name: Build 🔧
         run: npm run build
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.0.0
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build
