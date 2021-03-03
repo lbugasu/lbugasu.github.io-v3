@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.d5a109bf.chunk.css",
-    "main.js": "/static/js/main.203546f1.chunk.js",
-    "main.js.map": "/static/js/main.203546f1.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.5b58d8d0.js",
-    "runtime-main.js.map": "/static/js/runtime-main.5b58d8d0.js.map",
-    "static/js/2.cdc76791.chunk.js": "/static/js/2.cdc76791.chunk.js",
-    "static/js/2.cdc76791.chunk.js.map": "/static/js/2.cdc76791.chunk.js.map",
-    "static/js/3.5a14015a.chunk.js": "/static/js/3.5a14015a.chunk.js",
-    "static/js/3.5a14015a.chunk.js.map": "/static/js/3.5a14015a.chunk.js.map",
+    "main.css": "/static/css/main.0c13a3fa.chunk.css",
+    "main.js": "/static/js/main.2f723293.chunk.js",
+    "main.js.map": "/static/js/main.2f723293.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9cb8202b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9cb8202b.js.map",
+    "static/js/2.6caa5ee7.chunk.js": "/static/js/2.6caa5ee7.chunk.js",
+    "static/js/2.6caa5ee7.chunk.js.map": "/static/js/2.6caa5ee7.chunk.js.map",
+    "static/js/3.b433726d.chunk.js": "/static/js/3.b433726d.chunk.js",
+    "static/js/3.b433726d.chunk.js.map": "/static/js/3.b433726d.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.d5a109bf.chunk.css.map": "/static/css/main.d5a109bf.chunk.css.map",
-    "static/js/2.cdc76791.chunk.js.LICENSE.txt": "/static/js/2.cdc76791.chunk.js.LICENSE.txt",
+    "static/css/main.0c13a3fa.chunk.css.map": "/static/css/main.0c13a3fa.chunk.css.map",
+    "static/js/2.6caa5ee7.chunk.js.LICENSE.txt": "/static/js/2.6caa5ee7.chunk.js.LICENSE.txt",
     "static/media/main.css": "/static/media/profile_image_eye_em_1.3dc99b25.jpg",
     "static/media/LoadingGif.6a74c286.gif": "/static/media/LoadingGif.6a74c286.gif",
     "static/media/be.8daa02a1.png": "/static/media/be.8daa02a1.png",
@@ -19,12 +19,13 @@
     "static/media/letters_bg.14245218.jpg": "/static/media/letters_bg.14245218.jpg",
     "static/media/linkedIn.c7797912.png": "/static/media/linkedIn.c7797912.png",
     "static/media/poetry_bg.72369791.jpg": "/static/media/poetry_bg.72369791.jpg",
+    "static/media/snacks_bg.097e8482.jpg": "/static/media/snacks_bg.097e8482.jpg",
     "static/media/tech_photo_bg.b08e2b41.jpg": "/static/media/tech_photo_bg.b08e2b41.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.5b58d8d0.js",
-    "static/js/2.cdc76791.chunk.js",
-    "static/css/main.d5a109bf.chunk.css",
-    "static/js/main.203546f1.chunk.js"
+    "static/js/runtime-main.9cb8202b.js",
+    "static/js/2.6caa5ee7.chunk.js",
+    "static/css/main.0c13a3fa.chunk.css",
+    "static/js/main.2f723293.chunk.js"
   ]
 }
