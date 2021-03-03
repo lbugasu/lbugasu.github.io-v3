@@ -15,6 +15,7 @@
     "babel-plugin-polyfill-corejs3": "^0.1.7",
     "babel-plugin-polyfill-regenerator": "^0.1.6",
     "ccount": "^1.1.0",
+    "components": "^0.1.0",
     "contentful": "^8.1.4",
     "cookies-eu-banner": "^2.0.1",
     "dotenv": "^8.2.0",
@@ -44,6 +45,7 @@
     "redux-thunk": "^2.3.0",
     "remark-gfm": "^1.0.0",
     "rss-generator": "0.0.3",
+    "styled": "^1.0.0",
     "web-vitals": "^0.2.4",
     "xml-renderer": "^4.0.4",
     "yocto-queue": "^0.1.0"
