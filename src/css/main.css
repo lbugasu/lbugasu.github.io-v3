@@ -532,9 +532,9 @@ div.sharable {
   }
 }
 .dropcap {
-  font-size: 6rem;
+  font-size: 8rem;
   float: left;
-  margin: 0.15em 0.1em 0.1em 0;
+  margin: -0.1em 0.1em 0em 0;
   line-height: 1.5;
 }
 .dropcap:before,

@@ -207,6 +207,10 @@ body.light-mode {
   .token.variable {
     color: #e53935;
   }
+  blockquote {
+    border-left: 3px solid #5e4352;
+    padding-left: 2.5%;
+  }
 }
 body.dark-mode {
   /**
@@ -413,5 +417,24 @@ body.dark-mode {
   pre .line-highlight[data-end]:after,
   pre > code.line-highlight[data-end]:after {
     content: "";
+  }
+  blockquote {
+    border-left: 3px solid #e5be9e;
+    padding-left: 2.5%;
+  }
+}
+ul {
+  li::before {
+    content: "• ";
+  }
+}
+ol {
+  list-style: none;
+  counter-reset: my-counter;
+  li {
+    counter-increment: my-counter;
+  }
+  li p:first-of-type::before {
+    content: counter(my-counter) ". ";
   }
 }
