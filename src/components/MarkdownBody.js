@@ -6,7 +6,6 @@ import gfm from "remark-gfm";
 import styled from "styled-components";
 
 const MarkDownBody = (body) => {
-  console.log(body);
   const renderers = {
     code: ({ language, value }) => {
       const Pre = styled.pre`
@@ -35,6 +34,25 @@ const MarkDownBody = (body) => {
         </Highlight>
       );
     },
+    link: (link) => {
+      const InlineLink = styled.a`
+        text-decoration: underline;
+        text-decoration-color: var(--inline-link);
+        :hover {
+          text-decoration: underline;
+          text-decoration-color: var(--inline-link);
+        }
+      `;
+      let text = link.children[0].props.children;
+      let url = link.href;
+
+      return (
+        <InlineLink href={url} rel="noreferrer" target={"_blank"}>
+          {text}
+        </InlineLink>
+      );
+    },
+
     heading: (value) => {
       switch (value.level) {
         case 1:

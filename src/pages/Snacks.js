@@ -39,7 +39,6 @@ const Snacks = () => {
         console.log(error.message);
       }
       let snacks = data;
-      console.log(snacks);
 
       const headings = snacks.map((snack) => {
         return markdownHeadings(snack.body)[0];
@@ -66,11 +65,9 @@ const Snacks = () => {
     }
   };
   const readSnack = (snack) => {
-    console.log(snack);
     setPost(snack);
   };
   const showMenu = (headings) => {
-    console.log(headings);
     return headings.map((heading) => (
       <SideTitle
         style={{

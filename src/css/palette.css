@@ -81,6 +81,7 @@ body.light-mode {
   --work-link: #f8f9f0;
 
   --highlight: #ffe0b5;
+  --inline-link: #d62985;
 }
 body.dark-mode {
   --flirt: rgba(248, 78, 191, 0.7);
@@ -165,4 +166,6 @@ body.dark-mode {
   --work-link: #f8f9f0;
 
   --highlight: #0b3954;
+
+  --inline-link: #b8f3e0;
 }
