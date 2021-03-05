@@ -6,6 +6,7 @@ import gfm from "remark-gfm";
 import styled from "styled-components";
 
 const MarkDownBody = (body) => {
+  console.log(body);
   const renderers = {
     code: ({ language, value }) => {
       const Pre = styled.pre`

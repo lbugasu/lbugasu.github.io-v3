@@ -46,55 +46,55 @@ const PostPreview = ({ posts, post, divider }) => {
   };
   if (!postLoaded) {
     return <div></div>;
-  } else
-    return (
-      <PreviewFrame key={post.slug}>
+  } else console.log(post.section[0] === "dev");
+  return (
+    <PreviewFrame key={post.slug}>
+      <Link
+        key={post.slug}
+        to={`${post.section[0] === "dev" ? "/dev/" : "/writing/"}${post.slug}`}
+        className="preview"
+      >
+        <ImageFrame>
+          <Image src={post.featuredImage} alt={post.title} />
+        </ImageFrame>
+      </Link>
+      <PostData>
         <Link
-          key={"/writing/" + post.slug}
-          to={`${post.type === "project" ? "/dev/" : "/writing/"}${post.slug}`}
+          key={post.slug}
+          to={`${post.section[0] === "dev" ? "/dev/" : "/writing/"}${
+            post.slug
+          }`}
           className="preview"
         >
-          <ImageFrame>
-            <Image src={post.featuredImage} alt={post.title} />
-          </ImageFrame>
+          <Title>{post.title}</Title>
         </Link>
-        <PostData>
-          <Link
-            key={"/writing/" + post.slug}
-            to={`${post.type === "project" ? "/dev/" : "/writing/"}${
-              post.slug
-            }`}
-            className="preview"
-          >
-            <Title>{post.title}</Title>
-          </Link>
-          <Small>{post.date}</Small>
-          {showTags(post.tags)}
-          <Link
-            key={"/writing/" + post.slug}
-            to={`${post.type === "project" ? "/dev/" : "/writing/"}${
-              post.slug
-            }`}
-            className="preview"
-          >
-            <PhoneImage>
-              <Image src={post.featuredImage} alt={post.title} />
-            </PhoneImage>
+        <Small>{post.date}</Small>
+        {showTags(post.tags)}
+        <Link
+          key={post.slug}
+          to={`${post.section[0] === "dev" ? "/dev/" : "/writing/"}${
+            post.slug
+          }`}
+          className="preview"
+        >
+          <PhoneImage>
+            <Image src={post.featuredImage} alt={post.title} />
+          </PhoneImage>
 
-            {!!post.description ? (
-              <Preview>{post.description}</Preview>
-            ) : (
-              <Preview
-                dangerouslySetInnerHTML={{
-                  __html: post.body.substring(0, 200) + "   ... ",
-                }}
-              ></Preview>
-            )}
-          </Link>
-        </PostData>
-        {divider ? <Hr /> : <></>}
-      </PreviewFrame>
-    );
+          {!!post.description ? (
+            <Preview>{post.description}</Preview>
+          ) : (
+            <Preview
+              dangerouslySetInnerHTML={{
+                __html: post.body.substring(0, 200) + "   ... ",
+              }}
+            ></Preview>
+          )}
+        </Link>
+      </PostData>
+      {divider ? <Hr /> : <></>}
+    </PreviewFrame>
+  );
 };
 const mapStateToProps = (state) => ({
   posts: getPosts(state),
