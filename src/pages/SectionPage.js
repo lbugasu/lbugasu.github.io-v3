@@ -19,13 +19,18 @@ import {
 
 const SectionPage = ({ posts }) => {
   const { section } = useParams();
-  console.log(section);
   let sectionnedPosts = posts.filter((post) => {
     if (!!post.section) return post.section.indexOf(section) !== -1;
     else return false;
   });
 
   const renderPage = () => {
+    if (window.location.href.split("?").length > 1) {
+      let topic = window.location.href.split("?")[1].split("=")[1];
+      sectionnedPosts = sectionnedPosts.filter((post) =>
+        post.tags.includes(topic)
+      );
+    }
     return sectionnedPosts.map((post, i) => (
       <PostPreview post={post} divider={i !== sectionnedPosts.length - 1} />
     ));

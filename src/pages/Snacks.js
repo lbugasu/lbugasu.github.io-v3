@@ -109,6 +109,9 @@ const SideMenu = styled.div`
   @media only screen and (max-width: 600px) {
     width: 100%;
   }
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 `;
 const Content = styled.div`
   width: 75%;
