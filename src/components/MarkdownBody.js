@@ -55,12 +55,15 @@ const MarkDownBody = (body) => {
     },
 
     heading: (value) => {
+      const H1 = styled.h1`
+        font-size: 200%;
+      `;
       switch (value.level) {
         case 1:
           return (
-            <h1 id={value.node.children[0].value.replace(/\s/g, "-")}>
+            <H1 id={value.node.children[0].value.replace(/\s/g, "-")}>
               {value.node.children[0].value}
-            </h1>
+            </H1>
           );
         case 2:
           return (
