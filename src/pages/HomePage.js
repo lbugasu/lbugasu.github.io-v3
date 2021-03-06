@@ -58,8 +58,10 @@ const HomePage = ({ posts, featuredImage, startLoadingFeaturedImage }) => {
   };
   const renderPosts = () => {
     if (posts.postsLoading) return <Loading />;
-
-    return posts.posts.slice(0, 7).map((singlePost, i) => (
+    let showThese = posts.posts
+      .slice(0, 8)
+      .filter((post) => !post.tags.includes("preview"));
+    return showThese.map((singlePost, i) => (
       <>
         <Suspense fallback={Loading}>
           <PostPreview post={singlePost} divider={i !== 6} />

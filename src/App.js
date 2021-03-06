@@ -31,6 +31,7 @@ import {
 } from "./pages";
 
 import { Menu, SignUp } from "./components";
+import Preview from "./pages/Preview";
 
 const App = ({
   posts,
@@ -105,6 +106,7 @@ const App = ({
       <Route path="/vault" component={Vault} exact />
       <Route path="/tag/:subject" component={TagPage} />
       <Route path="/writing/:id" component={PostPage} />
+      <Route path="/preview/:id" component={Preview} />
       <Route path="/section/:section" component={SectionPage} />
       <Route path="/dev/:id" component={DevPostPage} />
       <Route path="/playground" component={Playground} exact />
