@@ -8,6 +8,8 @@ import { getPosts } from "../state/selectors";
 import { PostPreview } from "../components";
 const Vault = ({ posts }) => {
   const yearBar = (years) => {
+    years = years.sort((a, b) => b - a);
+    console.log(years);
     return years.map((year) => {
       return (
         <HashLink smooth to={`#${year}`}>
@@ -24,7 +26,8 @@ const Vault = ({ posts }) => {
       let tags = [];
       let sections = [];
       let postList = {};
-      posts.posts.map((post) => {
+      posts = posts.posts.filter((post) => !post.tags.includes("preview"));
+      posts.map((post) => {
         let year = String(new Date(post.date).getFullYear());
         if (years.indexOf(year) === -1) {
           years.push(year);
