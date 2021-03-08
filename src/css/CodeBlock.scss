@@ -211,6 +211,12 @@ body.light-mode {
     border-left: 3px solid #5e4352;
     padding-left: 2.5%;
   }
+  .inlineCode {
+    color: #90a4ae;
+    background-color: #fafafa;
+    font-family: "Cascadia Code";
+    font-size: 14pt;
+  }
 }
 body.dark-mode {
   /**
@@ -421,6 +427,12 @@ body.dark-mode {
   blockquote {
     border-left: 3px solid #e5be9e;
     padding-left: 2.5%;
+  }
+  .inlineCode {
+    color: #9efeff;
+    background-color: #1e1e3f;
+    font-family: "Cascadia Code";
+    font-size: 14pt;
   }
 }
 ul {

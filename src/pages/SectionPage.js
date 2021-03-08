@@ -84,11 +84,11 @@ const SectionTitle = styled.h1`
   }
 `;
 const Posts = styled.div`
-  width: 80%;
-  padding: 0 10% 0 10%;
+  width: 90%;
+  padding: 0 5% 0 5%;
   @media only screen and (max-width: 900px) {
-    width: 90%;
-    padding: 0 5% 0 5%;
+    width: 95%;
+    padding: 0 2.5% 0 2.5%;
   }
   @media only screen and (max-width: 700px) {
     width: 100%;

@@ -35,6 +35,11 @@ const MarkDownBody = (body) => {
         </Highlight>
       );
     },
+    inlineCode: (code) => {
+      const InlineCode = styled.span``;
+      console.log(code);
+      return <span className="inlineCode">{code.children}</span>;
+    },
     link: (link) => {
       const InlineLink = styled.a`
         text-decoration: underline;
