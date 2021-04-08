@@ -35,7 +35,7 @@ import {
 } from "../api/requests";
 
 // API endpoint
-let prod = "https://laudebugs.tamaduni.org";
+let prod = "https://laudebugs-api.herokuapp.com";
 let endpoint = prod;
 
 export const loadFeatureImage = () => (dispatch, getState) => {

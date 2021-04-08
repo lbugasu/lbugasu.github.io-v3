@@ -1,5 +1,5 @@
 {
-  "prod": "https://laudebugs.tamaduni.org/graphql",
+  "prod": "https://laudebugs-api.herokuapp.com/graphql",
   "dev": "http://localhost:8080/graphql",
   "github": "https://api.github.com/graphql"
 }

@@ -3,7 +3,7 @@ import CancelIcon from "@material-ui/icons/Cancel";
 import styled from "styled-components";
 import $ from "jquery";
 import queryString from "query-string";
-let prod = "https://laudebugs.tamaduni.org";
+let prod = "https://laudebugs-api.herokuapp.com";
 let dev = "http://localhost:4000";
 let endpoint = prod;
 

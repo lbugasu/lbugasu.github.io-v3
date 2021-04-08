@@ -4,7 +4,7 @@ import $ from "jquery";
 import { MainHeader, SendIcon } from "../components";
 import { validateEmail } from "../components/helpers";
 
-let prod = "https://laudebugs.tamaduni.org";
+let prod = "https://laudebugs-api.herokuapp.com";
 let dev = "http://localhost:4000";
 let endpoint = prod;
 
