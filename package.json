@@ -2,7 +2,7 @@
   "name": "laudebugs",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://laudebugs.me/#/",
+  "homepage": "https://lbugasu.github.io/",
   "dependencies": {
     "@apollo/client": "^3.3.11",
     "@contentful/rich-text-html-renderer": "^14.1.2",
@@ -55,7 +55,7 @@
     "build": "REACT_APP_WHAT=production react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build && cp CNAME build/CNAME",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
