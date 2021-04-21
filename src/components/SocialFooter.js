@@ -6,19 +6,19 @@ import behance from "../css/images/be.png";
 import linkedIn from "../css/images/linkedIn.png";
 const Footer = () => (
   <div className="elements">
-    <div className="element">
+    {/* <div className="element">
       <a
         href="https://1drv.ms/b/s!AqwJLYjZ0cXAhsdACEGkj8_UGb63cA?e=nTH29J"
         target="__blank"
       >
         <img src={resume} alt="resume"></img>
       </a>
-    </div>
-    <div className="element">
+    </div> */}
+    {/* <div className="element">
       <a href="https://www.linkedin.com/in/laurence-ininda/" target="__blank">
         <img src={linkedIn} alt="linkedin link"></img>
       </a>
-    </div>
+    </div> */}
     <div className="element">
       <a href="https://github.com/lbugasu" target="__blank">
         <img src={github} alt="github link"></img>
