@@ -4,7 +4,7 @@ import React from "react";
 export default function Work() {
   const projects = require("./projects.json");
   const printWork = () => {
-    return projects.slice(0, 4).map((project) => (
+    return projects.slice(0, 7).map((project) => (
       <div className="project">
         <div className="projectDescription">
           <h3>{project.title}</h3>
