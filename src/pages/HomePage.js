@@ -84,7 +84,7 @@ const HomePage = ({ posts, featuredImage, startLoadingFeaturedImage }) => {
             Playlist of the week
           </p>
           <iframe
-            src="https://open.spotify.com/embed/playlist/3VrLVBsCC66rmirKko0g0p"
+            src="https://open.spotify.com/embed/playlist/1iZf2z67pYPmEwbnKsZq7X"
             title={"African Passort"}
             width="100%"
             height="500"
@@ -92,10 +92,10 @@ const HomePage = ({ posts, featuredImage, startLoadingFeaturedImage }) => {
             allowtransparency="true"
             allow="encrypted-media"
           ></iframe>
-
+          
           <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
             <iframe
-              src="https://player.vimeo.com/video/458472240?color=ffffff&title=0&byline=0&portrait=0"
+              src="https://player.vimeo.com/video/389461796?color=ffffff&title=0&byline=0&portrait=0"
               style={{
                 position: "absolute",
                 top: "0",
@@ -111,10 +111,15 @@ const HomePage = ({ posts, featuredImage, startLoadingFeaturedImage }) => {
           </div>
           <script src="https://player.vimeo.com/api/player.js"></script>
           <p style={{ textAlign: "center" }}>
-            <a href="https://vimeo.com/458472240">kai - A little too much</a>{" "}
+            <a href="https://vimeo.com/389461796">
+              Tales from the Multiverse (Magnus Møller, Mette Tange &amp; Peter
+              Smith, 2020)
+            </a>{" "}
             <span style={{ fontStyle: "italic" }}>from </span>
-            <a href="https://vimeo.com/martinascarpelli">martina</a> on{" "}
-            <a href="https://vimeo.com">Vimeo</a>.
+            <a href="https://vimeo.com/miyudistribution">
+              Miyu Distribution
+            </a>{" "}
+            on <a href="https://vimeo.com">Vimeo</a>.
           </p>
         </Things>
       </HalfDiv>
