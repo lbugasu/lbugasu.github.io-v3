@@ -1,26 +1,5 @@
 [
   {
-    "title": "User Management Dashboard for Honeydew Dating",
-    "description": "I developed a dashboard to anable the management of a quickly growing userbase in Angular and Node.js utilizing Routing, Services and dependency injection to share data within the application and across both the front-end and backend. Some libraries that we used were Angular Forms, Angular2-jwt, NgRx/store, Angular Material, Apollo Angular and ngx pipes and RxJS.",
-    "img": "https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/honeydew.gif",
-    "tech": ["Angular 10","TypeScript","HTML","SCSS","Node.js","Express","GraphQL","Apollo","Postgres","JWT"],
-    "link": "https://honeydew.com"
-  },
-  {
-    "title": "Intent Manager for LIVEPERSON",
-    "description": "Involved in creating reusable components using Angular 8 for building pages, components, and modules for Liverperson's proprietary NLU engine.",
-    "img": "https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/intent_manager.png",
-    "tech": ["Angular 8","HTML5","CSS3","TypeScript","Bootstrap","Node.js","express","GIT","REST (web services)","Jasmine","Karma,Protractor","MongoDB","JIR","Git"],
-    "link": "https://www.liveperson.com/products/intent-manager"
-  },
-    {
-    "title": "Location Based Intelligence for Infor",
-    "description": "Responsible for design and development of web pages using Angular 6 using libraries such as Bootstrap, NgRx, CSS.",
-    "img": "https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/infor.png",
-    "tech": ["Angular 6","HTML5","CSS3","TypeScript","Bootstrap","Java","Spring Boot,GIT","REST (web services)"," Jasmine","Karma","Junit"],
-    "link": "https://www.infor.com/solutions/advanced-analytics/location-based-intelligence"
-  },
-  {
     "title": "2020 Campaign Finance Data Analysis",
     "description": "With a dataset provided by the FEC, I performed analysis on the data to determine employment statistics for each of the candidate’s principal campaign committees as well what industries donated the most to each candidate.",
     "img": "https://raw.githubusercontent.com/lbugasu/lbugasu.github.io/master/src/css/images/campaign_finance.png",
