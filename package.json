@@ -2,7 +2,7 @@
   "name": "laudebugs",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://lbugasu.github.io/",
+  "homepage": "https://lbugasu.github.io/lbugasu.github.io-v3",
   "dependencies": {
     "@apollo/client": "^3.3.11",
     "@contentful/rich-text-html-renderer": "^14.1.2",
