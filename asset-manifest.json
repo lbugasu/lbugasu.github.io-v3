@@ -5,13 +5,13 @@
     "main.js.map": "/lbugasu.github.io-v3/static/js/main.8f09dc05.chunk.js.map",
     "runtime-main.js": "/lbugasu.github.io-v3/static/js/runtime-main.e792c246.js",
     "runtime-main.js.map": "/lbugasu.github.io-v3/static/js/runtime-main.e792c246.js.map",
-    "static/js/2.61dcfbc3.chunk.js": "/lbugasu.github.io-v3/static/js/2.61dcfbc3.chunk.js",
-    "static/js/2.61dcfbc3.chunk.js.map": "/lbugasu.github.io-v3/static/js/2.61dcfbc3.chunk.js.map",
+    "static/js/2.3b4e3104.chunk.js": "/lbugasu.github.io-v3/static/js/2.3b4e3104.chunk.js",
+    "static/js/2.3b4e3104.chunk.js.map": "/lbugasu.github.io-v3/static/js/2.3b4e3104.chunk.js.map",
     "static/js/3.b433726d.chunk.js": "/lbugasu.github.io-v3/static/js/3.b433726d.chunk.js",
     "static/js/3.b433726d.chunk.js.map": "/lbugasu.github.io-v3/static/js/3.b433726d.chunk.js.map",
     "index.html": "/lbugasu.github.io-v3/index.html",
     "static/css/main.83f9003f.chunk.css.map": "/lbugasu.github.io-v3/static/css/main.83f9003f.chunk.css.map",
-    "static/js/2.61dcfbc3.chunk.js.LICENSE.txt": "/lbugasu.github.io-v3/static/js/2.61dcfbc3.chunk.js.LICENSE.txt",
+    "static/js/2.3b4e3104.chunk.js.LICENSE.txt": "/lbugasu.github.io-v3/static/js/2.3b4e3104.chunk.js.LICENSE.txt",
     "static/media/main.css": "/lbugasu.github.io-v3/static/media/profile_image_eye_em_1.3dc99b25.jpg",
     "static/media/LoadingGif.6a74c286.gif": "/lbugasu.github.io-v3/static/media/LoadingGif.6a74c286.gif",
     "static/media/be.8daa02a1.png": "/lbugasu.github.io-v3/static/media/be.8daa02a1.png",
@@ -24,7 +24,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.e792c246.js",
-    "static/js/2.61dcfbc3.chunk.js",
+    "static/js/2.3b4e3104.chunk.js",
     "static/css/main.83f9003f.chunk.css",
     "static/js/main.8f09dc05.chunk.js"
   ]
