@@ -38,7 +38,7 @@
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-router-hash-link": "^2.2.2",
-    "react-scripts": "4.0.0",
+    "react-scripts": "5.0.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-persist": "^6.0.0",
@@ -82,7 +82,7 @@
     "process": "^0.11.10",
     "react-persist": "^1.0.2",
     "redux-devtools-extension": "^2.13.8",
-    "sass-loader": "^8.0.2",
+    "sass-loader": "^13.2.0",
     "styled-components": "^5.2.1"
   }
 }
