@@ -1,0 +1,313 @@
+body.light-mode code[class*="language-"], body.light-mode pre[class*="language-"] {
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  color: #90a4ae;
+  background: #fafafa;
+  font-family: "Cascadia Code";
+  font-variant-ligatures: normal;
+  font-size: 17px;
+  line-height: 25px;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+body.light-mode code[class*="language-"]::-moz-selection, body.light-mode pre[class*="language-"]::-moz-selection, body.light-mode code[class*="language-"] ::-moz-selection, body.light-mode pre[class*="language-"] ::-moz-selection {
+  background: #cceae7;
+  color: #263238;
+}
+body.light-mode code[class*="language-"]::selection, body.light-mode pre[class*="language-"]::selection, body.light-mode code[class*="language-"] ::selection, body.light-mode pre[class*="language-"] ::selection {
+  background: #cceae7;
+  color: #263238;
+}
+body.light-mode :not(pre) > code[class*="language-"] {
+  white-space: normal;
+  border-radius: 0.2em;
+  padding: 0.1em;
+}
+body.light-mode pre[class*="language-"] {
+  overflow: auto;
+  position: relative;
+  margin: 0.5em 0;
+  padding: 1.25em 1em;
+}
+body.light-mode .language-css > code, body.light-mode .language-sass > code, body.light-mode .language-scss > code {
+  color: #f76d47;
+}
+body.light-mode [class*="language-"] .namespace {
+  opacity: 0.7;
+}
+body.light-mode .token.atrule {
+  color: #7c4dff;
+}
+body.light-mode .token.attr-name {
+  color: #39adb5;
+}
+body.light-mode .token.attr-value {
+  color: #f6a434;
+}
+body.light-mode .token.attribute {
+  color: #f6a434;
+}
+body.light-mode .token.boolean {
+  color: #7c4dff;
+}
+body.light-mode .token.builtin {
+  color: #39adb5;
+}
+body.light-mode .token.cdata {
+  color: #39adb5;
+}
+body.light-mode .token.char {
+  color: #39adb5;
+}
+body.light-mode .token.class {
+  color: #39adb5;
+}
+body.light-mode .token.class-name {
+  color: #6182b8;
+}
+body.light-mode .token.comment {
+  color: #aabfc9;
+}
+body.light-mode .token.constant {
+  color: #7c4dff;
+}
+body.light-mode .token.deleted {
+  color: #e53935;
+}
+body.light-mode .token.doctype {
+  color: #aabfc9;
+}
+body.light-mode .token.entity {
+  color: #e53935;
+}
+body.light-mode .token.function {
+  color: #7c4dff;
+}
+body.light-mode .token.hexcode {
+  color: #f76d47;
+}
+body.light-mode .token.id {
+  color: #7c4dff;
+  font-weight: bold;
+}
+body.light-mode .token.important {
+  color: #7c4dff;
+  font-weight: bold;
+}
+body.light-mode .token.inserted {
+  color: #39adb5;
+}
+body.light-mode .token.keyword {
+  color: #7c4dff;
+}
+body.light-mode .token.number {
+  color: #f76d47;
+}
+body.light-mode .token.operator {
+  color: #39adb5;
+}
+body.light-mode .token.prolog {
+  color: #aabfc9;
+}
+body.light-mode .token.property {
+  color: #39adb5;
+}
+body.light-mode .token.pseudo-class {
+  color: #f6a434;
+}
+body.light-mode .token.pseudo-element {
+  color: #f6a434;
+}
+body.light-mode .token.punctuation {
+  color: #39adb5;
+}
+body.light-mode .token.regex {
+  color: #6182b8;
+}
+body.light-mode .token.selector {
+  color: #e53935;
+}
+body.light-mode .token.string {
+  color: #f6a434;
+}
+body.light-mode .token.symbol {
+  color: #7c4dff;
+}
+body.light-mode .token.tag {
+  color: #e53935;
+}
+body.light-mode .token.unit {
+  color: #f76d47;
+}
+body.light-mode .token.url {
+  color: #e53935;
+}
+body.light-mode .token.variable {
+  color: #e53935;
+}
+body.light-mode blockquote {
+  border-left: 3px solid #5e4352;
+  padding-left: 2.5%;
+}
+body.light-mode .inlineCode {
+  color: #90a4ae;
+  background-color: #fafafa;
+  font-family: "Cascadia Code";
+  font-size: 14pt;
+}
+body.dark-mode {
+ /** * Shades of Purple Theme for Prism.js * * @author Ahmad Awais <https://twitter.com/MrAhmadAwais/> * @support Follow/tweet at https://twitter.com/MrAhmadAwais/ */
+ /* Code blocks. */
+ /* Inline code */
+}
+body.dark-mode code[class*="language-"], body.dark-mode pre[class*="language-"] {
+  color: #9efeff;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  font-family: "Operator Mono", "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 25px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px #222245;
+}
+body.dark-mode pre[class*="language-"]::-moz-selection, body.dark-mode pre[class*="language-"] ::-moz-selection, body.dark-mode code[class*="language-"]::-moz-selection, body.dark-mode code[class*="language-"] ::-moz-selection, body.dark-mode pre[class*="language-"]::selection, body.dark-mode pre[class*="language-"] ::selection, body.dark-mode code[class*="language-"]::selection, body.dark-mode code[class*="language-"] ::selection {
+  color: inherit;
+  background: #a599e9;
+}
+body.dark-mode pre[class*="language-"] {
+  padding: 2em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+body.dark-mode :not(pre) > code[class*="language-"], body.dark-mode pre[class*="language-"] {
+  background: #1e1e3f;
+}
+body.dark-mode :not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+}
+body.dark-mode .token {
+  font-weight: 400;
+}
+body.dark-mode .token.comment, body.dark-mode .token.prolog, body.dark-mode .token.cdata {
+  color: #b362ff;
+}
+body.dark-mode .token.delimiter, body.dark-mode .token.keyword, body.dark-mode .token.selector, body.dark-mode .token.important, body.dark-mode .token.atrule {
+  color: #ff9d00;
+}
+body.dark-mode .token.operator, body.dark-mode .token.attr-name {
+  color: #ffb454;
+}
+body.dark-mode .token.punctuation {
+  color: #fff;
+}
+body.dark-mode .token.boolean {
+  color: #ff628c;
+}
+body.dark-mode .token.tag, body.dark-mode .token.tag .punctuation, body.dark-mode .token.doctype, body.dark-mode .token.builtin {
+  color: #ff9d00;
+}
+body.dark-mode .token.entity, body.dark-mode .token.symbol {
+  color: #6897bb;
+}
+body.dark-mode .token.number {
+  color: #ff628c;
+}
+body.dark-mode .token.property, body.dark-mode .token.constant, body.dark-mode .token.variable {
+  color: #ff628c;
+}
+body.dark-mode .token.string, body.dark-mode .token.char {
+  color: #a5ff90;
+}
+body.dark-mode .token.attr-value, body.dark-mode .token.attr-value .punctuation {
+  color: #a5c261;
+}
+body.dark-mode .token.attr-value .punctuation:first-child {
+  color: #a9b7c6;
+}
+body.dark-mode .token.url {
+  color: #287bde;
+  text-decoration: underline;
+}
+body.dark-mode .token.function {
+  color: #fad000;
+}
+body.dark-mode .token.regex {
+  background: #364135;
+}
+body.dark-mode .token.bold {
+  font-weight: bold;
+}
+body.dark-mode .token.italic {
+  font-style: italic;
+}
+body.dark-mode .token.inserted {
+  background: #0f0;
+}
+body.dark-mode .token.deleted {
+  background: #ff000d;
+}
+body.dark-mode code.language-css .token.property, body.dark-mode code.language-css .token.property + .token.punctuation {
+  color: #a9b7c6;
+}
+body.dark-mode code.language-css .token.id {
+  color: #ffc66d;
+}
+body.dark-mode code.language-css .token.selector > .token.class, body.dark-mode code.language-css .token.selector > .token.attribute, body.dark-mode code.language-css .token.selector > .token.pseudo-class, body.dark-mode code.language-css .token.selector > .token.pseudo-element {
+  color: #ffc66d;
+}
+body.dark-mode .token.class-name {
+  color: #fb94ff;
+}
+body.dark-mode .token.operator, body.dark-mode .token.entity, body.dark-mode .token.url, body.dark-mode .language-css .token.string, body.dark-mode .style .token.string {
+  background: none;
+}
+body.dark-mode pre .line-highlight, body.dark-mode pre .line-highlight.line-highlight, body.dark-mode pre > code.line-highlight {
+  margin-top: 36px;
+  background: linear-gradient(to right, rgba(179, 98, 255, 0.17), transparent);
+}
+body.dark-mode pre .line-highlight:before, body.dark-mode pre > code.line-highlight:before, body.dark-mode pre .line-highlight[data-end]:after, body.dark-mode pre > code.line-highlight[data-end]:after {
+  content: "";
+}
+body.dark-mode blockquote {
+  border-left: 3px solid #e5be9e;
+  padding-left: 2.5%;
+}
+body.dark-mode .inlineCode {
+  color: #9efeff;
+  background-color: #1e1e3f;
+  font-family: "Cascadia Code";
+  font-size: 14pt;
+}
+ul li::before {
+  content: "• ";
+}
+ol {
+  list-style: none;
+  counter-reset: my-counter;
+}
+ol li {
+  counter-increment: my-counter;
+}
+ol li p:first-of-type::before {
+  content: counter(my-counter) ". ";
+}

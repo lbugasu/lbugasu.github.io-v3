@@ -11,7 +11,7 @@ import { getPosts, getMode } from "./state/selectors";
 //import css
 import "./css/main.css";
 import "./css/palette.css";
-import "./css/CodeBlock.scss";
+import "./css/CodeBlock.css";
 
 // import components
 import {
